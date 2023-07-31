@@ -131,6 +131,18 @@
                 font-family: 'Gugi', cursive;
                 color: darkcyan;
             }
+            /* 대표자 span */
+            .utxt{
+                text-decoration: underline;
+                text-decoration-style: dotted;
+                text-decoration-color: red;
+            }
+            /* 종속선택자로 같은 이름의 클래스인데 다른 디자인으로 변경하여 셋팅하기 */
+            b.utxt{
+                text-decoration: underline;
+                text-decoration-style: wavy;
+                text-decoration-color: blue;
+            }
         </style>
     </head>
     <body>
@@ -164,8 +176,8 @@
         <footer id="info" class="bx">
             <address>
                 서울시 강남구 역삼동 119 대호B 8F <br />
-                대표: Tom Brace Parker <br />
-                전화: 010-2222-3333
+                대표: <span class="utxt">Tom Brace Parker</span> <br />
+                전화: <b class="utxt">010-2222-3333</b>
             </address>
         </footer>
         <!-- 
