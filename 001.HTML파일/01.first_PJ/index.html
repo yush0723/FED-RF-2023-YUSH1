@@ -8,8 +8,20 @@
         <!-- css인터널 방식 코딩영역 -->
         <style>
             /* css영역 내 주석문 */
+            /* 웹폰트 CDN(Content Delevery Network) */
+            @import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Black+And+White+Picture&family=Gugi&display=swap");
+            /* 웹폰트 web-family이름 
+                font-family: 'Bagel Fat One', cursive;
+                font-family: 'Black And White Picture', sans-serif;
+                font-family: 'Gugi', cursive;
+                
+            */
+
+            /* @import url(주소)
+              - 외부 css를 불러올 때 사용하는 형식
+              - 외부 css파일을 하나로 합칠 때 많이 사용함 */
             /* 
-              [모든 요소 공통 디자인요소 : 박스모델]
+              [모든 요소 공통 디자인요소 : 박스모델]    q
               1. 크기 : width 가로,  height 세로
               2. 경계선 : border
               3. 내부여백 : padding
@@ -29,42 +41,95 @@
                     6. 종속선택자 : 요소명#아이디명 / 요소명.클래스명
                     (div.mymy -> div인데 클래스가 mymy)
              */
-             /* 레이아웃 박스 공통디자인 */
-             .bx{
-              /* 크기 : w800-> 가로크기*/
-              width: 800px;
-              /* 외곽선 */
-              border: 4px double darkblue;    
-              /* 패딩 */
-              padding: 20px;
-              
-              /* 마진 : 마영오!씨를 무대중앙으로 모시겠습니다. */
-              margin: 0 auto;
-              /* 양쪽마진을 auto로 쓰면 등분할 되어 박스가 중앙에 위치한다. */
-              /* 
+            /* 레이아웃 박스 공통디자인 */
+            .bx {
+                /* 크기 : w800-> 가로크기*/
+                width: 800px;
+                /* 외곽선 */
+                border: 4px double darkblue;
+                /* 패딩 */
+                padding: 20px;
+
+                /* 마진 : 마영오!씨를 무대중앙으로 모시겠습니다. */
+                margin: 0 auto;
+                /* 양쪽마진을 auto로 쓰면 등분할 되어 박스가 중앙에 위치한다. */
+                /* 
               [마진/패딩공통 개수별 정의]
               margin(1개): 4방향;
               margin(2개): 위아래 양쪽 ;
               margin(3개): 위 양쪽 아래;
-              magrin(4개): 위 오른 아래 왼;(시계방향)
+              margin(4개): 위 오른 아래 왼;(시계방향)
 
                */
-               /* 텍스트 중앙 : tac */
+                /* 텍스트 중앙 : tac */
                 text-align: center;
-
-             }
-             /* 메인이미지 */
-             .cimg{
-              width: 800px;
-             }
+            }
+            /* 메인이미지 */
+            .cimg {
+                width: 800px;
+            }
             /* 1.상단영역 */
             #top {
                 background-color: lightblue;
             }
+            /* 타이틀 */
+            #top h1 {
+                color: #5ec79a;
+                font-size: 40px;
+                font-weight: normal;
+                font-family: 'Black And White Picture', "궁서";
+                /* 
+                    font-family 글씨체
+                    값 - 콤마로 구분하여 우선순위 적용함
+                    (상위체가 없으면 하위체를 적용, 이도 없으면 브라우저 기본체로 표시)
+                 */
+                /* text-shadow : 글자 그림자
+                값 - x축 y축 블러(경계흐림)색 
+                -> 콤마로 다중 그림자 사용가능! */
+
+                text-shadow: 2px 2px 2px #8b8080;
+            }
+            /* 메뉴링크 */
+            #gnb a {
+                color: rgb(106, 204, 14);
+                text-decoration: none;
+                font-size: 24px;
+                font-family: 'Bagel Fat One', cursive;
+                vertical-align: -4px;
+                /* 
+                vertical-align : 인라인 요소간 세로정렬
+                값 - top/bottom/middle/baseline/수치
+                */
+            }
+            /* 가상클래스 : hover 마우스오버시 */
+            /* a+a는 앞에 a요소가 있는 형제 a요소를 선택
+            결과적으로 첫번째 a요소가 선택되지 않는다. */
+            #gnb a+a:hover {
+                color: rgb(218, 140, 140);
+                /* 글자데코 : 윗줄 물결모양 */
+                text-decoration: overline;
+                text-decoration-style: wavy;
+            }
+
+            /* 로고 이미지 */
+            #gnb img {
+                vertical-align: -3px;
+            }
 
             /* 2. 메인영역 */
-            #cont{
+            #cont {
                 margin: 20px auto;
+            }
+            /* 3. 하단영역 */
+            #info{
+                background-color: #ccc;
+            }
+            /* 회사주소 */
+            #info address{
+                /* 기본글자 이탤릭 스타일 없애기 */
+                font-style: normal;
+                font-family: 'Gugi', cursive;
+                color: darkcyan;
             }
         </style>
     </head>
@@ -72,12 +137,12 @@
         <!-- 1. 상단영역 : 제목, 메뉴 -->
         <header id="top" class="bx">
             <!-- 1-1.제목 -->
-            <h1>네이비 요약 뉴스</h1>
+            <h1>네이버 요약 뉴스</h1>
             <!-- 1-2.GNB메뉴 -->
             <!-- GNB(Global Navigation Bar) -->
             <nav id="gnb">
                 <a href="">
-                    <img src="./images/logo.png" alt="네이버로고" style="width: 50px" />
+                    <img src="./images/logo.png" alt="네이버로고" style="width: 24px" />
                     <!-- STYLE속성으로 CSS를 셋팅하는 방법은 인라인 방식이라고 함 -->
                     <!-- 상대경로
               <img src="/001.HTML파일/01.first_PJ/images/logo.png" alt="네이버로고">
@@ -86,24 +151,37 @@
               절대경로 -->
                 </a>
 
-                <a href="sub1.html">정치</a>
-                <a href="sub2.html">경제</a>
-                <a href="sub3.html">사회</a>
-                <a href="sub4.html">IT/과학</a>
+                <a href="sub1.html">정치</a> | <a href="sub2.html">경제</a> | <a href="sub3.html">사회</a> |
+                <a href="sub4.html">IT/과학</a> |
                 <a href="sub5.html">TV/연예</a>
             </nav>
         </header>
         <!-- 2. 메인영역 : 컨텐츠 -->
-        <main id="cont" class="bx" >
+        <main id="cont" class="bx">
             <img class="cimg" src="./images/ma.jpg" alt="메인이미지" />
         </main>
         <!-- 3. 하단영역 : 회사정보 -->
         <footer id="info" class="bx">
-            <address>서울시 강남구 역삼동 119 대호B 8F <br>
-               대표: Tom Brace Parker <br>
-               전화: 010-2222-3333</address>
+            <address>
+                서울시 강남구 역삼동 119 대호B 8F <br />
+                대표: Tom Brace Parker <br />
+                전화: 010-2222-3333
+            </address>
         </footer>
         <!-- 
+            [웹 표준이란?]
+             - 모든 브라우저에서 하나의 소스로 동일한 디스플레이 및 기능이 작동하도록 정한 웹 코딩의 표준안이다.
+
+            [웹 접근성]
+             - 평등의 원칙! 죽, 장애인 차별금지법에 따라 이미지(*alt속성), 동영상(자막) 등에 설명을 추가하여 정보제공에 차별이 없도록 하는 것.
+
+             [img요소 : 이미지 연결요소]
+             - 필수속성
+             1) src: 이미지 경로
+             (source)
+             2) alt : 이미지 설명(웹 접근성)
+             (alternative text- 대체텍스트)
+
         [ 레이아웃을 위한 블록요소 ]
         div : 영역을 나누고 묶어주는 요소
         
