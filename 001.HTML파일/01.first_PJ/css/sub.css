@@ -4,6 +4,11 @@
 /* 공통외부 css 합치기 */
 @import url(./common.css);
 
+/* 서브페이지 공통 글자설정 */
+#cont{
+    font-family: '굴림', sans-serif;
+}
+
 h2.stit {
     color: rgb(106, 204, 14);
     font-size: 24px;
@@ -45,28 +50,117 @@ h2.stit {
     */
     margin-bottom: 40px;
 }
-#cont .st1 {
+h2.st1 {
     /* 배경이미지 */
     background-image: url(../images/a1.jpg);
     color: black;
 }
-#cont .st2 {
+h2.st2 {
     /* 배경이미지 */
     background-image: url(../images/b1.jpeg);
     color: aqua;
 }
 
 /* IT/과학 배경이미지 */
-#cont .st3 {
+h2.st3 {
     /* 배경이미지 */
     background-image: url(../images/c1.jpg);
     color: white;
 }
 /* TV/연예 배경이미지
 우선 순위를 높이기 위해 부모요소를 써줌! */
-#cont .st5 {
+h2.st5 {
     /* 배경이미지 */
     background-image: url(../images/e1.jpg);
     background-position-y: -40px;
     color: pink;
+}
+
+/* 언론사 로고 */
+.prlogo img{
+    height: 32px;
+    /* 
+    이미지는 기본 비율을 가지고 잇어서 
+    가로, 세로중 한 쪽만 크기를 주면 
+    나머지 방향은 자동으로 비율을 유지한다
+    가로, 세로를 다 주면 비율이 깨짐
+     */
+}
+
+/* 기사 타이틀 */
+.atat{
+    font-size: 30px;
+}
+/* 기사이미지 박스*/
+.afig{
+    margin-bottom: 20px;
+}
+.afig img{
+    width: 100%;
+}
+/* 기사이미지 설명 */
+.afig figcaption{
+    font-size: 15px;
+    text-align: center;
+    color:#767676;
+
+}
+/* 기사 문단 */
+.acont p{
+    font-size: 17px;
+    color: #303038;
+    /* 자간 */
+    letter-spacing: 1px;
+    /* 단어간격 */
+    word-spacing: 0px;
+    /* 양쪽정렬 */
+    text-align: justify;
+    /* 줄간격 lh */
+    line-height: 2.1;
+    /* 글자라인간 간격을 조정함. 숫자만 쓰면 배수임(기존 글자높이(크기)에 대한 배수) 
+    단위를 쓰면 단위에 맞게 줄간격 조정됨
+    -> 줄간격의 응용은 버튼 등의 글자를 세로 중앙에 오게 할 때 박스 높이 값만큼 준다.    
+    */
+}
+/* 유튜브 동영상 박스 */
+.mvbx{
+    height: 550px;
+    /* div와 같은 block요소는 width설정을 하지 않으면 width:auto로 자동설정됨.
+    이는 싸고 있는 박스 컨텐트영역을 자동으로 채워준다. */
+}
+
+.mvbx iframe{
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+/* 기사원문 */
+.alink{
+    text-align: right;
+}
+.alink a{
+    /* 디스플레이 적용을 위해 display 변경하기 */
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 1px solid darkcyan;
+    border-radius: 50%; /* 원형 */
+    /* 줄간격으로 세로 글자 중앙
+     - 높이값과 같음 */
+    line-height: 100px;
+    /* 가로정렬 중앙 */
+    text-align: center;
+    font: size 20px;;
+    /* a요소 기본 글자색, 밑줄 없앰 */
+    color: black;
+    text-decoration: none;
+    background-color: #ccc;
+    
+}
+
+.alink a:hover{
+    color: hotpink;
+    background-color: aquamarine;
+    box-shadow: 0 0 10px 5px purple;
 }

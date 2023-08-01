@@ -41,9 +41,10 @@
              */
 
             /* 요소의 초기화 */
-            html,body,h1,h2{
+            h2, figure{
                 margin : 0;
                 padding : 0;
+                
             }
             /* 
                       
@@ -54,12 +55,19 @@
              /* 레이아웃 박스 공통디자인 */
             .bx {
                 /* 크기 : w800-> 가로크기*/
-                width: 800px;
+                /* width: 800px; */
+
+                max-width: 1000px;
+                /* 최대가로크기 1000px의 의미는 1000px보다 안커지고 작을 경우 auto로 전환함(부모박스 크기로 맞춤)
+                maw
+                 */
+                /* min-width: 700px;  miw*/
+                /* 최소가로크기를 설정하면 최소크기보다 작아지지 않는다 */
                 /* 외곽선 */
                 /* border: 4px double darkblue; */
                 border: 3px dashed rgb(185, 235, 173);
                 /* 패딩 */
-                padding: 20px;
+                padding: 30px;
 
                 /* 마진 : 마영오!씨를 무대중앙으로 모시겠습니다. */
                 margin: 0 auto;
