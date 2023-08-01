@@ -11,8 +11,50 @@ h2.stit {
     font-weight: normal;
     text-align: center;
     text-shadow: 2px 2px 2px #0000008c;
+    outline: 1px solid yellowgreen; 
+
+    padding: 40px;
+    /* 배경넣기 : 한번에 쓰기*/
+    /* background: url(../images/prlogo.jpg) no-repeat center/cover; */
+    /* background: 색이반고윙/크; 
+        배경색 이미지 반복 고정 위치/크기
+    */
+     
+       /* 배경넣기 : 속성별 쓰기 */
+       background-image: url(../images/prlogo.jpg);
+       /* 배경이미지 */
+       background-repeat: no-repeat; 
+       /* 반복여부 */
+       background-position: center; 
+       /* 가로 세로 */
+        background-size: cover; 
+       /* 배경크기 */
+    
+}
+#cont .st1 {
+    /* 배경이미지 */
+    background-image: url(../images/a1.jpg);
+    color: black;
+}
+#cont .st2 {
+    /* 배경이미지 */
+    background-image: url(../images/b1.jpeg);
+    color: aqua;
 }
 
-h3.atit{
-    font-size: 30px;
+
+
+/* IT/과학 배경이미지 */
+#cont .st3 {
+    /* 배경이미지 */
+    background-image: url(../images/c1.jpg);
+    color: white;
+}
+/* TV/연예 배경이미지
+우선 순위를 높이기 위해 부모요소를 써줌! */
+#cont .st5 {
+    /* 배경이미지 */
+    background-image: url(../images/e1.jpg);
+    background-position-y : -40px;
+    color:pink;
 }

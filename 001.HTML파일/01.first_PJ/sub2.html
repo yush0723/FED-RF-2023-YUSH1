@@ -6,11 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>네이버 요약뉴스 - 경제</title>
         <!-- 서브용 css로 이동하기 -->
-        <link rel="stylesheet" href="./css/sub.css">
-        
-        
+        <link rel="stylesheet" href="./css/sub.css" />
+
         <!-- 외부공통 css호출하기! -->
-        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/main.css" />
     </head>
     <body>
         <!-- 1. 상단영역 : 제목, 메뉴 -->
@@ -29,7 +28,6 @@
               <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png" alt="네이버로고">
               절대경로 -->
                 </a>
-
                 <a href="sub1.html">정치</a> | <a href="sub2.html">경제</a> | <a href="sub3.html">사회</a> |
                 <a href="sub4.html">IT/과학</a> |
                 <a href="sub5.html">TV/연예</a>
@@ -38,31 +36,75 @@
         <!-- 2. 메인영역 : 컨텐츠 -->
         <main id="cont" class="bx">
             <!-- 2-1. 서브타이틀 -->
-            <h2 class="stit">경제 뉴스</h2>
+            <h2 class="stit st2">경제 뉴스</h2>
             <!-- 2-2. 언론사 로고 -->
-            <div class="prlogo"></div>
+            <div class="dailian">
+                <img src="./images/dailian.PNG" alt="데일리안" style="width: 100px" />
+            </div>
+
             <!-- 2-3. 기사 제목 -->
-            <h3 class="atit">기사제목</h3>
+            <h3 class="atit">마시는 우유 원윳값 리터당 88원 인상…11차례 회의 끝에 합의</h3>
+            <p3>입력 2023.07.27 19:55 수정 2023.07.27 19:55</p3> 
+            <a href="https://www.dailian.co.kr/news/view/1257943/?sc=Naver" target="_black">기사원문</a> <br/>
+            <!-- 2-6. 기자 정보 -->
+            <div class="rpt">맹찬호 기자 (maengho@dailian.co.kr)</div>
+            
+            <h4>😊추천</h4>
+
+            <h1>
+                낙농진흥회, 원윳값 88원, 가공유 87원 인상
+                
+                10월부터 반영…우유 소비자 가격 인상 촉각
+            </h1>
+
             <!-- 2-4. 기사 사진 -->
-            <figure class="afig">
+            <figure class="b1">
                 <!-- 이미지 -->
+                <img src="./images/b1.jpeg" alt="milk" />
                 <!-- 이미지 설명 -->
-                <figcaption></figcaption>
+
+                <figcaption>
+                    서울 시내 대형마트에 우유 판매대 모습 ⓒ연합뉴스
+                </figcaption>
             </figure>
+            <!-- 
+                [figure 요소]
+                  - 이미지나 표를 포함하는 박스요소
+                  - 이미지 설명은 내부 요소인 figcaption을 사용함(설명이 있을 경우에만)
+             -->
             <!-- 기사 내용 -->
             <section class="acont">
+                <p>
+                    [데일리안 = 맹찬호 기자] 마시는 우유인 원유(原乳)값이 오는 10월부터 ℓ당 88원 오른다. 가공유용 원윳값은 87원 오른다.<br/><br/>
 
+낙농진흥회는 낙농가와 유업계로 구성된 소위원회 제11차 회의에서 용도별 원유 기본가격 인상안을 합의했다고 27일 밝혔다.<br/><br/>
+
+마시는 우유인 음용유용 가격은 ℓ당 88원 올라 1084원이 된다. 가공유는 ℓ당 87원 인상해 887원으로 음용유 대비 낮은 가격으로 결정됐다.<br/><br/>
+
+낙농진흥회 소위원회는 지난달 9일부터 이달 24일까지 11차례 협상을 이어왔다. 이날 열린 협상에서 극적 합의한 것으로 전해졌다.<br/><br/>
+
+통상적으로 원유가는 8월부터 인상돼 왔지만, 올해에는 이례적으로 10월부터 인상될 예정이다.<br/><br/>
+
+이로써 원유 1ℓ당 가격은 1000원대를 돌파했다.<br/><br/>
+
+현재 대형마트 기준 흰 우유 1ℓ 소비자가는 2800~2900원대로 형성돼 있어 10월부터는 3000원이 넘을 것으로 보인다.<br/><br/>
+
+낙농진흥회는 물가부담 완화를 위해 원유기본가격 인상 시기를 10월 1일부터 적용하기로 했다.<br/><br/>
+
+낙농진흥회는 내달 10일 이사회를 개최해 협상 소위원회에서 합의한 사항을 최종 확정할 계획이다.<br/><br/>
+                </p>
             </section>
+            <br/><br/>
+            <!-- [p 요소 : 문단(paragraph)]
+                 - 문단을 구분하기 위한 요소
+                 - 주의 : 내부에 div와 같은 block요소를 넣을 수 없다.
+            -->
             <!-- 2-6. 기자 정보 -->
-            <div class="rpt"></div>
+            <div class="rpt">맹찬호 기자 (maengho@dailian.co.kr)</div>
             <!-- 2-7. 기사 원문 -->
             <h5>
-                <a href=""></a>
+                
             </h5>
-            
-
-
-
         </main>
         <!-- 3. 하단영역 : 회사정보 -->
         <footer id="info" class="bx">
@@ -73,48 +115,20 @@
             </address>
         </footer>
         <!-- 
-            [웹 표준이란?]
-             - 모든 브라우저에서 하나의 소스로 동일한 디스플레이 및 기능이 작동하도록 정한 웹 코딩의 표준안이다.
+            [HTML 서식관련 요소들]
 
-            [웹 접근성]
-             - 평등의 원칙! 죽, 장애인 차별금지법에 따라 이미지(*alt속성), 동영상(자막) 등에 설명을 추가하여 정보제공에 차별이 없도록 하는 것.
+            <b>- 굵은 텍스트
+            <strong>- 중요 텍스트
 
-             [img요소 : 이미지 연결요소]
-             - 필수속성
-             1) src: 이미지 경로
-             (source)
-             2) alt : 이미지 설명(웹 접근성)
-             (alternative text- 대체텍스트)
+            <i>- 기울임꼴 텍스트
+            <em>- 강조된 텍스트
 
-        [ 레이아웃을 위한 블록요소 ]
-        div : 영역을 나누고 묶어주는 요소
-        
-        [ HTML5에서 등장한 div친구들 ]
-        - div에 내용을 구분하는 이름을 지어줌
-        - 의미가 있는 요소를 시멘틱 태그(semetic tag)이라고 함
-        1. header : 머릿부분
-        2. footer : 아랫부분
-        3. main : 메인부분(한 번만 사용!)
-        4. nav : 네비게이션 부분
-        5. aside : 부가정보
-        6. section : 내용부분파트
-        7. article : 독립된 내용구분파트
-        (section과 article은 내부에 h1~h6태그를 쓸 것을 권고)
-
-            참고) 요소(element)와 태그(tag)의 차이점
-            요소는 공통적인 성질을 이를 대 사용
-            태그는 구체적인 요소를 사용할 때 지칭
-
-            [ 웹에서의 경로 ]
-            1. 상대경로 : 현재파일 위치에서 파악되는 경로
-              1) ./ - 현재 위치(또는 쓰지 않고 바로)
-              2) ../ - 상위 폴더로 이동
-              3) ../../
-            2. 절대경로 : http부터 쓰는 웹 경로
-            3. 절대상대경로 : 웹 사이트 루트부터의 경로
-              -> 슬래쉬(/)부터 씀
-
-              -> 주의: 절대상대경로는 서버 루트폴더가 같지 않으면 경로가 망가짐. 또는 로컬에서 직접 웺페이지를 열어도 망가짐
-     -->
+            <mark>- 표시된 텍스트
+            <small>- 더 작은 텍스트
+            <del>- 삭제된 텍스트
+            <ins>- 삽입된 텍스트
+            <sub>- 아래 첨자 텍스트
+            <sup>- 위첨자 텍스트
+         -->
     </body>
 </html>

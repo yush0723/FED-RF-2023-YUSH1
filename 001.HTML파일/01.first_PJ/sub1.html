@@ -6,11 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>네이버 요약뉴스 - 정치</title>
         <!-- 서브용 css로 이동하기 -->
-        <link rel="stylesheet" href="./css/sub.css">
-        
-        
+        <link rel="stylesheet" href="./css/sub.css" />
+
         <!-- 외부공통 css호출하기! -->
-        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/main.css" />
     </head>
     <body>
         <!-- 1. 상단영역 : 제목, 메뉴 -->
@@ -29,7 +28,6 @@
               <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png" alt="네이버로고">
               절대경로 -->
                 </a>
-
                 <a href="sub1.html">정치</a> | <a href="sub2.html">경제</a> | <a href="sub3.html">사회</a> |
                 <a href="sub4.html">IT/과학</a> |
                 <a href="sub5.html">TV/연예</a>
@@ -38,31 +36,55 @@
         <!-- 2. 메인영역 : 컨텐츠 -->
         <main id="cont" class="bx">
             <!-- 2-1. 서브타이틀 -->
-            <h2 class="stit">정치 뉴스</h2>
+            <h2 class="stit st1">정치 뉴스</h2>
             <!-- 2-2. 언론사 로고 -->
-            <div class="prlogo"></div>
+            <div class="JTBC">
+                <img src="./images/JTBC.png" alt="JTBC" style="width: 50px" />
+            </div>
+
             <!-- 2-3. 기사 제목 -->
-            <h3 class="atit">기사제목</h3>
+            <h3 class="atit">윤 대통령 "무차별 칼부림 강력 처벌...보복범죄도 초강경 대응"</h3>
+            <p3>입력2023.07.31. 오후 3:40</p3> 
+            <a href="https://n.news.naver.com/mnews/article/421/0006963175?sid=102" target="_black">기사원문</a> <br/>
+            <h4>😊추천</h4>
             <!-- 2-4. 기사 사진 -->
-            <figure class="afig">
+            <figure class="c1">
                 <!-- 이미지 -->
+                <img src="./images/a1.jpg" alt="대통령" />
                 <!-- 이미지 설명 -->
-                <figcaption></figcaption>
+
+                <figcaption>〈사진=JTBC 모바일라이브 캡처〉</figcaption>
             </figure>
+            <!-- 
+                [figure 요소]
+                  - 이미지나 표를 포함하는 박스요소
+                  - 이미지 설명은 내부 요소인 figcaption을 사용함(설명이 있을 경우에만)
+             -->
             <!-- 기사 내용 -->
             <section class="acont">
+                <p>
+                    윤석열 대통령이 서울 관악구 신림동에서 발생한 무차별 칼부림 사건을 언급하며 철저한 수사와 강력한 처벌을 강조했습니다.<br/><br/>
 
+윤 대통령은 오늘(1일) 서울 용산 대통령실에서 열린 국무회의 모두발언을 통해 "이른바 신림역 무차별 칼부림 사건 등 강력범죄로 국민의 안전이 위협받고 있다"고 말했습니다.<br/><br/>
+
+이어 "흉악범죄에 대해서는 철저한 수사와 상응하는 강력한 처벌이 신속하게 이루어지도록 해야 한다"고 덧붙였습니다.<br/><br/>
+
+또 윤 대통령은 "피해자들이 범죄자의 출소 이후 보복을 걱정하지 않도록 보복범죄에 대해서는 초강경 대응하고 모방 범죄 시도는 신속한 수사로 미연에 방지해야 한다"고 했습니다.<br/><br/>
+
+윤 대통령은 "사이코패스 범죄, 반사회적 성향에 따른 '묻지마식 범죄'를 예방하기 위한 근본적 방안이 필요하다"며 "법무부 등 관계부처는 이런 범죄에 대한 국민 불안을 해소할 수 있도록 조속히 대책을 마련하고 보건복지부는 정신건강에 관한 새로운 인프라 도입과 예산 반영을 적극 추진해주기 바란다"고 말했습니다.
+                </p>
             </section>
+            <br/><br/>
+            <!-- [p 요소 : 문단(paragraph)]
+                 - 문단을 구분하기 위한 요소
+                 - 주의 : 내부에 div와 같은 block요소를 넣을 수 없다.
+            -->
             <!-- 2-6. 기자 정보 -->
-            <div class="rpt"></div>
+            <div class="rpt">김천 기자 (kim.cheon@jtbc.co.kr)</div>
             <!-- 2-7. 기사 원문 -->
             <h5>
-                <a href=""></a>
+                
             </h5>
-            
-
-
-
         </main>
         <!-- 3. 하단영역 : 회사정보 -->
         <footer id="info" class="bx">
@@ -73,48 +95,20 @@
             </address>
         </footer>
         <!-- 
-            [웹 표준이란?]
-             - 모든 브라우저에서 하나의 소스로 동일한 디스플레이 및 기능이 작동하도록 정한 웹 코딩의 표준안이다.
+            [HTML 서식관련 요소들]
 
-            [웹 접근성]
-             - 평등의 원칙! 죽, 장애인 차별금지법에 따라 이미지(*alt속성), 동영상(자막) 등에 설명을 추가하여 정보제공에 차별이 없도록 하는 것.
+            <b>- 굵은 텍스트
+            <strong>- 중요 텍스트
 
-             [img요소 : 이미지 연결요소]
-             - 필수속성
-             1) src: 이미지 경로
-             (source)
-             2) alt : 이미지 설명(웹 접근성)
-             (alternative text- 대체텍스트)
+            <i>- 기울임꼴 텍스트
+            <em>- 강조된 텍스트
 
-        [ 레이아웃을 위한 블록요소 ]
-        div : 영역을 나누고 묶어주는 요소
-        
-        [ HTML5에서 등장한 div친구들 ]
-        - div에 내용을 구분하는 이름을 지어줌
-        - 의미가 있는 요소를 시멘틱 태그(semetic tag)이라고 함
-        1. header : 머릿부분
-        2. footer : 아랫부분
-        3. main : 메인부분(한 번만 사용!)
-        4. nav : 네비게이션 부분
-        5. aside : 부가정보
-        6. section : 내용부분파트
-        7. article : 독립된 내용구분파트
-        (section과 article은 내부에 h1~h6태그를 쓸 것을 권고)
-
-            참고) 요소(element)와 태그(tag)의 차이점
-            요소는 공통적인 성질을 이를 대 사용
-            태그는 구체적인 요소를 사용할 때 지칭
-
-            [ 웹에서의 경로 ]
-            1. 상대경로 : 현재파일 위치에서 파악되는 경로
-              1) ./ - 현재 위치(또는 쓰지 않고 바로)
-              2) ../ - 상위 폴더로 이동
-              3) ../../
-            2. 절대경로 : http부터 쓰는 웹 경로
-            3. 절대상대경로 : 웹 사이트 루트부터의 경로
-              -> 슬래쉬(/)부터 씀
-
-              -> 주의: 절대상대경로는 서버 루트폴더가 같지 않으면 경로가 망가짐. 또는 로컬에서 직접 웺페이지를 열어도 망가짐
-     -->
+            <mark>- 표시된 텍스트
+            <small>- 더 작은 텍스트
+            <del>- 삭제된 텍스트
+            <ins>- 삽입된 텍스트
+            <sub>- 아래 첨자 텍스트
+            <sup>- 위첨자 텍스트
+         -->
     </body>
 </html>
