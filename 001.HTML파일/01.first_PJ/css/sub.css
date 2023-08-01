@@ -11,7 +11,7 @@ h2.stit {
     font-weight: normal;
     text-align: center;
     text-shadow: 2px 2px 2px #0000008c;
-    outline: 1px solid yellowgreen; 
+    outline: 1px solid yellowgreen;
 
     padding: 40px;
     /* 배경넣기 : 한번에 쓰기*/
@@ -19,17 +19,31 @@ h2.stit {
     /* background: 색이반고윙/크; 
         배경색 이미지 반복 고정 위치/크기
     */
-     
-       /* 배경넣기 : 속성별 쓰기 */
-       background-image: url(../images/prlogo.jpg);
-       /* 배경이미지 */
-       background-repeat: no-repeat; 
-       /* 반복여부 */
-       background-position: center; 
-       /* 가로 세로 */
-        background-size: cover; 
-       /* 배경크기 */
-    
+
+    /* 배경넣기 : 속성별 쓰기 */
+    background-image: url(../images/prlogo.jpg);
+    /* 배경이미지 */
+    background-repeat: no-repeat;
+    /* 반복여부 */
+    background-position: center;
+    /* 가로 세로 */
+    background-size: cover;
+    /* 배경크기 */
+
+    margin-bottom: 30px;
+
+    /* 박스그림자 */
+    box-shadow: inset 0px 0px 6px 0px #000;
+    /* 
+    [box-shadow 속성]
+     - 박스 외부/내부 그림자 설정속성
+     - 값 : x축 y축 blur spread 색
+    text-shadow와 달리 spread 속성이 있음
+    이것은 그림자를 커지게 함
+     - 내부 그림자 옵션 : inset
+     - 그림자 다중설정 : 콤마로 연속사용가능    
+    */
+    margin-bottom: 40px;
 }
 #cont .st1 {
     /* 배경이미지 */
@@ -42,8 +56,6 @@ h2.stit {
     color: aqua;
 }
 
-
-
 /* IT/과학 배경이미지 */
 #cont .st3 {
     /* 배경이미지 */
@@ -55,6 +67,6 @@ h2.stit {
 #cont .st5 {
     /* 배경이미지 */
     background-image: url(../images/e1.jpg);
-    background-position-y : -40px;
-    color:pink;
+    background-position-y: -40px;
+    color: pink;
 }
