@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* 아카이브 메인 CSS - main.css */
+
+/* 웹폰트 CDN(Content Delevery Network) */
+@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Black+And+White+Picture&family=Gugi&family=Noto+Sans+KR&display=swap");
+
+/* 
+    웹폰트 font-family 이름
+    font-family: 'Bagel Fat One', cursive;
+    font-family: 'Black And White Picture', sans-serif;
+    font-family: 'Gugi', cursive;
+    font-family: 'Noto Sans KR', sans-serif;
+*/
+
+/* 초기화 */
+html, body, h1, h2, h3, ol, ul{
+    margin: 0;
+    padding: 0;
+}
+
+/* 전체 배경이미지 */
+body{
+    background: url(../worksbg.jpg) no-repeat fixed center/cover;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 17px;
+}
+
+/* 전체박스 */
+.wrap{
+    background-color: rgba(255, 255, 255, 0.534);
+    width: 80%;
+    border-radius: 20px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.tit{
+    text-align: center;
+    font-weight: normal;
+    font-size: 45px;
+    color: black;
+    font-family: 'Black And White Picture', sans-serif;
+}
