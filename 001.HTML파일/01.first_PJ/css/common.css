@@ -41,7 +41,7 @@
              */
 
             /* 요소의 초기화 */
-            h2, figure{
+            h2, figure, blockquote{
                 margin : 0;
                 padding : 0;
                 
