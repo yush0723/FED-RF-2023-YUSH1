@@ -69,7 +69,7 @@
                 <p>
                     <b>극지연구소(소장 강성호)</b>가 13회 극지사진콘테스트 21일 수상작을 공개했다. 우리나라 쇄빙선
                     <b>아라온호</b><sub>Ararion</sub>를 타고 <i>남극<sup>①</sup>과 북극<sup>②</sup></i
-                    >을 오가는 <b>극지연구소</b> 연구원들이 찍은 사진들이다.
+                    >을 오가는 <abbr title="극지연구소">극연</abbr> 연구원들이 찍은 사진들이다.
                 </p>
                 <p>
                     <i>남극과 북극</i>은 현재 지구 가열화로 가장 변화가 심한 곳으로 꼽힌다. 이대로
@@ -126,9 +126,10 @@
                 <p>
                     수상작에는 이외에도 남극에서 고래와 펭귄이 마주치는 장면, 남극의 젠투와 황제펭귄의 아름다운 모습도
                     담겼다. 하늘에서 본 세종과학기지와 먼 거리에서 본 남극의 산, 연구원들의 현장 사진도 눈길을 끈다.
-                    수상자가 말했다. <q>이런 사진이 찍힐 줄은 꿈에도 몰랐어요! 우연히 찍혔는데 상까지 받아서 기뻐요 끼요오옷!!!</q>
+                    수상자가 말했다.
+                    <q>이런 사진이 찍힐 줄은 꿈에도 몰랐어요! 우연히 찍혔는데 상까지 받아서 기뻐요 끼요오옷!!!</q>
                 </p>
-                
+
                 <br />
                 <br />
                 <!-- 인용블록 영역 -->
@@ -137,7 +138,7 @@
                 <br />
                 <article class="bqbx">
                     <h5>장보고 과학기지 소개</h5>
-                    <img src="./images/jang.jpg" alt="장보고">
+                    <img src="./images/jang.jpg" alt="장보고" />
                     <blockquote
                         cite="https://namu.wiki/w/%EC%9E%A5%EB%B3%B4%EA%B3%A0%20%EA%B3%BC%ED%95%99%EA%B8%B0%EC%A7%80"
                     >
@@ -165,6 +166,7 @@
                 <a
                     href="https://n.news.naver.com/mnews/hotissue/article/031/0000760697?type=series&cid=1087779"
                     target="_black"
+                    title="원본기사 바로가기"
                     >기사원문</a
                 >
             </h5>
@@ -179,6 +181,21 @@
                     ② 북극 : 지축(地軸)이 지구상의 북쪽에서 지표를 꿰뚫는 점. 또는, 지구의 북쪽 끝.
                 </div>
             </article>
+
+            <!-- 오늘의 작품&느낌 -->
+            <article class="work">
+                <h3>오늘의 작품 &amp; 느낌</h3>
+                <figure>
+                    <img src="./images/img_the_scream.jpg" alt="뭉크의 절규" />
+                    <figcaption>뭉크의 절규 <cite>&lt;절규&gt;</cite></figcaption>
+                </figure>
+            </article>
+            <!-- [HTML 요소에서 특수문자 처리]
+                & 엔퍼센트 &amp;
+                < 여는 꺽쇠 &lt; (lt는 less then)
+                > 닫는 꺽쇠 &gt; (gt는 great then)
+            -->
+            <!-- <bdo dir="rtl">우리나라</bdo> -->
         </main>
         <!-- 3. 하단영역 : 회사정보 -->
         <footer id="info" class="bx">
@@ -238,9 +255,18 @@
                  - 필수 속성 ->> title 속성 -> 툴팁으로 원래 뜻을 표시
                  (참고 : 샤싣 툴팁속성은 어느 요소든 사용가능함!)
                  - 기본디자인 : 점선 밑줄
-                 <address>
+            4. 주소인용
+            <address>
+                 - 주소, 대표자, 전화번호 등 사이트 정보표시
+            5. 
             <cite>
+                 - 인용하고 있는 작품을 표시하기 위한 요소
+            6. 반대방향글 인용
             <bdo> 
+                 - 글 방향이 반대일 때 사용함
+                 - Bi-Directional Override(줄임)
+                 - dir 속성 : rtl(right to left : 오른쪽에서 왼쪽으로 진행)
+                 - 아랍어, 이스라엘어 등 반대방향으로 출력해야하는 문자를 인용할 때 사용
 
 
 
