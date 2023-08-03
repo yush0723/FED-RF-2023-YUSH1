@@ -326,6 +326,23 @@ h2.st5 {
     padding: 5px;
     width: 50%;
 }
+
+/* 한 줄 말줄임표시하기 공통처리 */
+.cbx li, .cbx dd, .cbx td {
+    /* 1. 줄바꿈 방지 */
+    white-space: nowrap;
+    /* 2. 넘치는 컨텐츠 숨기기 */
+    overflow: hidden;
+    /* 넘치는 글자 말줄임표시 */
+    text-overflow: ellipsis;
+    /* 
+    추가) 여러줄일 때 말줄임은 아래 3가지 추가
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-origin: vertical;
+        단, 박스 높이값을 글자가 보일만큼 조절해야함
+     */
+}
 /* 주요뉴스 ul */
 .cnews ul li::before{
     content: '😊';
@@ -340,6 +357,19 @@ h2.st5 {
      - 필수 속성 : content
      - 이미지는 url() 사용!
 */
+
+/* 주요뉴스 li별 글자색 바꾸기 */
+.cnews li:first-child a{
+    color: red;
+}
+.cnews li:nth-child(2) a{
+    color: blue;
+}
+.cnews li:last-child a{
+    color: green;
+}
+
+/* 분야별 뉴스 */
 .snews dl dt{
     font-family: "bagel fat one", cursive;
     font-size: 30px;
@@ -353,5 +383,4 @@ h2.st5 {
 /* dd 앞에 가상요소로 블릿넣기 */
 .snews dd::before{
     content: '❗';
-
 }
