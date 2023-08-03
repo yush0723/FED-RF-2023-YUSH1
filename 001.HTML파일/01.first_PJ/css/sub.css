@@ -5,8 +5,8 @@
 @import url(./common.css);
 
 /* 서브페이지 공통 글자설정 */
-#cont{
-    font-family: '굴림', sans-serif;
+#cont {
+    font-family: "굴림", sans-serif;
 }
 
 h2.stit {
@@ -77,7 +77,7 @@ h2.st5 {
 }
 
 /* 언론사 로고 */
-.prlogo img{
+.prlogo img {
     height: 32px;
     /* 
     이미지는 기본 비율을 가지고 잇어서 
@@ -88,25 +88,24 @@ h2.st5 {
 }
 
 /* 기사 타이틀 */
-.atat{
+.atat {
     font-size: 30px;
 }
 /* 기사이미지 박스*/
-.afig{
+.afig {
     margin-bottom: 20px;
 }
-.afig img{
+.afig img {
     width: 100%;
 }
 /* 기사이미지 설명 */
-.afig figcaption{
+.afig figcaption {
     font-size: 15px;
     text-align: center;
-    color:#767676;
-
+    color: #767676;
 }
 /* 기사 문단 */
-.acont p{
+.acont p {
     font-size: 17px;
     color: #303038;
     /* 자간 */
@@ -123,13 +122,13 @@ h2.st5 {
     */
 }
 /* 강조 em요소 디자인 변경 */
-.acont p em{
+.acont p em {
     /* 이텔릭 해제 */
     /* 글자색 변경 */
     /* 글자 두껍게 */
     /* 글자 그림자 설정 */
     font-style: normal;
-    color:darkmagenta;
+    color: darkmagenta;
     font-weight: bold;
     text-shadow: 2px 2px 2px #0000008c;
 
@@ -146,45 +145,43 @@ h2.st5 {
     border-top: 2px solid gray;
     border-bottom: 2px solid gray;
     color: red;
-    font-family: "Black and White Picture","궁서";
-    
+    font-family: "Black and White Picture", "궁서";
 }
 
-
-
 /* 유튜브 동영상 박스 */
-.mvbx{
+
+.mvbx {
     height: 550px;
     /* div와 같은 block요소는 width설정을 하지 않으면 width:auto로 자동설정됨.
     이는 싸고 있는 박스 컨텐트영역을 자동으로 채워준다. */
 }
 
-.mvbx iframe{
+.mvbx iframe {
     border: none;
     width: 100%;
     height: 100%;
 }
 /* 인용블록 영역 */
-.bqbx{
-    padding: 20px ;
+.bqbx {
+    padding: 20px;
     margin: 20px 0;
     border-top: 2px dashed #ccc;
     border-bottom: 2px dashed #ccc;
     font-size: 15px;
 }
-.bqbx blockquote{
+.bqbx blockquote {
     padding: 20px;
     margin: 20px 0;
 }
 /* 인용블록 이미지 */
-.bqbx img{
+.bqbx img {
     float: right;
     border-radius: 5px;
     margin-left: 20px;
 }
 
 /* article 제목공통 - .atbx*/
-.atbx h5{
+.atbx h5 {
     /* 배경색 bgc */
     background-color: #ebebeb;
     /* 패딩*/
@@ -198,24 +195,23 @@ h2.st5 {
 }
 
 /* 주해박스 */
-.desc{
+.desc {
     border-top: 2px dashed #ccc;
     padding: 20px;
     border-bottom: 2px dashed #ccc;
     font-style: 15px;
     line-height: 2;
 }
-.desc div{
+.desc div {
     padding: 15px 0;
 }
 
-
-
 /* 기사원문 */
-.alink{
+
+.alink {
     text-align: right;
 }
-.alink a{
+.alink a {
     /* 디스플레이 적용을 위해 display 변경하기 */
     display: inline-block;
     width: 100px;
@@ -227,16 +223,135 @@ h2.st5 {
     line-height: 100px;
     /* 가로정렬 중앙 */
     text-align: center;
-    font: size 20px;;
+    font: size 20px;
     /* a요소 기본 글자색, 밑줄 없앰 */
     color: black;
     text-decoration: none;
     background-color: #ccc;
-    
+
 }
 
-.alink a:hover{
+.alink a:hover {
     color: hotpink;
     background-color: aquamarine;
     box-shadow: 0 0 10px 5px purple;
+}
+
+/* 오늘의 작품&느낌 */
+.work{
+    text-align: center;
+    /* 배경색 */
+    /* background-color: lightpink; */
+    /* 그라데이션 -> 이미지로! bgi */
+    background-image: linear-gradient(46deg, pink 10%,rgb(241, 241, 190) 80%, #68f1b8 );
+    /* [성형 그라데이션 : background-image] 
+    linear-gradient(방향, 색1, 색2);
+    linear-gradient(방향, 색1 몇%, 색2 몇%);
+    linear-gradient(각도, 색1 몇%, 색2 몇%);
+     - 옵션
+        1. 방향 : to top, to botoom, to left, to right
+        2. 각도 : 각도deg
+        3. 콤마로 나열된 생상에 %를 뒤에 쓰면 비율 조정가능 */
+    /* border: 50px dotted #09a1ff;
+    padding: 50px; */
+    /* 배경옵션 추가 
+        background-clip: 배경이 적용되는 범위설정
+        1. border-box -> 보더까지 적용(기본값)
+        2. padding-box -> 패딩까지 적용
+        3. content-box -> 내용영역만 적용(패딩, 보더빠짐)
+
+    */
+    background-clip: border-box;
+    box-shadow: inset 0 0 10px rgb(0, 0, 0, 471);
+}
+
+/* 작품 타이틀 */
+.work h3{
+    font-family: 'black and white picture';
+    font-weight: normal;
+    font-size: 26px;
+    color:#333;
+    padding-top: 20px;
+}
+
+/* 작품 이미지 */
+.work img{
+    border: 15px ridge goldenrod;
+    /* ridge - 액자틀모양 */
+}
+
+/* 작품명 */
+.work figcaption{
+    font-family: gugi;
+    font-size: 20px;
+    padding: 10px;
+}
+
+/* 작품명 인용구 */
+.work figcaption cite{
+    font-style: normal;
+    color: darkmagenta;
+}
+
+
+/* 뉴스 파트 공통 class */
+.nbx {
+    border-top: 2px dashed #ccc;
+    margin: 20px 0;
+    padding: 20px 0;
+}
+
+/* 뉴스 파트 공통 a요소 */
+.nbx a{
+    /* 글자크기 */
+    font-size: 17px;
+    /* 줄간격 lh */
+    line-height: 2.5;
+    color: #222;
+    /* 밑줄 없앰 */
+    text-decoration: none;
+}
+/* 공통 a마우스오버 */
+.nbx a:hover{
+    color: yellowgreen;
+    text-shadow: 1px 1px 1px #000 ;
+}
+
+/* 뉴스 타이틀 공통 */
+.nbx h3{
+    font-family: "black and white picture", sans-serif;
+    font-weight: normal;
+    font-size: 30px;
+    background-image: linear-gradient(to right, rgb(182, 182, 247), rgb(135, 255, 225), transparent);
+    padding: 5px;
+    width: 50%;
+}
+/* 주요뉴스 ul */
+.cnews ul li::before{
+    content: '😊';
+}
+.cnews ul li::after{
+    content: '😆😅';
+    /* content : url("../images/progo1.png") */
+}
+/*  [css 가상요소 : before, after ]
+     - 모든 요소는 맨 앞과 맨 뒤에 가상요소를 사용할 수 있다
+     - 맨 앞은 before, 맨 뒤는 after
+     - 필수 속성 : content
+     - 이미지는 url() 사용!
+*/
+.snews dl dt{
+    font-family: "bagel fat one", cursive;
+    font-size: 30px;
+    background-color: lightcyan;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid pink;
+    margin-top: 55px;
+}
+/* dd 앞에 가상요소로 블릿넣기 */
+.snews dd::before{
+    content: '❗';
+
 }
