@@ -38,7 +38,7 @@ h2.stit {
     margin-bottom: 30px;
 
     /* 박스그림자 */
-    box-shadow: inset 0px 0px 6px 0px #000;
+    box-shadow: inset 0px 0px 6px 0px #ccc;
     /* 
     [box-shadow 속성]
      - 박스 외부/내부 그림자 설정속성
@@ -171,7 +171,6 @@ h2.st5 {
 .bqbx blockquote {
     padding: 20px;
     margin: 20px 0;
-    ;
 }
 /* 인용블록 이미지 */
 .bqbx img {
@@ -312,7 +311,7 @@ h2.st5 {
 /* 공통 a마우스오버 */
 .nbx a:hover {
     color: yellowgreen;
-    text-shadow: 1px 1px 1px #000;
+    text-shadow: 1px 1px 1px #ccc;
 }
 
 /* 뉴스 타이틀 공통 */
@@ -406,9 +405,100 @@ h2.st5 {
     요소:first-child -> 첫번째 자식요소
     요소:nth-child(n) -> n번째 자식요소
     요소:last-child -> 마지막째 자식요소
-[ 여러종류가 섞여 있을 경우 형제 선택하기 ]
+
+    [ 여러종류가 섞여 있을 경우 형제 선택하기 ]
     요소:first-of-type -> 같은 요소 중 첫번째
     요소:nth-of-type(n) -> 같은 요소 중 n번째
     요소:last-of-type -> 같은 요소 중 마지막째
 (단, n은 1부터)
     */
+
+    /* 사진뉴스 박스 */
+    /* 타이틀 */
+    .news h3{
+        /* 배경 그라데이션 삭제 */
+        background-image: none;
+        /* 중앙정렬 */
+        text-align: center;
+    }
+    /* 가상요소로 사진기 아이콘 넣기 */
+    .pnews h3::before{
+        content: '📷';
+        vertical-align: -1px;
+        font-size: 31px;
+        margin-right: 8px;
+    }
+    .pnews h3::after{
+        content: '📸';
+        vertical-align: -1px;
+        font-size: 31px;
+        margin-left: 8px;
+    }
+
+    /* 사진뉴스 테이블 */
+    .pnews table{
+        /* 최대가로크기 지정maw */
+        max-width: 500px;
+
+        /* 테이블은 기본적으로 내용만큼 가로크기를 가지며 
+        부모박스의 크기가 작아질 경우 그 크기에 맞춰진다! */
+
+        /* 테이블 중앙 - 마영오! */
+        margin: 0a;
+        /* 테두리 */
+        border: 2px solid #ccc;
+        /* 테이블 기본 간격없애기 */
+        border-collapse: collapse;
+        /* 기본값은 superate */
+    }
+
+    /* tr이나 td에 child 선택자 사용가능!
+    왜?? table tr td 정해짐! 같은 종류만 옴 */
+    /* 첫 번째 td - tntwkqnqns */
+    .pnews td:first-child{
+        /* 가로크기 w */
+        width: 50px;
+        /* 세로크기 w */
+        height: 84px;
+        /* 텍스트 중아 */
+        text-align: center;
+        /* 배경색 bgc */
+        background-color: #ccc;
+    }
+
+    /* 두 번째 td */
+    .pnews td:nth-child(2){
+        /* 배경색 bgc */
+        background-color: #e4e4e4;
+        /* 패딩 양쪽 */
+        padding: 0 20px;
+    }
+
+    /* 세번째 td*/
+    .pnews td:last-child{
+        background-color: #e4e4e4;
+        padding: 4px;
+    }
+
+    .pnew imgP{
+        height: 70px;
+        vertical-align: middle;
+    }
+
+    /* 기사타이틀 처리박스 */
+    .pnews td div{
+        /* 말줄임 처리하기(2줄처리 */
+        overflow:hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+
+        /* 줄간격 변경 */
+        line-height: 1.7;        
+    }
+    /* 앞에 tr이 있는 tr만 하위 td에 디자인 */
+    .pnews tr+tr td{
+        /* 사이구분선 보더탑 bdt */
+        border-top: 1px solid #ccc;
+    }
