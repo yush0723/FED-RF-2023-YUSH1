@@ -36,7 +36,7 @@ html,body{
     font-size: 24px;
     margin: 0 auto;
     /* 테이블은 가로크기설정이 없으면 내용만큼 늘어난다. max-width로 가로스크롤대비 */
-    max-width: 100px;
+    max-width: 1000px;
 }
 /* 테이블 제목 - 기본 중앙정렬 되어있음 */
 #drama caption{
@@ -62,4 +62,34 @@ html,body{
 /* tbody의 마지막 tr의 td 아랫줄 두꺼운 보더넣기 */
 #drama tbody tr:last-child td{
     border-bottom : 2px solid #555;
+}
+/* 짝수번째 tbody tr의 td에 배경색 넣기 */
+#drama tbody tr:nth-child(even) td{
+    background-color: #dddddd;
+}
+
+/* 하단부분(tfoot) */
+#drama tfoot td{
+    text-align: center;
+    padding: 45px 0;
+}
+
+/* 링크 a 공통변경 */
+#drama a{
+    color: #222;
+    text-decoration: none;
+}
+/* 드라마명 a 오버시 */
+#drama tbody a:hover{
+    color: magenta;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    
+}
+/* 페이징 a 오버시 */
+#drama tfoot a:hover{
+    color: darkgreen;
+    text-decoration: overline;
+    text-decoration-style: double;
+
 }
