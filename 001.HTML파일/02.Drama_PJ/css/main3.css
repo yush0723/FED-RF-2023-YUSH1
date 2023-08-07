@@ -26,7 +26,7 @@ h1.tit{
     color: #222;
     cursor: pointer;
     /* 패딩 넣기 */
-    padding: 15px;
+    padding: 5px;
     /* 패딩, 보더 크기 포함 보더박스 bxb */
     box-sizing: border-box;
 }
@@ -40,9 +40,15 @@ h1.tit{
     text-decoration: overline;
 }
 
-/* 메뉴 사이 구분선 넣기 */
-.mn2{
-    border-left: 4px solid darkblue;
+/* 메뉴 사이 구분선 가상요소로 넣기 */
+/* 두 번째 매뉴 label요소 */
+.mn2::before{
+    /* border-left: 4px solid darkblue; */
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 30px;
+    background-color: darkblue;
 }
 
 /* 드라마 테이블 박스 */
