@@ -40,8 +40,8 @@
                 
                 */
 
-                background: url(./images/ab0.jpg) repeat-x 0/auto 100%;
-                color: #fff
+                background: url(./images/ab0.jpg) repeat-x 0/auto 10%;
+                color: #fff;
                 z-index: 999;
                 width: 100%;
                 height: 200%;
@@ -223,13 +223,46 @@
                 border-radius: 50%;
             }
 
+            /* 고정 포스터 박스 */
+            .fixedPoster{
+                position: fixed;
+                top: 250px;
+                right: 119px;
+                z-index:9999;
+                /* 트랜지션: trs */
+                transition: .3s;
+            }
+            /* 박스에 오버시 right값 변경으로 보이기 */
+            .fixedPoster:hover{
+                
+            }
+            .fixedPoster span{
+                position: absolute;
+                left:-50px;
+                width: 50px;
+                height: 100%;
+                background-color: lightblue;
+                border-radius: 15px 0 0 15px;
+                writing-mode : vertical-lr;
+                font-size: 25px;
+                text-align: center;
+                padding-left: 20;
+                letter-spacing: 10px;
+            }
 
-
+            .fixedPoster img{
+                height: 200px;
+                /* 하단간극 없앰 */
+                vertical-align: middle;
+            }        
+            
         </style>
     </head>
     <body>
         <div class="bx" id="r1">r1</div>
         <div class="bx" id="s1">s1</div>
+        <div class="fxbx f1">
+            나는 젠틀 fixed다!
         <div class="bx" id="a1" title="나는 젠틀앱솔루트다">a1</div>
         <div class="bx" id="r2">r2</div>
         <div class="bx" id="s2">s2</div>
@@ -237,8 +270,6 @@
 
     <!-- 앱솔루트 : 판타롱스타킹 -->
     <div class="a5" title="앱솔루트 판타롱스타킹">
-        <div class="fxbx f1">
-            나는 젠틀 fixed다!
         </div>
         <img src="./images/ab2.jpg" alt="타노스">
     </div>
