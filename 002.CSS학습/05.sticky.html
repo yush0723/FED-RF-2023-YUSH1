@@ -34,7 +34,7 @@
                       overflow: auto/ hidden/scroll이 적용된 경우 스티키가 안 먹힘.
                       3) 특정박스 하위요소인 경우 스티키는 박스 내부에서만 보이는 화면기준으로 작동하기 때문에 반드시 height값이 셋팅되어야 함
                       height:auto 또는 height값이 없으면 스티키 작동안함!(높이값을 기준으로 작동하기 때문임)
-                      
+
 
                  *********************************/
                 top: 200px;
@@ -264,7 +264,21 @@
                 /* 하단간극 없앰 */
                 vertical-align: middle;
             }        
-            
+         /* 구간적용 스티키 */   
+         .stickyBox{
+            height: 1000px;
+            padding-top: 500px;
+            border: 5px dashed darkblue;
+         }
+
+         /* 시트키박스 */
+         .iambox{
+            position: sticky;
+            top: 500px;
+            width: 200px;
+            height: 200px;
+            border: 5px dotted red;
+         }
         </style>
     </head>
     <body>
@@ -314,8 +328,16 @@
         </div>
     </div>
 
-
-
+    <!-- 스티키 구간적용박스 -->
+    <div class="stickyBox">
+        <div class="iambox"></div>
+    </div>
+    <div class="stickyBox">
+        <div class="iambox"></div>
+    </div>
+    <div class="stickyBox">
+        <div class="iambox"></div>
+    </div>
 
         <!-- [ 젠코딩(에밋코딩) ]
     .bx#s$*3
