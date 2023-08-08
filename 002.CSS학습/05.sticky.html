@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>05. sticky포지션</title>
+        <style>
+            .bx {
+                width: 300px;
+                height: 300px;
+                border: 2px solid blue;
+                text-align: center;
+                font-size: 24px;
+                font-weight: bold; /* fwb */
+                /* 글자세로중앙 */
+                line-height: 100px;
+            }
+
+
+
+            /* sticky 박스 */
+            .stbx{
+                position:sticky;
+                /*********************************
+                    [ 5. sticky 포지션]
+                    1. 위치값 top 설정에 따라 화면에 고정되는 포지션
+                    2. 원리: 처음에는 relative하게(left값적용됨) 가만히 현재위치를 점유하고 있음
+                    top값을 셋팅한 경우 그 top값은 보이는 화면최상단으로 부터의 위치값이 된다. 스크롤로 이동시 sticky요소는 셋팅된 값위치를 만나는 순간 fixed와 같이 화면에 고정된다
+
+                    3. sticky 적용구간
+                     -> 싸고 있는 박스가 기준이 된다.
+                     주의사항)
+                      1) 전체 스크롤시 적용요소가 body바로 아래 자식요소로 있어야한다
+                      2) 부모요소를 만들고 그 부모요소가 
+                      overflow: auto/ hidden/scroll이 적용된 경우 스티키가 안 먹힘.
+                      3) 특정박스 하위요소인 경우 스티키는 박스 내부에서만 보이는 화면기준으로 작동하기 때문에 반드시 height값이 셋팅되어야 함
+                      height:auto 또는 height값이 없으면 스티키 작동안함!(높이값을 기준으로 작동하기 때문임)
+                      
+
+                 *********************************/
+                top: 200px;
+                left: 50px;
+                width: 50%;
+                text-align: center;
+                font-size: 30px;
+                padding: 50px;
+                background-color: lightpink;
+                z-index: 999999;
+            }
+            /* 첫번재 absolute */
+            .fxbx{
+                position: fixed; /* pof */
+                background: url(./images/ab0.jpg) repeat-x 0/auto 10%;
+                color: #fff;
+                z-index: 999;
+                width: 100%;
+                height: 200%;
+                font-size: 35px;
+                line-height: 200;
+                text-align: center;
+            }
+            /* 두번째 fixed 박스 */
+            .f2{
+                top: 0;
+                left: 0;
+                /* 보이는 화면 최상단 */
+                
+            }
+            #a1{
+                position: absolute; /* poa */
+                background: url(./images/ab1.jpg) no-repeat center/cover;
+            }    
+            
+            /* 두번째 absolute */
+            #a2{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+               
+                /* 위치설정값과 같은 방향의 마진만 적용됨*/
+                margin-bottom: 50px;
+                margin-right: 50px;
+                /* 부모는? >> 보이는 화면 window */
+                background: url(./images/ab1.jpg) no-repeat center/cover;
+
+            }
+            
+            
+            
+
+            /* 첫번째 박스에 포지션
+             체크 */
+            #r1 {
+                position: relative;
+                /* 위피이동값 */
+                top: 50px;
+                left: 50px;
+                
+                z-index: 1;
+                /* 먼저 그렸지만 z-index를 1만 줘도 위로 올라감 */
+                background: url(./images/ab5.jpg) no-repeat center/cover;
+            }
+            #r2 {
+                position: relative;
+                /* bottom: 170px;
+                right: -270px; */
+                z-index: 1;
+                background: url(./images/ab4.jpg) no-repeat center/cover;
+            }
+            #s1 {
+                margin-top: 20px;
+                background-color: lightcoral;
+            }
+            #s2 {
+                background-color: lightblue;
+            }
+
+            /* 부모를 찾는 앱솔루트 */
+            .bx2{
+                border: 2px dotted orangered;
+                padding: 50px;
+                font-size: 24px;
+                text-align: center;
+            }
+            /* 각 부모박스 */
+            .s5{
+                position: relative;
+                background-color: lightblue;
+            }
+            .s6{
+                position: relative;
+                background-color: lightcoral;
+            }
+            .s7{
+                position: relative;
+                background-color: lightgreen;
+            }
+            .s8{
+                /* position: relative; */
+                background-color: lightsalmon;
+            }
+
+            /* 부모를 찾는 앱솔루트 박스 */
+            .abs{
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                color: white;
+                background: url(./images/ab1.jpg) no-repeat center/cover;
+            }
+            /* .a3는 위치 이동값이 없으므로 젠틀하다 -> 싸고 있는 박스안에 가만히 있는다 */
+
+            /* 부모를 찾는 앱솔루트.a4  */
+            .a4{
+                top: 0;
+                left: 0;
+                /* 나의 부모는? >> .s7 */
+                width: 25%;
+                height: 40%;
+                /* 앱솔루트 요소 크기를 %로 주면 부모자격 박스를 기준으로 한다 */
+            }
+
+            /* span을 앱솔루트로 만들경우 */
+            .spabs{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                /* 나의 부모는? .s7 */
+                border: 4px dotted red;
+            }
+            /* 앱솔루트 : 판타롱스타킹      */
+            .a5{
+                position: absolute;
+                /* 크기를 안주면 내용만큼 늘어남 */
+                top: 20%;
+                right: 10%;
+                outline: 2px solid red;
+            }
+            /* 블록박스내의 단독이미지 */
+            .a5 img{
+                vertical-align: top;
+                /* 
+                    박스에 단일한 이미지를 넣을 경우 하단에 자연스런 간극이 존재한다.(4px)
+                    이것을 없애려면 vertical-align 를 써야한다.  인라인 요소간 세로정렬 속성의 값으로 top/bottom/middle 중 어떤 것을 써도 하단간극이 사라진다
+                    
+                */
+            }
+
+            /* 앱솔루트끼리는 서로 겹친다 */
+            .absimg{
+                width: 92px;
+                height: 115px;
+                border: 10px ridge goldenrod;
+                border-radius: 50%;
+                margin: 100 auto;
+                /* 넘치는 이미지 숨기기 */
+                overflow: hidden;
+                position: relative;
+            }
+            .absimg img{
+                position: absolute;
+                /* 젠틀앱솔루트이기 때문에 부모자격이 없는 일반 static요소에도 그 자리에 이미지가 가만히 있음 
+                -> 앱솔루트 이미지끼리는 서로 겹쳐짐
+                위, 아래관계는 나중에 온 것이 위에옴 
+                z-index로 위치관계 조정가능
+                */
+            }
+            /* 두번째 이미지 닥스만 투명하게 만들기 */
+            .absimg img:last-child{
+                /* 투명도 opacity(0-투명, 1-불투명, 0.몇-반투명) */
+                opacity: 0;
+                /* 트랜지션 : transition -trs 
+                trandition : 속성 시간 이징 지연시간(속시이지)
+                -> 두가지 속성값 변경을 애니메이션 해주는 속성
+                시간만 사용하면 모든 속성변경을 애니메이션 함
+                시간은 초단위 s를 사용하여 표시함*/
+                
+                transition: 0.5s;
+            }
+            
+            /* 박스에 오버시 닥스 보이기 */
+            .absimg:hover img:last-child{
+                opacity: 1;
+            }
+            /* 최하단 요소를 fixed로 변경하기 */
+            .imfixed{
+                position:fixed;
+                z-index: 099999;
+                top: 0;
+                right: 0;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+
+            /* 고정 포스터 박스 */
+            .fixedPoster{
+                position: fixed;
+                top: 250px;
+                right: 119px;
+                z-index:9999;
+                /* 트랜지션: trs */
+                transition: .3s;
+            }
+            /* 박스에 오버시 right값 변경으로 보이기 */
+            .fixedPoster:hover{
+                
+            }
+            .fixedPoster span{
+                position: absolute;
+                left:-50px;
+                width: 50px;
+                height: 100%;
+                background-color: lightblue;
+                border-radius: 15px 0 0 15px;
+                writing-mode : vertical-lr;
+                font-size: 25px;
+                text-align: center;
+                padding-left: 20;
+                letter-spacing: 10px;
+            }
+
+            .fixedPoster img{
+                height: 200px;
+                /* 하단간극 없앰 */
+                vertical-align: middle;
+            }        
+            
+        </style>
+    </head>
+    <body>
+        <div class="bx" id="r1">r1</div>
+        <div class="bx" id="s1">s1</div>
+        <!-- sticky 포지션 박스 -->
+        <div class="stbx">
+            나는 sticky다! 사라지지 않아!
+        </div>
+        <div class="bx" id="a1" title="나는 젠틀앱솔루트다">a1</div>
+        <div class="bx" id="r2">r2</div>
+        <div class="bx" id="s2">s2</div>
+        <div class="bx" id="a2" title="나는 보이는 화면이 기준이다! 부모가 없어서ㅠ">a2</div>
+
+    <!-- 앱솔루트 : 판타롱스타킹 -->
+    <div class="a5" title="앱솔루트 판타롱스타킹">
+        </div>
+        <img src="./images/ab2.jpg" alt="타노스">
+    </div>
+
+    <!-- 앱솔루트끼리는 서로 겹친다! -->
+    <div class="absimg" title="앱솔루트끼리는 겹친다">
+        <img src="./images/ab3.jpg" alt="토르">
+        <img src="./images/ab4.jpg" alt="닥스">
+    </div>
+
+
+    
+    <!-- sticky 포지션 박스 -->
+    <div class="stbx">
+        나는 sticky다! 사라지지 않아!
+    </div>
+
+    <!-- 부모를 찾는 앱솔루트 -->
+    <!-- .bx2.s5{s5}>.bx2.s6{s6}>.bx2.s7{s7}>.bx2.s8{s8} -->
+    <div class="bx2 s5">s5
+        <div class="bx2 s6">s6
+            <div class="bx2 s7">s7
+                <div class="bx2 s8">s8
+                    <div class="abs a3" title="나는 젠틀 앱솔루트다">a3</div>
+                    <div class="abs a4" title="나는 부모를 찾아 올라간다">a4</div>
+                    <span class="spabs iamfixed" title="갑분픽">
+                        나는 span dixed앱솔루트다!
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+        <!-- [ 젠코딩(에밋코딩) ]
+    .bx#s$*3
+    .bx#s${s$}*3
+    ____
+    .: 클래스
+    #: 아이디
+    $: 증가숫자자리
+    *숫자: 반복생성횟수
+    {}: 데이터 출력(꺽쇠사이값)
+    []: 속성셋팅값
+    >: 하위직계 자식요소
+    +: 형제요소
+    (): 요소 구분하기
+
+    --></body>
+</html>
