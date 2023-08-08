@@ -51,7 +51,10 @@
                 position: absolute;
                 bottom: 0;
                 right: 0;
-                
+               
+                /* 위치설정값과 같은 방향의 마진만 적용됨*/
+                margin-bottom: 50px;
+                margin-right: 50px;
                 /* 부모는? >> 보이는 화면 window */
                 background: url(./images/ab1.jpg) no-repeat center/cover;
 
@@ -163,6 +166,11 @@
                 width: 92px;
                 height: 115px;
                 border: 10px ridge goldenrod;
+                border-radius: 50%;
+                margin: 100 auto;
+                /* 넘치는 이미지 숨기기 */
+                overflow: hidden;
+                position: relative;
             }
             .absimg img{
                 position: absolute;
@@ -209,7 +217,7 @@
     </div>
 
     <!-- 앱솔루트끼리는 서로 겹친다! -->
-    <div class="absimg">
+    <div class="absimg" title="앱솔루트끼리는 겹친다">
         <img src="./images/ab3.jpg" alt="토르">
         <img src="./images/ab4.jpg" alt="닥스">
     </div>
