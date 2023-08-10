@@ -5,24 +5,39 @@
         <title>스타벅스 응용</title>
         <style>
             body {
-                background: #000 url(./starbucks_img/reserve_bg.jpg) no-repeat top/100%;
+                background: #000 url(./starbucks_img/reserve_bg.jpg) no-repeat center/100%;
             }
-            
-        </style>
-    </head>
-    <body>
-        <div id="trans10">
-            <img src="./starbucks_img/reserve_medal02.png " alt="설명이미지" />
-            <img src="./starbucks_img/reserve_medal01.png " alt="별이미지" />
-        </div>
-
-        <div>
             #trans10{
+                position: absolute;
+                /* 중앙이동 calc()로 계산 */
+                /* top : calc(50 - 333px/2) */
+                /* left: calc(50% - 334px/2); */
+                
+                /* 중앙이동 transform사용 */
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                /***************************
+                    [absolute / fixed 포지션에서 정중앙]
+                    1. 공통셋팅:
+                     (1) top: 50%
+                     (2) left: 50%
+                    2. calc로 계산하기 : 박스크기의 절반 빼기
+                     (1) top: calc(50% - 높이값/2)
+                     (2) left: calc(50% - 가로값/2)
+                    3. transform으로 중앙이동하기
+                     (1) top: 50%/ left:50%
+                     (2) transform: translate(-50%, -50%)
+                ***************************/
+
                 width: 200px;
                 height: 200px;
                 /* 가운데정렬풀기 */
                 text-align: left;
                 /* outline: 2px dashed lime; */
+                /* 마영오 앱솔루트는 적용안됨 */
+                /* margin: 0 auto; */
             }
             /* 이미지에 겹치도록 앱솔루트 포지션 셋팅 */
             #trans10 img{
@@ -66,6 +81,16 @@
                 /* 트랜지션: 속시이지 - 0.4초기다림 */
                 transition: .4s ease-out .4s;
             }
+        </style>
+    </head>
+    <body>
+        <div id="trans10">
+            <img src="./starbucks_img/reserve_medal02.png " alt="설명이미지" />
+            <img src="./starbucks_img/reserve_medal01.png " alt="별이미지" />
+        </div>
+
+        <div>
+            
 
         </div>
     </body>
