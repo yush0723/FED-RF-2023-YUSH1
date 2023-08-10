@@ -166,8 +166,16 @@
             /* 배경색변경 */
             background-color: royalblue;
             /* 트랜지션 원본(양방향/돌아올때) */
-            
-            
+           transition: left 5s ease-in-out .5s, 
+           /* left는 5초간 처음과 끝에 천천천히 0.5초 기다림 */
+           width 3s ease-out 1s,
+           /* width는 3초간 끝에 천천히 1초 기다림 */
+           height 1s ease-in 2s,
+           /* height는 1초간 처음에 천천히 2초 기다림 */
+           background-color 3s linear 3s;
+           /* 배경은 3초간 등속도로 3초 기다림 */
+           
+           
         }
         /* 체크박스가 체크되면 그 다음 형제요소를 변경하여
         클릭시 변경된것처럼 작동시킨다! */
@@ -176,12 +184,22 @@
             left: 70%;
             /* 크기변경 */
             width: 500px;
-            height: 300px;
+            height: 500px;
             /* 배경색변경 */
-            background-color: olivedrab;
+            background-color: hotpink;
             
+            /* 트랜지션 원본(진행할 때) */
+            transition: 
+           left 3s ease-in-out .1s, 
+           /* left는 3초간 처음과 끝에 천천천히 01초 기다림 */
+           width 2s ease-out 4s,
+           /* width는 2초간 끝에 천천히 4초 기다림 */
+           height 1s ease-in 6s,
+           /* height는 1초간 처음에 천천히 6초 기다림 */
+           background-color 3s linear 7s;
+           /* 배경은 3초간 등속도로 7초 기다림 */
         }
-
+        
 
         
         
