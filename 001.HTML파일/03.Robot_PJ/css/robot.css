@@ -451,6 +451,11 @@ body:hover .logo{
     box-shadow: inset 0 0 10px #000;
     /* 배경이미지 */
     background: url(../images/tv.jpg) no-repeat 0/100%; 
+    /* 트랜지션: 속시이지 */
+}
+/* tv가 커지는 클래스 */
+.tv.on{
+    transform: translateX(-50%) scale(5);
 }
 
 /* 스크린 */
