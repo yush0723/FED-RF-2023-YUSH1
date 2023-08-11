@@ -24,9 +24,7 @@ body{
 }
 
 /* 공사중표시 */
-body *{
-    outline: 2px;
-}
+
 /* 공통 클래스 */
 
 /* 메탈배경 클래스 */
@@ -48,7 +46,7 @@ body *{
     
     width: 200px;
     height: 200px;
-    background: url(../images/robot_03.png) no-repeat center/160px;
+    background: url(../images/robot_03.png) no-repeat center 10px/160px;
 
     border-radius: 50%;
     border: 2px solid #ccc;
@@ -65,13 +63,20 @@ body *{
     box-shadow: inset 0 0 20px 5px #000, 
     0 0 20px 5px aquamarine;
     /* 박스그림자에만 spread설정이 있다 x y blur spread color*/
-
+    
     /* 트랜스폼 크기 조정 */
     transform: scale(2);
     z-index: 99;
 
-    /* 박스그림자 */
 }
+
+body:hover .logo{
+    top: 10px;
+    left: 10px;
+    transform: scale(1);
+}
+
+    /* 박스그림자 */
 /* 1-2. 링크타이틀 */
 /* 1-3. 탑이동 버튼 */
 /********* 2. 메인영역 *********/
@@ -85,10 +90,15 @@ body *{
 }
 /* 2-1. 로봇박스 */
 .box-robot{
+    position:fixed;
+    width: 100%;
     /* 패딩: 위, 양쪽, 아래 */
     padding: 200px 0 528px;
     /* 마진탑 */
     /* margin-top: 30px; */
+
+    /* 처음에 트랜스폼 변경설정 */
+    transform: translate(25%, -25%) scale(0.2) ;
 }
 .head{
     position: relative;
@@ -99,6 +109,7 @@ body *{
     /* 메탈배경 */
     background:url(../images/metal01.jpg) no-repeat center/cover;
     border-radius: 100px 100px 80px 80px;
+    
     /* .body보다 위 */
     z-index: 1;
 }
@@ -258,6 +269,8 @@ body *{
 .arm{
     width: 50px;
     height: 200px;
+    border-radius: 20%;
+    transform-origin: left top;
 }
 /* 팔하단부분 공통 */
 .arm span{
@@ -298,11 +311,13 @@ body *{
 /* 왼팔 */
 .arm1{
     left: -50px;
+    transform: rotate(28deg);
+    transform-origin: top;
 }
 /* 오른팔 */
 .arm2{
     right: -50px;
-    transform: rotate(315deg);
+    transform: rotate(333deg);
     transform-origin: top;
 }
 
@@ -313,17 +328,23 @@ body *{
     width: 80px;
     height: 250px;
     border-radius: 20px;
+    /* 애니를 위한 트랜스폼 기준축 변경 */
+    transform-origin: top;
+    background-size: 100%;
+    background-repeat: repeat-y;
+    
 }
 
 .leg::after{
     content: '';
+    display: block;
     position: absolute;
     bottom: calc(-80px/2);
     left: 0;
     /* 부모는? .leg */
     width: 80px;
     height: 80px;
-    border-radius: 20px;
+    border-radius: 20px 20px 0 0;
     box-sizing: border-box;
     border: 5px solid #000;
     background-color: #ccc;
@@ -388,6 +409,7 @@ body *{
 /* 왼다리 */
 .leg1{
     left: 10px;
+    
 }
 /* 오른다리 */
 .leg2{
@@ -422,7 +444,7 @@ body *{
     top: 8%;
     left: 50%;
     /* left방향 중앙이동 */
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(3);
     width: 180px;
     height: 125px;
     border: 2px solid #222;
@@ -451,10 +473,11 @@ body *{
     position: absolute;
     top: -21px;
     left: -14px;
-    /* 부모는? .screen */
     width: 120%;
     height: 138%;
-    opacity: .5;
+    /* 부모는? .screen */
+    /* 아이프레임 기본보더 없앰 */
+    border:none;
 
 }
 

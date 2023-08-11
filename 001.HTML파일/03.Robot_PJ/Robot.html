@@ -5,7 +5,12 @@
         <!-- 뷰포트 필수! meta:vp -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Robot PJ</title>
+        <!-- 메인 css -->
         <link rel="stylesheet" href="./css/robot.css">
+        <!-- 애니메이션 css -->
+        <link rel="stylesheet" href="./css/robot_ani.css">
+        <!-- 자바스크립트 코딩구역 -->
+        
     </head>
     <body>
         <!-- 1. 상단영역 -->
@@ -51,11 +56,12 @@
                             <span class="metal2"></span>
                         </div>
                         <!-- 왼다리 -->
-                        <div class="leg leg1 metal2"
+                        <div class="leg leg1 metal2">
                         <span class="metal2"></span>></div>
                         <!-- 오른다리 -->
-                        <div class="leg leg2 metal2"
+                        <div class="leg leg2 metal2">
                         <span class="metal2"></span>></div>
+                        
                         <!-- 왼어깨 -->
                         <div class="shdr shdr1 metal1"></div>
                         <!-- 오른어깨 -->
@@ -65,6 +71,12 @@
                             <div class="screen">
                                 <!-- 유튜브 동영상 -->
                                 <iframe src="https://www.youtube.com/embed/Wt4uDm9zjUg" id="mv"></iframe>
+                            </div>
+                            <!-- 조작버튼 박스 -->
+                            <div class="box-btn">
+                                <button onclick="바꿔()">ch1</button>
+                                <button onclick="바꿔()">ch2</button>
+                                <button onclick="바꿔()">ch3</button>
                             </div>
                         </div>
                     </div>
@@ -78,5 +90,42 @@
                 <!-- 3-1. 회사정보 -->
             </footer>
         </div>
+        <script>
+            /* 자바스크립트 문법이 적용되는 곳! 
+            // 한줄주석
+            /* 여러줄 주석*/
+            // js가 필수로 하는 것은?
+            // 요소 선택하기
+            // element-> 요소 -> 태그
+            // 요소들이 모여있는 웹문서 전체구조 -> DOM
+            // Document Object Model
+            // 이퀄(=)은 오른쪽 값이 왼쪽에 들어감(할당)
+            // 보관장소=물건
+            // (변수=값)
+            // document 객체를 통하여하위요소들로 접근
+            var 나야나= 
+            document.getElementById('mv').src;
+            // js는 명령어 끝에 꼭 세미콜론;
+
+            // 콘.... 솔
+            // console
+            // 로.....그
+            // log
+            console.log("내꺼얌:",나야나);
+            // 콘솔 위치 : f12 개발자모드 -> console탭
+            document.getElementById('mv').src =
+            'https://www.youtube.com/embed/xLD8oWRmlAE'
+
+            function 바꿔(){
+                console.log('영상바꿔');
+            }
+            
+
+
+
+
+
+        </script>
     </body>
 </html>
+
