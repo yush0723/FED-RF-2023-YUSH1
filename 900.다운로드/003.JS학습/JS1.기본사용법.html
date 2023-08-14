@@ -170,6 +170,8 @@
              
             ________________________________________
             [ JS에서 요소 선택 후 CSS변경하기 ]
+            1. 스타일시트 속성명으로 개별 추가하기
+
             선택요소.style.스타일시트속성명 = 속성값
             - 선택요소의 CSS특정 속성값을 변경함
             - 스타일시트 속성명은 모두 변수형으로 JS브라우저
@@ -184,17 +186,14 @@
                 -> JS에서 CSS를 변경하면 요소 태그 내부에
                 style속성으로 인라인코딩 되어 들어간다!
                 (최우선 적용!)
-
-
-
-
-
-
-
-
+            
+            2. 한꺼번에 style 속성값으로 넣기
+            -> style.cssText = 'css문법';
+            -> 이전에 코딩된 인라인 style속성값은 무시된다.
+            -> 백틱(`)을 사용하면 좀 더 가독성있는 코딩가능
 
             */
-            
+           
             /*********************************************
                 함수명: 보여줘
                 기능: .pbox의 구조와 디자인변경
@@ -304,13 +303,55 @@
             //헐 - .원이야 순번 / 헉스 - 그림제목
             //1. 호출 및 전달값 확인
             console.log("마음대로 하세요", 헐, 헉스);
-            //대상선정: .박스야 .원이야
-            // var 멍청이= document.getElementsByClassName("박스야")[0]
-            // .getElementsByClassName("원이야");
-            document.querySelectorAll(".박스야.원이야");
+            // 2.대상선정: .박스야 .원이야
+            var 멍청이= document.querySelectorAll(".박스야 .원이야")[헐];
+            // document.getElementsByClassName("박스야")[0]
+            console.log('선택!', 멍청이,멍청이.length);
             /* 기존 방식보다 더 간단함 */
+            // 3. 변경내용: 트랜지션으로 화면 왼쪽하단으로 나열되도록
+            // 위치를 바꾸고 모양을 변경하고
+            // 작품명을 하단에 나오게 한다
+
+            // 3-1. 트랜지션
+            멍청이.style.transition ='1s ease-out, border-radius 1s 1s';
+            // 3-2. 위치이동: top, left
+            멍청이.style.top = 'calc(100% - 200px) ';
+            멍청이.style.right = 'calc(100% - 200px - '+헐+'*200px) ';
+            // 계산식
+            console.log('calc(100% - 200px - '+헐+'*200px)');
+
+            // 3-3. 원형을 사각형으로 변경
+            멍청이.style.borderRadius='0';
+
+            // 3-4. 액자 보더 넣기
+            멍청이.style.border = '10px ridge goldenrod';
+            // 멍청이.style.cssText = 'border: 10px ridge goldenrod';
             
+            // 4. html넣기 : 그림제목
+            멍청이.innerHTML = '<h4>고흐<br>'+헉스+'</h4>';
+            // 헉스 - 그림제목
+            // 한번에 css를 셋팅하는 방법: style.cssText 사용!
+            // 주의: 상단에 넣었던 style.속성명은 무시됨
+            // 백틱(`)을 사용하여 엔터를 허용한 문자를 넣어준다
+            // 위에서 h4요소를 넣었으므로 아래에서 선택가능
+            멍청이.querySelector('h4').style.cssText= 
+            `
+                position: absolute;
+                bottom: 10px;
+                width: 100%;
+                color: #fff;
+                font-size: 14px;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+
+            `;
+
+
+
+
         }//////////맘대로해라///////////////
+
         </script>
     <!-- CSS코딩구역 -->
     <style>
