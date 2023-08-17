@@ -381,7 +381,23 @@
             *****************************************/
 
             /* 세로모드 시작 */
-            
+            @media screen and (orientation: landscape) and (max-width:1000px) {
+                /* 타이틀 */
+                .tit{
+                    text-align: left;
+                    text-indent: 15px;
+                }
+                /* tv화면 박스배경변경 */
+                .bx{
+                    background-position: center -11%;
+                    background-size: auto 54%;
+                }
+                /* 스크린 위치변경 */
+                .screen{
+                    top: 25%;
+                    transform: translateX(-57%);
+                }
+            }
             /* 세로모드 끝 */
 
             /* 가로모드 시작 */
