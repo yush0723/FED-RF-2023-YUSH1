@@ -23,6 +23,11 @@
             padding: 0;
             list-style: none;
         }
+        /* a공통 */
+        .gnb a{
+            color: #fff;
+            text-decoration: none;
+        }
         /* 클리어설정 가상요소 
          - .clb가 설정된 요소는 clear가 셋팅됨! */
         ul::after,
@@ -33,6 +38,13 @@
             clear: both;
         }
         /* 공통클래스 */
+        /* 속박스 */
+        .inbox{
+            max-width: 1650px;
+            margin: 0 auto;
+            outline: 2px dashed lime;
+        }
+        /* 파트박스 */
         .part-box{
             float: left;
             /* 옆으로 흐르게 */
@@ -56,19 +68,44 @@
             /* 부모자격 - .sub.menu */
             float: left;
             /* 나는 왼쪽, 너는 오른쪽으로 올라와 */
+            padding: 29px 0 ;
         }
-        
+              
 
         /* 네비게이션 링크 */
-        .gnb a{
-            color: #fff;
+        .gnb>ul>li>a{
+            display: block;
             text-decoration: none;
             font-size: min(18px, 1.8vw);
             padding: 0 min(32px, 1.5vw);
-            line-height: 80px;
         }
+        /* 가상요소로 밑줄만들기 */
+        .gnb>ul>li>a::after{
+            content: '';
+            display: block;
 
-        
+            /* 변경요소 */
+            width: 0%;
+            margin-left: 100%;
+
+            /* 글자와의 간격 */
+            margin-top: 30px;
+
+            height: 2px;
+            background-color: #fff;
+            transition: .3s;
+            
+        }
+        /* 오버시 밑줄 */
+        .gnb>ul>li:hover>a::after{
+            width: 100%;
+            margin-left: 0%;
+
+            /* 트랜지션: 오버시엔 왼쪽 마진값은 애니를 하지 않기 */
+            transition: .3s;
+            
+            
+        }
         /* 서브메뉴 
          - 높이값 0으로 숨길 때 숨길 박스에 보더나 패딩이 있으면 완전히 숨길 수 없다.
          따라서 보더, 패딩은 없어야함*/
@@ -79,6 +116,10 @@
             /* 가로방향 메뉴 정중앙이동 */
             transform: translateX(-50%);
             
+            /* top은 젠틀하다.
+            top을 주면 부모로부터 다시 수치를 크게 조정해야하므로 마진탑으로 세부조정 */
+            margin-top: 30px;
+
             width: min(200px, 18vw);
             border-radius: 15px;
             background-color: rgb(0, 0, 128,0.477);
@@ -157,7 +198,7 @@
     <h1 class="tit">1. 가로네비 서브별 드롭다운 세로형</h1>
     <!-- 상단영역 -->
     <header class="top-area clb">
-        <div class="part-box">
+        <div class="inbox clb">
             <!-- 로고박스 -->
             <h1 class="logo">
                 <a href="#">
