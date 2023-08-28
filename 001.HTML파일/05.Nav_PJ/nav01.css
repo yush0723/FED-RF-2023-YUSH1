@@ -250,7 +250,7 @@ ol::after,
 /* 메인영역 */
 .main-area {
     max-width: 1000px;
-    min-height: 600px;
+    min-height: 3600px;
     line-height: 600px;
     text-align: center;
     font-size: 2.5vw;
