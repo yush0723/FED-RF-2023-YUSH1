@@ -1,5 +1,30 @@
 // 영화 초이스 객체 - object.js
 
+// 자신만의 오브젝트!
+const yu_obj = {};
+// 오브젝트 형만 만들고 할당은 아래에서!
+// 1. 영화제목
+yu_obj.title = '오만과 편견';
+
+// 2. 감독
+yu_obj.director = '조 라이트';
+
+// 3. 배우
+yu_obj.actor = '키이라 나이틀리, 매슈 맥패디언, 켈리 멀리건';
+
+// 4. 장르
+yu_obj.genre= '로맨스/드라마';
+
+// 5. 관람가
+yu_obj.ratings = '12세';
+
+// 6. 예고편
+yu_obj.trailer = function(){
+    console.log('예고편:', 'r7wJ6HG7aCw');
+    // 플레이어 함수 호출!
+    playMovie('r7wJ6HG7aCw');
+}
+
 //이조은//
 // 자신만의 오브젝트!
 const zoe_obj = {};
@@ -378,3 +403,4 @@ tom_obj.trailer = function(){
     // 플레이어함수 호출!
     playMovie('G2zyFe4Z5w0');
 }
+
