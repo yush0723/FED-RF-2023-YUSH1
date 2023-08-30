@@ -22,36 +22,45 @@
                 "흙 맛만 봐도 보물을 찾아내는 타고난 천재 도굴꾼 강동구(이제훈).자칭 한국의 '인디아나 존스'로 불리는 고분벽화 도굴 전문가 존스 박사(조우진), 전설의 삽질 달인 삽다리(임원희)를 만나 환상(?)의 팀플레이를 자랑하며 위험천만하고도 짜릿한 도굴의 판을 키운다.",
             ];
 
-            /* 로딩구역 */
+            // 영화별 포스터 이미지 경로 객체
+            const img_src={
+                "조제":"https://t1.daumcdn.net/movie/f954c555d152096c5a3c77dab117fbe34ba65aa8",
+                "원더 우먼 1984":"https://t1.daumcdn.net/movie/b1720df6b54fb7632590d5d05edd986a28433c9b",
+                "도굴":"https://t1.daumcdn.net/movie/99a4d42206a028764e86c5bff8cf0021db985223",
+            }
+
+            // 로딩구역 /////
             window.addEventListener("DOMContentLoaded", loadFn);
             // DOM선택함수 ///
             const qs = (x) => document.querySelector(x);
-            // const qs = fuction(x) { return document.querySelector(x); }
+            // const qs = function(x){return document.querySelector(x);}
             const qsa = (x) => document.querySelectorAll(x);
 
-            /* 로딩함수 */
+            // 로딩함수 ////
             function loadFn() {
-                // 호출완료
-                // console.log("로딩완료!");
+                // 호출확인
+                console.log("로딩완료!");
 
-                // 1. 대상선정: 버튼들
-                // 1-1. 이벤트 대상: 버튼들 .btngo
+                // 1. 대상선정 :
+                // 1-1. 이벤트대상 : 버튼들 .btngo
                 const btns = qsa(".btngo");
-                // 1-2. 변경대상: 박스 .minfo
-                console.log('대상:', btns, minfo);
+                // 1-2. 변경대상 : 박스 .minfo
+                const minfo = qsa(".minfo");
+
+                console.log("대상:", btns, minfo);
 
                 // 2. 버튼 클릭 이벤트 설정
                 for (let x of btns) {
                     // x는 버튼 각 요소
-                    // console.log('x,너는 누구?',x);
+                    // console.log('x,너는누구?',x);
 
                     // 각 버튼에 클릭이벤트함수 설정!
                     x.onclick = () => {
-                        // console.log("나야나~!".x);
-                        // this를 사용말고 x를 사용하자
+                        // console.log("나야나~!", x);
+                        // this를 사용말고 x를 사용하자!
 
                         // 1. 버튼텍스트 가져오기
-                        // -> 버튼에 따른 배열데이터 선택 위해
+                        // -> 버튼에 따른 배열데이터 선택위해!
                         let btxt = x.innerText;
                         // console.log("버튼명:", btxt);
 
@@ -67,33 +76,90 @@
                             case "도굴":
                                 mv_info = mv3;
                                 break;
-                        }// switch case ////
+                        } ///////// switch case ////////
 
                         // 데이터 확인
-                        console.log('데이터:', mv_info, '/배열인가?', Array.isArray(mv_info));
+                        console.log("데이터:", mv_info, "/배열인가?", Array.isArray(mv_info));
 
                         // 3. 각 데이터 매칭하여 요소에 넣기
-                        // 변경대상: .minfo -> minfo변수
+                        // 변경대상 : .minfo -> minfo변수
                         // for of문을 사용하여 배열순회!
                         // 변경대상의 순번을 변수로 처리함
 
-                        // 변경대상 순번
+                        // 변경대상순번
                         let seq = 0;
 
-                        for(let y of mv_info){
+                        for (let y of mv_info) {
                             // console.log('배열순회:',y);
-                            // 대상에 순서대로 넣는다.
+                            // 대상에 순서대로 넣는다!
                             minfo[seq].innerText = y;
 
                             // 변경대상 순번증가
                             seq++;
-                        } // for of문 ///
+                        } /////////// for of문 ///////////
+                    }; //////// click이벤트함수 ///////
+                } //////// for of /////////////
+
+                /**********************************************************
+                    추가기능: .wrap박스에 마우스무브시
+                            포스터 이미지 포인터 따라다니기
+                **********************************************************/
+                // 1. 대상선정
+                // 1-1. 이벤트 대상: .wrap
+                const wrap = qs(".wrap");
+
+                // 1-2. 변경 대상: .flying-poster
+                const moving = qs(".flying-poster");
+
+                console.log("추가대상:", wrap, moving);
+
+                // 2. 이벤트 함수 구현하기
+                // 2-1. .wrap박스 위에 마우스무브시 따라오기
+                // 이벤트: mousemove
+                wrap.onmousemove = (e) => {
+                    // 이벤트 함수에 전달변수를 하나쓰면
+                    // 그 변수명이 무엇일 지라도 event객체가
+                    // 내부로 전달된다.
+                    // 이것으로 이벤트 관련 속성, 메서드 사용가능!
+                    // event라고 쓰면 오리지널 브라우저 이벤트 객체가
+                    // 호출되는 것임
+                    console.log(
+                        "X", e.pageX),
+                        "/Y", e.pageY;
+                    // console.log(
+                    //     "X", event.pageX,
+                    //     "/Y", event.pageY);
+                    // x,y 좌표값 구하기
+                    // 발생이벤트의 pageX, pageY로 구함
+                    // event.pageX / event.pageY
+                    // 전달변수를 하나 쓰고 예컨데 e라고 쓰고
+                    // 내부에 e.pageX / e.pageY로 사용!
+                    // pageX는 화면 왼쪽 끝에서 부터 px위치값
+                    // pageY는 화면 위쪽 끝에서 부터 px위치값
+                    // 내부에 e.pageX / e.pageY로 사용!
+
+                    // 변경대상의 style top, left값 변경하기
+                    moving.style.top = e.pageY + 'px';
+                    moving.style.left = e.pageX + 'px';
+                    
+                }; // mousemove 이벤트함수////
+
+                // 마우스가 경계선 안으로 들어갈 때: mouseenter
+                wrap.mouseenter = () => {
+                    // 포스터박스 배경이미지 셋팅하기
+                    moving.style.backgroundImage = `url(${img_src[minfo[0].innerText]})`;
+                    /* 포스터박스 보이기 */
+                    moving.style.display = 'block';
+                }; // mouseenter 이벤트함수 ////
+                
+                // 마우스가 경계선 밖으로 들어갈 때: mouseleave
+                wrap.mouseleave = () => {
+                    /* 포스터박스 보이기 */
+                    moving.style.display = 'none';
+                }; // mouseleave 이벤트함수 ////
 
 
-
-                    }; //// click이벤트 함수 ////
-                } // for of //////
-            } // loadFn 함수 /////
+            } ///////////// loadFn 함수 ////////////////
 
             /******************************************* 
                 [ for of 문 ]
@@ -139,6 +205,32 @@
 
             .wrap > div {
                 color: #444;
+            }
+
+            /* 따라다니는 포스터박스 */
+            .flying-poster {
+                position: fixed;
+                top: 0;
+                left: 0;
+                transform: translate(-50%,-50%);
+                /* 정중앙 이동 */
+
+                width: 200px;
+                height: 300px;
+                background: url(./images/ala1.jpg) no-repeat center/cover;
+                transition: .4s ease-out;
+                /* 트랜지션 ease-out을 줘야 처음 이동시 마우스포인터와 같은 속도로 자연스럽게 이동됨 */
+                display: none;
+
+                /* 
+                    포인터 이벤트 속성 
+                    pointer-events: auto;
+                    -> 아래쪽에 있는 요소 이벤트 발생
+                    pointer-events: none;
+                    -> none: 아래쪽에 있는요소 이벤트 무시함
+                    -> 따라다니는 요소 아래쪽 요소의 이벤트가 발생함
+                */
+                pointer-events: none;
             }
 
             h1,
@@ -193,6 +285,9 @@
             <!--3.영화스토리-->
             <h3>영화스토리</h3>
             <div class="minfo"></div>
+
+            <!-- 따라다니는 영화포스터 박스 -->
+            <div class="flying-poster"></div>
         </div>
     </body>
 </html>
