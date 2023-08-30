@@ -16,9 +16,8 @@ body > div > * {
 /* 1. 좌측 베너 */
 .leftBanner{
     position: fixed;
-    left: 50%;
+    left: 0%;
     top: 107px;
-    margin-left: -710px;
     text-align: center;
 }
 /************ 4. 메인영역: .group-part ************/
