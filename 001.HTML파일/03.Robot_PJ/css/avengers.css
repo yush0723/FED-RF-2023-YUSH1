@@ -9,22 +9,7 @@
     font-family: 'Single Day', cursive;
 */
 /* 기본 초기화 */
-html,
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ul,
-ol,
-dl,
-dt,
-dd,
-p,
-figure,
-figcaption {
+html,body,h1,h2,h3,h4,h5,h6,ul,ol,dl,dt,dd,p,figure,figcaption {
     margin: 0;
     padding: 0;
 }
@@ -90,7 +75,7 @@ body *{
     /* 부모박스 정중앙 */
     width: 300px;
     height: 400px;
-
+    scale: (1);
     border-radius: 50%;
     /* 바깥 글로우 */
     box-shadow: 0 0 50px cyan,
@@ -106,7 +91,9 @@ body *{
     top: calc(50% - 150px/2);
     left: calc(50% - 150px/2);
     /* 부모는? .avengers-box 정중앙 */
-    
+
+    /* 개별위치 이동값 */
+    transform: translate(-170%, -130%);
     width: 150px;
     height: 150px;
 }
@@ -115,15 +102,89 @@ body *{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%
     /* 
-        [ object-fit 속성 ]
+    [ object-fit 속성 ]
         -> 이미지나 동영상을 박스에 맞출때
         옵션을 설정해 주는 속성
         1. fill : 설정값에 강제적용(기본값)
         2. contain : 박스에 모두 보임
         3. cover : 박스를 비율에 맞게 채움
-            -> 빈틈없이 채우며 배경cover와
-            유사한 효과를 준다! 
-    */
+        -> 빈틈없이 채우며 배경cover와
+        유사한 효과를 준다! 
+        */
+    border-radius: 50%;
+    box-shadow: 0 0 20px 10px lightgreen;
+
+    
 }
+
+/* 어벤저스 설명박스 */
+.txt{
+    position: absolute;
+    top: 50%;
+    transform: translateY(25%);
+    /* transform: translateY(-50%); */
+    right: 110%;
+    width: 320px;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    background-color: rgb(255 255 255 / 46%);
+    border-radius: 15px;
+    text-shadow: 1px 1px 1px #000;
+    
+    /* 숨기기 설정 */
+    height: 0;
+    overflow: hidden;
+
+    /* 트랜지션 */
+    transition: .4s ease-in-out;
+}
+
+/* 상위박스 .hero오버시 설명보이기 */
+.hero:hover .txt{
+    height: 200px;
+    transform: translateY(-50%);
+}
+
+
+/* 패딩과 보더는 하위박스에 주고 완전히 숨기기 */
+.txt>div{
+    padding: 2rem;
+
+}
+
+/* 설명박스 위치 오른쪽 클래스 */
+.txt.right{
+    right: auto;
+    left:110%;
+
+}
+
+/* 캐릭터 타이틀 */
+.txt h3{
+    font-size: 2.5rem;
+    text-align: center;
+    color: cyan;
+}
+
+/* .hero 순서별 위치값 */
+.hero:nth-child(1){
+    transform: translate(-170, -110);
+}
+/* .hero 순서별 위치값 */
+.hero:nth-child(2){
+    transform: translate(-180, 130);
+}
+/* .hero 순서별 위치값 */
+.hero:nth-child(3){
+    transform: translate(0, 220);
+}
+/* .hero 순서별 위치값 */
+.hero:nth-child(4){
+    transform: translate(170, 110);
+}
+/* .hero 순서별 위치값 */
+.hero:nth-child(5){
+    transform: translate(170, -110);
+}
+

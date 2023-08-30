@@ -100,22 +100,3 @@ body{
 파트박스가 늘어날 경우 높이값에 제한을 받게 됨
 확장형은 반드시 파트박스에 높이값을 설정한다 */
 
-
-/* 클리어 가상요소 클래스 */
-.clb::after{
-    content: '';
-    display: block;
-    clear: both;
-}
-/* IR(Images Replacement) 
-- 배경이미지 설명 숨기기 클래스 */
-.ir{
-    display: block;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-}
-/* 화면출력 숨기기 클래스 */
-.blind{
-    display: none;
-}
