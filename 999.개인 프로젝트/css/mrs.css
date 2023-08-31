@@ -19,6 +19,8 @@ body > div > * {
     left: 0%;
     top: 107px;
     text-align: center;
+    z-index: 2;
+    background-color: #fff;
 }
 /************ 4. 메인영역: .group-part ************/
 #main {

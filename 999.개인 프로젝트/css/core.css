@@ -24,7 +24,9 @@ html{
     font-size: 10px;
     /* rem 단위를 위한 계산편의성 셋팅 + 전체 글자크기 제어 */
 }
-
+.wrap{
+    padding-left: 20vw;
+}
 /* 전체 글자체 적용 */
 body{
     font-family: "Noto Sans KR", Malgun Gothic, dotum, "돋움", Arial, AppleGothic, Sans-serif;
@@ -52,10 +54,11 @@ body{
     box-sizing: border-box;
     /* padding: 15px;  - 제외 */
     /* 임시 보이게 보더 */
-    border: 2px dotted blue;
+    border: 2px dashed blue;
     /* 높이값이 속박스에 있을 경우 
     채우기 셋팅 - 높이값이 파티션박스에 있으면 안씀*/
     height: 100%;
+    
 }
 /* 12 그리드 클래스: 한 줄에 합이 12컬럼이 되도록 셋팅! */
 .col-1 {
@@ -94,6 +97,15 @@ body{
 .col-12 {
     width: 100%;
 }
+/* 숨길 박스 */
+.col-none{
+    display: none;
+}
+/* 보일 박스 */
+.col-block{
+    display: block;
+}
+        
 
 /*  개별영역 박스 -> 확장형박스
 -> 개별영역 중앙속박스에 높이값을 주면
