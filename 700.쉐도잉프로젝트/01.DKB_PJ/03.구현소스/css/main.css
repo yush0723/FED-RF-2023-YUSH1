@@ -19,9 +19,35 @@ body > div > * {
     background: url(../img/bg_mainvisual.jpg) no-repeat center/auto 100%;
 
 }
-.banner .partbox {
-    height: 530px;
+
+/* 이미지 설명박스 - 캐릭터이름 이미지 */
+.img-box> img{
+
 }
+.img-box figcaption{
+    text-align: center;
+    margin-top: -20%;
+    /* 싸고 있는 박스 높이를 기준한 %F로 마진을 설정함
+    동적인 크기변경시 마진도 변경되어야 위치가 일정함 */
+}
+.img-box figcaption img{
+    width: 40%;
+}
+/* 마지막 이미지(진한글자) 숨기기 */
+.img-box figcaption img:last-child{
+    display: none;
+}
+/* 개별박스에 오버시 진한글자 보이기*/
+.catbox article:hover
+.img-box figcaption img:last-child{
+    display: inline;
+}
+/* 개별박스에 오버시 흐린글자 보이기*/
+.catbox article:hover
+.img-box figcaption img:first-child{
+    display: none;
+}
+/*  */
 
 /************ 3. 도께비메뉴 박스 ************/
 .dokebi-menu{
@@ -57,6 +83,7 @@ body > div > * {
     display: inline-block;
     transform: scale(.5,.3);
     margin-left: 3px;
+    bottom: 0;
 }
 /* 현재 선택된 메뉴 li.on 클래스 */
 .dokebi-menu ul> li.on > a{
@@ -65,11 +92,11 @@ body > div > * {
     border-radius: 30px;
 }
 
-/* 도께비 서브메뉴 */
+/* 도깨비 서브메뉴 */
 .dokebi-sub-menu{
     position: absolute;
     border: 1px solid red;
-    border-radius: 30px;
+    border-radius: 20px;
     width: 180px;
     background-color: #fff;
 
@@ -86,7 +113,57 @@ body > div > * {
     padding: 20px 15px;
     font-size: 1.6rem;
 }
-/************ 4. 메인영역: .group-part ************/
+
+/************ 4. 메인배너 ************/
+.cat-area{
+    position: relative;
+    /* 부모자격 */
+    aspect-ratio: 2/1;
+    /* 파트박스에 비율 만들기
+    -> height값 절대 주지 말것! */
+}
+.cat-box{
+    position: absolute;
+    bottom: 5%;
+    /* 플렉스박스 */
+    display: flex;
+    flex-wrap: wrap;
+    /* 진행방향 정렬 */
+    justify-content: center;
+
+    width: 100%;
+    margin: 0 auto;
+}
+/* 개별캐릭터 박스 */
+.cat-box article{
+    position: relative;
+    width: calc(95%/4);
+    /* 개별박스 비율 설정: height설정 안함! */
+    aspect-ratio: 2/1.2;
+    outline: 2px dash blue;
+}
+/* 캐릭터 컨텐츠 박스 */
+.cat-content{
+    position: absolute;
+    top: -100%;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    height: 200%;
+}
+.cat-content .part{
+    flex: 1;
+    /* 등분할 */
+}
+.img-box>img{
+    width: 100%;
+
+}
+/* 이미지박스 */
+.img-box{
+    height: 50%;
+}
+/************ 5. 메인영역: .group-part ************/
 #main {
     background-color: lightyellow;
 }
