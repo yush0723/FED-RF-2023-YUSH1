@@ -1,0 +1,182 @@
+@charset "utf-8";
+
+/* 큐브 애니메이션2 CSS - cube2.css */
+
+/* CSS 변수셋팅 */
+:root{
+    /* 큐브 공통크기 */
+    --box-width: 220px;
+    --box-height: 290px;
+    /* z축거리 */
+    --z-size: 25vh;
+}
+
+html,body{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: linear-gradient(40deg, rgb(199, 121, 208),  rgb(75, 192, 200),  #2b3074);
+-webkit-animation: huerotator 10s infinite alternate;
+animation: huerotator 10s infinite alternate;
+
+
+@keyframes huerotator {
+    0% {
+        -webkit-filter: hue-rotate(0deg);
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        -webkit-filter: hue-rotate(360deg);
+        filter: hue-rotate(360deg);
+    }
+}
+    height: 100vh;
+}
+/* 큐브를 직접 싸고 있는 대상 */
+/* 
+[ 전체 랩핑박스 : .wrap ]
+1. 화면고정필수(fixed)
+2. 화면과 같은 크기설정
+3. 스크롤 셋팅(랩핑박스에서 스크롤됨!)
+4. 원근설정(perspective)
+*/
+.wrap{
+    /* 1. 화면고정필수(fixed) */
+    position: fixed;
+    /* 2. 화면과 같은 크기설정 */
+    width: 100vw;
+    height: 90vh;
+    /* 3. 스크롤 셋팅 */
+    overflow: auto;
+    /* 4. 원근설정 */
+    perspective: 60vh;
+}
+
+/* preserve-3d 적용범위박스 + 높이값설정박스 */
+.content{
+    position: relative;
+    height: 200vh;
+    
+    /* 
+    [ 입체로 설정하기 ]
+    - 입체로 설정할 요소의 부모박스에
+    아래와 같이 설정해준다!
+    (부모는 싸고 있는 요소 또는 상위요소)
+    transform-style: preserve-3d
+    - 기본값은 flat : 2D
+    - preserve-3d : 3D
+    */
+    /* 원근 설정과 연결되는 3D설정! */
+    transform-style: preserve-3d;
+    
+}
+
+
+/* 큐브 */
+.cube{
+    position: absolute;
+    top: calc(70vh - var(--box-height)/2);
+    left: calc(50vw - var(--box-width)/2);
+    width: var(--box-width);
+    height: var(--box-height);
+
+    /* 하위 span을 위한 3D설정 */
+    transform-style: preserve-3d;
+   
+
+    /* 입체를 잘보이게 하기위해 약간 회전함 */
+    /* transform: rotateY(30deg); */
+
+    /* outline: 2px solid red; */
+}
+
+
+/* 큐브 각면 공통 */
+.cube span{
+    position: absolute;
+    /* 앱솔루트는 자동 block! */
+    width: 100%;
+    height: 100%;
+
+    /* 투명도 */
+    opacity: 0.99;
+    outline: 1px solid gray;
+}
+
+/* 1번 */
+.cube span:nth-child(1){
+    background: 
+    url('../images/1-1.PNG') no-repeat center/cover;
+
+    /* 화면방향 : z축 */
+    transform: 
+    translateZ(var(--z-size));
+}
+/* 2번 */
+.cube span:nth-child(2){
+    background: 
+    url('../images/1-2.PNG') no-repeat center/cover;
+
+    /* 화면방향 : z축 */
+    transform: rotateY(calc(60deg*1)) 
+    translateZ(var(--z-size));
+}
+/* 3번 */
+.cube span:nth-child(3){
+    background: 
+    url('../images/1-3.PNG') no-repeat center/cover;
+
+    /* 화면방향 : z축 */
+    transform: rotateY(calc(60deg*2)) 
+    translateZ(var(--z-size));
+}
+/* 4번 */
+.cube span:nth-child(4){
+    background: 
+    url('../images/1-4.PNG') no-repeat center/cover;
+
+    /* 화면방향 : z축 */
+    transform: rotateY(calc(60deg*3)) 
+    translateZ(var(--z-size));
+}
+/* 5번 */
+.cube span:nth-child(5){
+    background: 
+    url('../images/1-5.PNG') no-repeat center/cover;
+
+    /* 화면방향 : z축 */
+    transform: rotateY(calc(60deg*4)) 
+    translateZ(var(--z-size));
+}
+
+/* 6번 */
+.cube span:nth-child(6){
+    background: 
+    url('../images/1-6.PNG') no-repeat center/cover;
+
+    /* 화면방향 : z축 */
+    transform: rotateY(calc(60deg*5)) 
+    translateZ(var(--z-size));
+}
+
+/* 큐브회전 클래스 */
+.rotate-cube{
+    /* 애니메이션 */
+    animation: cube-ani 30s linear infinite;
+    /* 애니메이션 멈춤상태 */
+    /* animation-play-state: paused; */
+}
+/* 큐브회전 오버시 멈춤 */
+.rotate-cube:hover{
+    /* 애니메이션 작동상태 */
+    animation-play-state: paused;
+}
+
+/* 큐브회전 키프레임 */
+@keyframes cube-ani {
+    to{
+        transform: rotateY(-360deg);
+    }
+}
