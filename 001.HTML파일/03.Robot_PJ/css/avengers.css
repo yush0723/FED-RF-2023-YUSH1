@@ -28,6 +28,7 @@ body::before{
 html{
     /* rem단위를 위한 root 글자설정! */
     font-size: 10px;
+    scroll-behavior: smooth;
 }
 body{
     color: #fff;
@@ -68,6 +69,12 @@ body{
     transform: translateY(0) scale(1);
 }
 
+/* 두번째 페이지 타이틀 */
+.t2{
+    position: sticky;
+    top: 15vh;
+    font-family: 'Single Day', cursive;
+}
 /********** 개별요소 디자인 **********/
 .avengers-box{
     position: absolute;
@@ -209,4 +216,23 @@ body{
 .avengers-box.on .hero:nth-child(5){
     /* 개별위치이동값 */
     transform: translate(170%,-110%) rotateY(720deg);
+}
+
+.trailer{
+    position: relative;
+}
+.trailer-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: min(900px, 70%);
+    /* 비율설정 - 16:9 */
+    aspect-ratio: 16/9;
+    /* 비율설정할 땐 높이 설정x */
+}
+.trailer-box iframe{
+    width: 100%;
+    height: 100%;
+
 }
