@@ -8,32 +8,13 @@
     font-family: 'Monoton', cursive;
     font-family: 'Single Day', cursive;
 */
-/* 기본 초기화 */
-html,body,h1,h2,h3,h4,h5,h6,ul,ol,dl,dt,dd,p,figure,figcaption {
-    margin: 0;
-    padding: 0;
-}
 
-/* ul, ol 순번, 블릿없앰 */
-ul, ol{
-    list-style: none;
-}
-
-/* a요소 리셋 */
-a{
-    color: #fff;
-    text-decoration: none;
-}
-
-/* heading 요소 글자크기 */
-h1, h2, h3, h4, h5,h6{
-    font-size: 100%;
-    /* 박스 디자인시 글자크기로 인한 영향을 없애기 위한 초기화 */
-}
+/* 파일 합치기 */
+@import url(./reset.css);
 
 /* 전체 배경넣기 
-- 이유: ios에서 배경 fixed 미지원
-- 가상요소로 배경고정을 대신함 */
+- 가상요소로 배경고정을 대신함
+- 이유: ios에서 배경 fixed 미지원 */
 body::before{
     content: '';
     position: fixed;
@@ -45,17 +26,20 @@ body::before{
     background: url(../ab_img/space.jpg) no-repeat center/cover;
 }
 html{
-    /* rem단위를 위한 root 글자설정 */
+    /* rem단위를 위한 root 글자설정! */
     font-size: 10px;
 }
 body{
     color: #fff;
 }
 /* 공사중 */
-body *{
+/* body *{
     outline: 2px dashed yellow;
-}
-/************** 공통 클래스 **************/
+} */
+
+
+/*********** 공통 클래스 ***********/
+/* 페이지 클래스 */
 .page{
     position: relative;
     /* 부모자격 */
@@ -66,7 +50,25 @@ body *{
     font-size: 4rem;
 }
 
-/************** 개별요소 디자인 **************/
+/* 첫페이지 타이틀 */
+.t1{
+    font-family: "Monoton", cursive;
+    font-weight: normal;
+    font-size: 70px;
+    transform: translateY(5vh);
+}
+/* 하위 span */
+.t1 span{
+    transform: translateY(200%) scale(0);
+    display: inline-block;
+    transition: .4s ease-in;
+}
+/* 타이틀에 .on일 경우 등장속성변경 */
+.t1.on span{
+    transform: translateY(0) scale(1);
+}
+
+/********** 개별요소 디자인 **********/
 .avengers-box{
     position: absolute;
     /* 부모는? .page */
@@ -75,14 +77,24 @@ body *{
     /* 부모박스 정중앙 */
     width: 300px;
     height: 400px;
-    scale: (1);
+
     border-radius: 50%;
-    /* 바깥 글로우 */
-    box-shadow: 0 0 50px cyan,
-    /* 내부 글로우 */
+    box-shadow: 
+    /* 바깥글로우 */
+    0 0 50px 10px cyan,
+    /* 내부글로우 */
     inset 0 0 30px lightgreen;
 
     background: url(../ab_img/ab0.jpg) no-repeat center/cover;
+
+    /* 트랜스폼 처음에 안보임 */
+    transform: scale(0);
+    /* 트랜지션 */
+    transition: 2s ease-in-out;
+}
+/* 클래스 on을 주면 등장!!! */
+.avengers-box.on{
+    transform: scale(1);
 }
 
 /* 캐릭터 공통 */
@@ -90,48 +102,58 @@ body *{
     position: absolute;
     top: calc(50% - 150px/2);
     left: calc(50% - 150px/2);
-    /* 부모는? .avengers-box 정중앙 */
+    /* 부모는? .avengers-box 정중앙! */    
 
-    /* 개별위치 이동값 */
-    transform: translate(-170%, -130%);
     width: 150px;
     height: 150px;
+
+    /* 처음에 모두 안보임! */
+    opacity: 0;
+
+    /* 트랜지션 */
+    transition: 1s ease-in-out 2s;
+
 }
+
+/* 부모박스 .on 적용시 동시에 보이게함! */
+.avengers-box.on .hero{
+    opacity: 1;
+}
+
 /* 어벤저스 이미지 */
-.hero img{
+.hero img{    
     width: 100%;
     height: 100%;
     object-fit: cover;
     /* 
-    [ object-fit 속성 ]
+        [ object-fit 속성 ]
         -> 이미지나 동영상을 박스에 맞출때
         옵션을 설정해 주는 속성
         1. fill : 설정값에 강제적용(기본값)
         2. contain : 박스에 모두 보임
         3. cover : 박스를 비율에 맞게 채움
-        -> 빈틈없이 채우며 배경cover와
-        유사한 효과를 준다! 
-        */
+            -> 빈틈없이 채우며 배경cover와
+            유사한 효과를 준다! 
+    */
     border-radius: 50%;
+    /* 박스 글로우 */
     box-shadow: 0 0 20px 10px lightgreen;
-
-    
 }
 
 /* 어벤저스 설명박스 */
-.txt{
+.txt {
     position: absolute;
     top: 50%;
     transform: translateY(25%);
-    /* transform: translateY(-50%); */
+    /* translateY(-50%); */
     right: 110%;
     width: 320px;
-    font-size: 1.8rem;
-    line-height: 1.7;
+    font-size: 1.4rem;
+    line-height: 1.6;
     background-color: rgb(255 255 255 / 46%);
     border-radius: 15px;
     text-shadow: 1px 1px 1px #000;
-    
+
     /* 숨기기 설정 */
     height: 0;
     overflow: hidden;
@@ -140,24 +162,24 @@ body *{
     transition: .4s ease-in-out;
 }
 
-/* 상위박스 .hero오버시 설명보이기 */
+/* 상위박스 .hero오버시 설명 보이기
+어벤저스 박스에 .active가 부여된 후 오버작동함 */
+.avengers-box.active 
 .hero:hover .txt{
-    height: 200px;
+    height: 220px;
     transform: translateY(-50%);
 }
-
 
 /* 패딩과 보더는 하위박스에 주고 완전히 숨기기 */
 .txt>div{
     padding: 2rem;
-
 }
+
 
 /* 설명박스 위치 오른쪽 클래스 */
 .txt.right{
     right: auto;
-    left:110%;
-
+    left: 110%;
 }
 
 /* 캐릭터 타이틀 */
@@ -167,24 +189,24 @@ body *{
     color: cyan;
 }
 
-/* .hero 순서별 위치값 */
-.hero:nth-child(1){
-    transform: translate(-170, -110);
+/* .hero 순서별 위치값셋팅 */
+.avengers-box.on .hero:nth-child(1){
+    /* 개별위치이동값 */
+    transform: translate(-170%,-110%) rotateY(720deg);
 }
-/* .hero 순서별 위치값 */
-.hero:nth-child(2){
-    transform: translate(-180, 130);
+.avengers-box.on .hero:nth-child(2){
+    /* 개별위치이동값 */
+    transform: translate(-170%,110%) rotateY(720deg);
 }
-/* .hero 순서별 위치값 */
-.hero:nth-child(3){
-    transform: translate(0, 220);
+.avengers-box.on .hero:nth-child(3){
+    /* 개별위치이동값 */
+    transform: translate(0%,220%) rotateY(720deg);
 }
-/* .hero 순서별 위치값 */
-.hero:nth-child(4){
-    transform: translate(170, 110);
+.avengers-box.on .hero:nth-child(4){
+    /* 개별위치이동값 */
+    transform: translate(170%,110%) rotateY(720deg);
 }
-/* .hero 순서별 위치값 */
-.hero:nth-child(5){
-    transform: translate(170, -110);
+.avengers-box.on .hero:nth-child(5){
+    /* 개별위치이동값 */
+    transform: translate(170%,-110%) rotateY(720deg);
 }
-
