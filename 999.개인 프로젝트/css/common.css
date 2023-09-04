@@ -8,13 +8,13 @@
 
 /* 1-1. 로고박스 */
 .header__logo img{
-    margin-top: 35px;
-    width: 125px;
+    margin-top: 1vh;
+    width: 100px;
 }
 /* 1-2-1. 탑메뉴 */
 .top-menu ul{
     /* 플렉스박스 */
-    padding: 14px 16px 7px 0;
+    padding: 16px 16px 7px 0;
 }
 /* 탑메뉴 2번째 클릭시 이동이벤트 */
 .top-menu ul>li:nth-child(2)>a::after{
@@ -34,9 +34,9 @@
 }
 /* GNB메뉴 a */
 .gnb ul>li>a{
-    font-size: 1.6rem;
+    font-size: 0.6rem;
     display: block;
-    padding: 28px 16px;
+    padding: 18px 18px;
     /* 줄바꿈 방지 */
     white-space: nowrap;
 }

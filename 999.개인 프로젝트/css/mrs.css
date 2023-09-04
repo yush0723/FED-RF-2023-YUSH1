@@ -28,9 +28,9 @@ body > div > * {
 }
 /* 반송편성소개파트 */
 .main .group-part-01 .partbox {
-    height: 330px;
+    height: 40vw;
 }
 /* 미리보기파트 */
 .main .group-part-02 .partbox {
-    height: 330px;
+    height: 40vw;
 }
