@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Event Flow</title>     
+        <style>
+            body{
+                font-size: 5vw;
+                text-align: center;
+                padding-top: 5vw;
+            }
+            body>*{
+                box-sizing: border-box;
+            }
+            div {
+                width: 60vw;
+                background-color: #6e6e6e;
+                padding: 5vw;
+                margin: 5vw auto;
+            }
+            p {
+                width: 40vw;
+                background-color: #adadad;
+                padding: 5vw;
+            }
+            a {
+                display: block;
+                width: 30vw;
+                background-color: #ccc;
+                padding: 5vw;
+                border: #000 thin solid;
+            }
+        </style>
+        <!-- JS코딩구역 -->
+        <script>
+            // DOM 선택함수
+            const qs = x => document.querySelector(x);
+            const qsa = x => document.querySelectorAll(x);
+
+            // 로드 구역
+            window.addEventListener('DOMContentLoaded',loadFn);
+            // 로드함수
+            function loadFn(){
+                console.log('로딩완료');
+
+                // 아들방 (a요소) 클릭시
+                qs('a').onclick = (e) => {
+                    event.stopPropagation();
+                    event.currentTarget.style.backgroundColor='red';
+                    return false;
+                }
+
+                // 엄마집 (p요소) 클릭시 ///
+                qs('p').onclick = (e) => {
+                    // evnt.stopPropagation();
+                    event.currentTarget.style.backgroundColor='yellow';
+                }
+                
+                // 친척 (div요소) 클릭시 ///
+                qs('div').onclick = (e) => {
+                    event.currentTarget.style.backgroundColor='green';
+                }
+                
+                // 전국 (body요소) 클릭시 ///
+                qs('body').onclick = (e) => {
+                    event.currentTarget.style.backgroundColor='blue';
+                }
+
+
+
+            } // loadFn /////
+            /****************************************************
+            
+            ****************************************************/
+        </script>
+    </head>
+
+    <body>
+        대한민국전체
+        <div>
+            친척네집
+            <p>
+                엄마집
+                <a href="#">내방</a>
+            </p>
+        </div>
+
+
+    </body>
+</html>
