@@ -30,7 +30,6 @@
     display: flex;
     /* 진행방향정렬 */
     justify-content: left;
-    
 }
 /* GNB메뉴 a */
 .gnb ul>li>a{
