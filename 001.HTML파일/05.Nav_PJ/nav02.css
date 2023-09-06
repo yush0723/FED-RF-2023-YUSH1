@@ -116,7 +116,7 @@ body{
 }
 /* 5번째 메뉴부터 서브메뉴 위치변경하기 */
 .gnb>ul>li:nth-child(5) .smenu{
-    margin-left: 50px;
+    margin-left: -50px;
 }
 .gnb>ul>li:nth-child(6) .smenu{
     margin-left: -200px;
