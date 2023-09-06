@@ -8,43 +8,50 @@
 
 /* 1-1. 로고박스 */
 .header__logo img{
-    margin-top: 1vh;
+    margin-top: 10px;
     width: 100px;
 }
 /* 1-2-1. 탑메뉴 */
 .top-menu ul{
     /* 플렉스박스 */
-    padding: 16px 16px 7px 0;
+    display: flex;
+    /* 진행방향정렬 */
+    justify-content: flex-end;  
+    padding: 5px 5px 0;
 }
+
 /* 탑메뉴 2번째 클릭시 이동이벤트 */
-.top-menu ul>li:nth-child(2)>a::after{
-    content: '∨';
-    display: inline-block;
-    transform: scale(.5,.3);
-    margin-left: 3px;
-}
+
 
 /* 1-2-2 GNB메뉴 */
 .gnb ul{
     /* 플렉스박스 */
     display: flex;
     /* 진행방향정렬 */
-    justify-content: left;
+    justify-content: flex-end;
+    left: 0;
 }
 /* GNB메뉴 a */
 .gnb ul>li>a{
     font-size: 0.6rem;
     display: block;
-    padding: 18px 18px;
+    padding: 1.5vw;
     /* 줄바꿈 방지 */
     white-space: nowrap;
 }
 /* GNB 상위 li 오버시 a*/
 .gnb ul>li:hover>a{
-    color: red;
+    color: rgb(155, 149, 149);
 }
-
-
+.gnb ul>li:first-child>a::after{
+    content: '∨';
+    display: inline-block;
+    transform: scale(.5,.3);
+    margin-left: 3px;
+}
+.gnb ul>li:first-child:hover>a{
+    background-color: black;
+}
 
 /************ 2. 메인영역 ************/
 #main {

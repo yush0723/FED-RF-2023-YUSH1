@@ -11,21 +11,18 @@ body * {
     outline: 2px dashed #ccc;
 }
 body > div > * {
-    outline-color: red;
+    /* outline-color: red; */
 }
 /* 1. 좌측 베너 */
 .leftBanner{
     position: fixed;
-    left: 0%;
-    top: 107px;
-    text-align: center;
+    left: 1%;
+    top: 10px;
     z-index: 2;
     background-color: #fff;
 }
 /************ 4. 메인영역: .group-part ************/
-#main {
-    background-color: lightyellow;
-}
+
 /* 반송편성소개파트 */
 .main .group-part-01 .partbox {
     height: 40vw;
