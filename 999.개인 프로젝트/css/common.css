@@ -9,6 +9,7 @@
 /* 1-1. 로고박스 */
 .header__logo img{
     margin-top: 10px;
+    margin-bottom: 10px;
     width: 100px;
 }
 /* 1-2-1. 탑메뉴 */
@@ -17,7 +18,8 @@
     display: flex;
     /* 진행방향정렬 */
     justify-content: flex-end;  
-    padding: 5px 5px 0;
+    padding: 0 10px 10px;
+    width: 140px;
 }
 
 /* 탑메뉴 2번째 클릭시 이동이벤트 */
@@ -35,7 +37,8 @@
 .gnb ul>li>a{
     font-size: 0.6rem;
     display: block;
-    padding: 1.5vw;
+    text-align: center;
+    padding: 0px 10px 10px;
     /* 줄바꿈 방지 */
     white-space: nowrap;
 }

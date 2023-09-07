@@ -8,7 +8,7 @@
 
 /* 공사중 표시 */
 body * {
-    outline: 2px dashed #ccc;
+    /* outline: 2px dashed #ccc; */
 }
 body > div > * {
     /* outline-color: red; */
@@ -22,12 +22,14 @@ body > div > * {
     background-color: #fff;
 }
 /************ 4. 메인영역: .group-part ************/
-
-/* 반송편성소개파트 */
-.main .group-part-01 .partbox {
-    height: 40vw;
+.contents{
+    height: 3000px;
 }
-/* 미리보기파트 */
+
+.main .group-part-01 .partbox {
+    height: 30vw;
+}
+
 .main .group-part-02 .partbox {
-    height: 40vw;
+    height: 30vw;
 }
