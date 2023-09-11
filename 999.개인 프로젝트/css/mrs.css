@@ -22,14 +22,4 @@ body > div > * {
     background-color: #fff;
 }
 /************ 4. 메인영역: .group-part ************/
-.contents{
-    height: 3000px;
-}
 
-.main .group-part-01 .partbox {
-    height: 30vw;
-}
-
-.main .group-part-02 .partbox {
-    height: 30vw;
-}
