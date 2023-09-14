@@ -80,8 +80,8 @@ function loadFn(){
         let posx = e.pageX - gap;
         let posy = e.pageY - gap;
         // let posy = e.clientY - gap;
-        // -> 만약 .mover가 fixed포지션이면
-        // 브라우저 화면에서의 위치인 clientY를 사용한다.
+        // -> 만약 .mover가 fixed 포지션이면
+        // 브라우저 화면에서의 위치인 clientY를 사용한다!
 
         // 2.무버에 위치값 적용하기
         mover.style.top = posy + 'px';
@@ -95,25 +95,31 @@ function loadFn(){
 
     }; ///////// onmousemove //////////
 
-    // 이벤트 구역 들어올 때만 보이기/ 나가면 숨기기
+    // 이벤트 구역을 들어올때만 보이기 / 나가면 숨기기
     myBody.onmouseenter = () => {
-        mover.style.opacity = '1';
-    }
-    myBody.onmouseleave = () => {
-        mover.style.opacity = '0';
-    }
+        mover.style.opacity = 1;
+    }; ////////// mouseenter ////////////
 
-    // [3] a요소에 오버시 원 크게 만들기 ////
+    myBody.onmouseleave = () => {
+        mover.style.opacity = 0;
+    }; ////////// mouseleave ////////////
+
+    // [3] a요소에 오버시 원 크게만들기 /////
     // 대상: .link
     const link = qsa('.link');
-    console.log('링크:', link);
-    
-    // 한 번에 셋팅하기
+    console.log('링크:',link);
+
+    // 한번에 셋팅하기
     link.forEach(ele=>{
-        // a요소에 마우스 들어올 때
-        ele.onmouseenter = () => mover.style.transform = 'scale(2)';
-        // a요소에 마우스 나갈 때
-        ele.onmouseleave = () => mover.style.transform = 'scale(1)';
-    }); ///////forEach////////
+        // a요소에 마우스 들어올때
+        ele.onmouseenter = 
+        () => mover.style.transform = 'scale(2)';
+        // a요소에 마우스 나갈때
+        ele.onmouseleave = 
+        () => mover.style.transform = 'scale(1)';
+    }); /////////// forEach //////////
+
+
+
 
 } //////////// 로드함수 /////////////////////
