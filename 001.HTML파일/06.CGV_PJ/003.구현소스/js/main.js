@@ -88,9 +88,11 @@ const domFn = {
   // 2-1. 맵버튼 클릭시
   domFn.addEvt(btnMap,'click',()=>{
     gmap.classList.add('on');
+    document.body.classList.add('on');
   }); //////// click이벤트함수 ////////
   
   // 2-2. 닫기버튼 클릭시
   domFn.addEvt(cbtn,'click',()=>{
     gmap.classList.remove('on');
+    document.body.classList.remove('on');
   }); //////// click이벤트함수 ////////
