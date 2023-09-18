@@ -1,3 +1,35 @@
+Skip to content
+tombap8
+/
+FED-RF-2023-TOM
+
+Type / to search
+
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+BreadcrumbsFED-RF-2023-TOM/001.HTML학습/06.CGV_PJ/003.구현소스/css
+/reset.css
+Go to file
+t
+Latest commit
+tombap8
+tombap8
+ss
+9797458
+ · 
+2 weeks ago
+History
+File metadata and controls
+
+Code
+
+Blame
+46 lines (40 loc) · 1.29 KB
 @charset "utf-8";
 /* CGV PJ 초기화 CSS - reset.css */
 /* 기본셋팅됭 요소 디자인 초기화 */
@@ -44,3 +76,4 @@ h1,h2,h3,h4,h5,h6{
     %글자단위는 em과 같으므로 만약 부모박스에
     글자크기가 지정되면 그 크기를 기준한다! */
 }
+FED-RF-2023-TOM/001.HTML학습/06.CGV_PJ/003.구현소스/css/reset.css at main · tombap8/FED-RF-2023-TOM
