@@ -9,7 +9,7 @@ const qsa = (x) => document.querySelectorAll(x);
 const addEvt = (ele, evt, fn) => ele.addEventListener(evt, fn);
 
 // HTML태그 로딩후 loadFn함수 호출! ///
-addEvt(window, "DOMContentLoaded", loadFn);
+addEvt(window,"DOMContentLoaded", loadFn);
 
 /******************************************** 
  * 
@@ -99,8 +99,5 @@ function loadFn() {
         if(!ele.isSameNode(slide[snum]))
             ele.classList.remove("on");
     }); ///////// forEach //////////////
-
-
-
   } /////////// goSlide 함수 //////////
 } /////////////// loadFn 함수 //////////////
