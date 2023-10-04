@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* 움직이는 폰 + 무한글자이동 css - iphone.css */
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+/* font-family: 'Anton', sans-serif; */
+
+/* 변수설정 */
+:root{
+    /* 폰 가로크기 */
+    --phone-width:200px;
+    /* 폰 세로크기 */
+    --phone-hight:400px;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: 
+    linear-gradient(to bottom, #fff 20%,skyblue 40%,#fff);
+
+    /* 보이는 화면 높이값 채우기 */
+    height: 100vh;
+    /* 넘치는 자식요소 숨기기 */
+    overflow: hidden;
+}
+
+/* 폰박스 */
+.iphone{
+    /* 위치정중앙 */
+    position: absolute;
+    top: calc(50% - var(--phone-hight));
+    left: calc(50% - var(--phone-width));
+    width: var(--phone-width);
+    height: var(--phone-hight);
+
+    outline: 2px solid blue;
+}
+
+/* 폰 각면 공통 */
+.iphone span{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+}
