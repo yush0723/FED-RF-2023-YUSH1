@@ -219,7 +219,7 @@ dFn.addEvt(selBox2, "change", function () {
 ///////////////////////////////////////////
 // 3. 객체 데이터 배열의 정렬 //////////////
 ///////////////////////////////////////////
-// (1) 데이터
+// (1) 데이터 : 객체데이터 배열
 const list1 = [
   {
     idx: 8,
@@ -249,10 +249,12 @@ console.log(list1);
 const showList3 = dFn.qs(".showList3");
 
 // (2) html 코드 생성하여 출력하는 함수 만들기
-const upCode = () => {
+// upCode 함수를 공통으로 파라미터 처리함 /////
+const upCode = (data,exBox) => {
+  // data - 객체데이터배열 / exBox - 출력할요소
   // 반복코드 만들기
   // 대상코드 : list1 배열
-  let hcode = list1.map(
+  let hcode = data.map(
     (val) => `
       <tr>
           <td>${val.idx}</td>
@@ -264,7 +266,7 @@ const upCode = () => {
   // console.log('새로운배열:',hcode);
 
   // 테이블 생성코드 넣기
-  showList3.innerHTML = `
+  exBox.innerHTML = `
     <table>
       <thead>
         <tr>
@@ -281,7 +283,7 @@ const upCode = () => {
 }; //////////// upCode 함수 //////////////
 
 // (3) 요소에 데이터 코드 넣기 함수호출 : 기본출력
-upCode();
+upCode(list1,showList3);
 
 // (4) 정렬변경 이벤트 발생시 실제 정렬 변경하기 ///
 // 이벤트 대상: .sel3
@@ -289,24 +291,40 @@ const sel3 = dFn.qs(".sel3");
 // 정렬기준 대상: .cta3
 const cta3 = dFn.qs(".cta3");
 
-// 이벤트 설정하기 ////
+// sel3 이벤트 설정하기 ////
+// 데이터와 출력 타겟부터 설정후 정렬함수 호출!
+dFn.addEvt(sel3, "change", ()=>{
+  targetData = list1;
+  targetEle = showList3;
+}); /////// change ///////////
 dFn.addEvt(sel3, "change", sortingFn);
+
+// 정렬변경함수의 데이터 및 출력요소 셋팅변수
+let targetData = list1;
+let targetEle = showList3;
 
 // 정렬변경 함수 만들기 ///
 function sortingFn() {
-  // 1. 선택값 담기
+  // 1. 선택값 담기 : 오름차순(1), 내림차순(2)
   let optVal = this.value;
+
+  console.log('앞에누구?',this.previousElementSibling);
+  // this -> 콤보박스자신
+  // 앞에있는 형제요소 선택 : this.previousElementSibling
+  // 뒤에있는 형제요소 선택 : this.nextElementSibling
   
-  // 2. 정렬기준값 읽기
-  let cta = cta3.value;
+  // 2. 정렬기준값 읽기 : 
+  // -> idx, tit, cont (객체데이터 배열의 속성명)
+  // let cta = cta3.value;
+  let cta = this.previousElementSibling.value;
   
   console.log("바꿔! 정렬!", optVal,cta);
 
   // 2. 분기하기
-  // 데이터 대상: list1 배열
+  // 데이터 대상: targetData 배열
   if (optVal == 1) {
     // 오름차순
-    list1.sort((a, b) => {
+    targetData.sort((a, b) => {
       // a,b는 모두 객체 데이터
       // 따라서 내부 속성을 구체적으로 비교함!
       // idx,tit,cont 세가지 중 하나로 비교
@@ -315,7 +333,7 @@ function sortingFn() {
   } //// if //////
   else if (optVal == 2) {
     // 내림차순
-    list1.sort((a, b) => {
+    targetData.sort((a, b) => {
       // a,b는 모두 객체 데이터
       // 따라서 내부 속성을 구체적으로 비교함!
       // idx,tit,cont 세가지 중 하나로 비교
@@ -323,8 +341,57 @@ function sortingFn() {
     });
   } //// else if //////
 
-  console.log(list1);
+  console.log(targetData);
 
-  // 리스트 코드 반영하기
-  upCode();
+  // 리스트 코드 반영하기 : 대상데이터,출력요소는
+  // 호출시 설정된 것으로 셋팅됨!
+  upCode(targetData,targetEle);
+
+  console.log('타겟데이터:',targetData,
+  '\n타겟요소:',targetEle);
 } ////////// sortingFn 함수 /////////
+
+//////////////////////////////////////////////
+////////////// 배열의 검색 !!! ////////////////
+//////////////////////////////////////////////
+
+// 4. 객체데이터 검색후 배열의 정렬 ////////////
+
+// 출력대상: showList4
+const showList4 = dFn.qs('.showList4');
+// console.log(showList4);
+
+// (1) 데이터 : 객체 데이터 배열
+const list2 = [
+  {
+      idx: 15,
+      tit: "당근마켓에 가자",
+      cont: "당근마켓이 정말로 싸고 좋다구~!",
+  },
+  {
+      idx: 74,
+      tit: "점심에 뭐먹지?",
+      cont: "오스틴님 생일 서포트 안내",
+  },
+  {
+      idx: 18,
+      tit: "직돌이는 쉬고싶다~!",
+      cont: "활동정지에 대한 파생글 무통보 삭제 및 경고",
+  },
+  {
+      idx: 104,
+      tit: "올해는 다른 회사로 이직한다!",
+      cont: "⚜️갈라콘 서포트에 많은 참여 부탁드립니다!",
+  },
+]; /////////////// list2 /////////////     
+
+// 위의  upCode() 함수를 호출하여 페이지 찍기
+upCode(list2,showList4);
+
+// sel4 이벤트 설정하기 ////
+// 데이터와 출력 타겟부터 설정후 정렬함수 호출!
+dFn.addEvt(sel4, "change", ()=>{
+  targetData = list2;
+  targetEle = showList4;
+}); /////// change ///////////
+dFn.addEvt(sel4, "change", sortingFn);
