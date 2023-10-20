@@ -3,9 +3,9 @@ import myData from "./data.js";
 import myData2 from "./data2.js";
 
 // 두개의 데이터를 배열로 구성
-console.log('여성의류',myData2);
+const twoData = [myData, myData2];
 
-// console.log('데이터:', twoData);
+// console.log('데이터:',twoData);
 
 // 메인 컴포넌트 /////////////////
 // 메인의 의미는? 다른 구성요소 컴포넌트들을 모아
@@ -13,11 +13,10 @@ console.log('여성의류',myData2);
 function MainComponent() {
 
 
-  // 데이터 변경호출 함수 /////
+  // 데이터 변경호출 함수 //////////
   const chgData = () => {
     console.log('바꿔~!');
-  }; // chgData함수 /////
-
+  }; //////// chgData함수 ///////////
 
   return (
     <React.Fragment>
@@ -57,4 +56,5 @@ function GoodsCode() {
 } /////////// GoodsCode //////////////////
 
 // 메인컴포넌트 출력하기 //////////
-ReactDOM.render(<MainComponent />, document.querySelector("#root"));
+ReactDOM.render(<MainComponent />, 
+document.querySelector("#root"));
