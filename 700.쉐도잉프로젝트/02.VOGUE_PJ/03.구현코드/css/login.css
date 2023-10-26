@@ -6,220 +6,170 @@
 @import url(core.css);
 @import url(common.css);
 
-/********* 2-1. 카테고리 페이지 상단영역 *********/
-/* 2-1-1.서브타이틀 */
-.cat-tit{
+/* 컨텐츠 영역 속박스 */
+.main-area{
+    min-height: 600px;
+    padding: 15px;
+}
+
+
+/* 2-1-1. 서브타이틀 */
+.stit {
     font-family: pist;
     font-weight: normal;
     font-size: 50px;
     text-align: center;
-    padding: 40px 0 20px;
+    padding: 40px 0 20px;    
 }
 
-/* 2-1-2.서브메뉴(LNB:Local Navigation Bar) */
-.lnb{
-    padding: 5px 0 50px;
+/* 2-2. 서브 컨텐츠 박스 */
+.scont{
+    position: relative;
+    /* 부모자격 - .btnbx */
+    max-width: 700px;
+    min-height: 275px;
+    margin: 0 auto;
+    border: 2px solid #737373;
+    border-radius: 10px;
+    /* 크기유지 */
+    box-sizing: border-box;
+    padding: 60px 15px;
+    background-color: #fff;
 }
-.lnb ul{
-    /* 플렉스박스 */
-    display: flex;
-    /* 플렉스중앙정렬 */
-    justify-content: center;
-    /* 사이간격 */
-    gap: 0 20px;
+
+/* 입력창 공통라벨 */
+.minput label {
+    display: inline-block;
+    width: 150px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    line-height: 36px;
+    /* outline: 2px solid red; */
 }
-.lnb a{
-    font-family: nbg;
+
+/* 입력양식공통 */
+.minput input {
+    width: 320px;
+    height: 36px;
+    border: 1px solid #777;
+    border-radius: 5px;
     font-size: 18px;
-    color: #333;
-    /* 트랜지션 */
-    transition: color .5s;
-}
-/* 첫번째메뉴 + 오버시 빨간색 글자 */
-.lnb li:first-child a,
-.lnb a:hover{
-    color: red;
+    padding-left: 5px;
+    /* 크기유지 */
+    box-sizing: border-box;
+    color: #666;
 }
 
-/********* 2-2. 카테고리 페이지 컨텐츠영역 *********/
-
-/******************** fashion ********************/
-.fashion .bg1-1{
-    background-image: url(../images/fashion/cont1-1a.jpg);
-}
-.fashion .bg1-2{
-    background-image: url(../images/fashion/cont1-2a.jpg);
-}
-.fashion .bg1-3{
-    background-image: url(../images/fashion/cont1-3a.jpg);
-}
-.fashion .bg2-1{
-    background-image: url(../images/fashion/cont2-1a.jpg);
-}
-.fashion .bg2-2{
-    background-image: url(../images/fashion/cont2-2a.jpg);
-}
-.fashion .bg2-3{
-    background-image: url(../images/fashion/cont2-3a.jpg);
+/* 비밀번호박스 */
+.scont div:nth-child(2) {
+    margin-top: 20px;
 }
 
-
-/******************** beauty ********************/
-.beauty .bg1-1{
-    background-image: url(../images/beauty/cont1-1a.jpg);
-}
-.beauty .bg1-2{
-    background-image: url(../images/beauty/cont1-2a.jpg);
-}
-.beauty .bg1-3{
-    background-image: url(../images/beauty/cont1-3a.jpg);
-}
-.beauty .bg2-1{
-    background-image: url(../images/beauty/cont2-1a.jpg);
-}
-.beauty .bg2-2{
-    background-image: url(../images/beauty/cont2-2a.jpg);
-}
-.beauty .bg2-3{
-    background-image: url(../images/beauty/cont2-3a.jpg);
+/* 포커스 아웃라인 제거
+모든 브라우저에 기본 포커스 아웃라인 셋팅됨! */
+input:focus {
+    outline: none;
 }
 
-/******************** living ********************/
-.living .bg1-1{
-    background-image: url(../images/living/cont1-1a.jpg);
-}
-.living .bg1-2{
-    background-image: url(../images/living/cont1-2a.jpg);
-}
-.living .bg1-3{
-    background-image: url(../images/living/cont1-3a.jpg);
-}
-.living .bg2-1{
-    background-image: url(../images/living/cont2-1a.jpg);
-}
-.living .bg2-2{
-    background-image: url(../images/living/cont2-2a.jpg);
-}
-.living .bg2-3{
-    background-image: url(../images/living/cont2-3a.jpg);
+/* 버튼영역 */
+.btnbx {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    /* 부모는? .scont */
 }
 
-/******************** people ********************/
-.people .bg1-1{
-    background-image: url(../images/people/cont1-1a.jpg);
-}
-.people .bg1-2{
-    background-image: url(../images/people/cont1-2a.jpg);
-}
-.people .bg1-3{
-    background-image: url(../images/people/cont1-3a.jpg);
-}
-.people .bg2-1{
-    background-image: url(../images/people/cont2-1a.jpg);
-}
-.people .bg2-2{
-    background-image: url(../images/people/cont2-2a.jpg);
-}
-.people .bg2-3{
-    background-image: url(../images/people/cont2-3a.jpg);
+/* 서브밋 버튼 */
+#sbtn {
+    width: 113px;
+    height: 92px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    /* 그라데이션
+    배경이미지에서 셋팅
+    linear-gradient(방향,색1,색2,...) */
+    background-image: linear-gradient(to bottom, #ddd, #555);
+    color: #fff;
+    text-shadow: 1px 1px #555;
+    font-size: 15px;
 }
 
-/******************** video ********************/
-.video .bg1-1{
-    background-image: url(../images/video/cont1-1a.jpg);
-}
-.video .bg1-2{
-    background-image: url(../images/video/cont1-2a.jpg);
-}
-.video .bg1-3{
-    background-image: url(../images/video/cont1-3a.jpg);
-}
-.video .bg2-1{
-    background-image: url(../images/video/cont2-1a.jpg);
-}
-.video .bg2-2{
-    background-image: url(../images/video/cont2-2a.jpg);
-}
-.video .bg2-3{
-    background-image: url(../images/video/cont2-3a.jpg);
+/* 기타체크링크 박스 */
+.addbx {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 16px;
 }
 
-/******************** runway ********************/
-.runway .bg1-1{
-    background-image: url(../images/runway/cont1-1a.jpg);
-}
-.runway .bg1-2{
-    background-image: url(../images/runway/cont1-2a.jpg);
-}
-.runway .bg1-3{
-    background-image: url(../images/runway/cont1-3a.jpg);
-}
-.runway .bg2-1{
-    background-image: url(../images/runway/cont2-1a.jpg);
-}
-.runway .bg2-2{
-    background-image: url(../images/runway/cont2-2a.jpg);
-}
-.runway .bg2-3{
-    background-image: url(../images/runway/cont2-3a.jpg);
+/* 체크박스 영역 */
+.addbx span {
+    margin: 0 15px;
+    color: #555;
 }
 
-/******************** shopping ********************/
-.shopping .bg1-1{
-    background-image: url(../images/shopping/cont1-1a.jpg);
-}
-.shopping .bg1-2{
-    background-image: url(../images/shopping/cont1-2a.jpg);
-}
-.shopping .bg1-3{
-    background-image: url(../images/shopping/cont1-3a.jpg);
-}
-.shopping .bg2-1{
-    background-image: url(../images/shopping/cont2-1a.jpg);
-}
-.shopping .bg2-2{
-    background-image: url(../images/shopping/cont2-2a.jpg);
-}
-.shopping .bg2-3{
-    background-image: url(../images/shopping/cont2-3a.jpg);
+/* 체크박스 라벨과 세로정렬 */
+.addbx input {
+    vertical-align: -2px;
 }
 
-/******************** shopping ********************/
-.shopping .bg1-1{
-    background-image: url(../images/shopping/cont1-1a.jpg);
-}
-.shopping .bg1-2{
-    background-image: url(../images/shopping/cont1-2a.jpg);
-}
-.shopping .bg1-3{
-    background-image: url(../images/shopping/cont1-3a.jpg);
-}
-.shopping .bg2-1{
-    background-image: url(../images/shopping/cont2-1a.jpg);
-}
-.shopping .bg2-2{
-    background-image: url(../images/shopping/cont2-2a.jpg);
-}
-.shopping .bg2-3{
-    background-image: url(../images/shopping/cont2-3a.jpg);
+/* 기타링크 */
+.addbx a {
+    margin: 0 15px;
+    color: #222;
+    text-decoration: none;
 }
 
-/******************** time-gem ********************/
-.time-gem .bg1-1{
-    background-image: url(../images/time-gem/cont1-1a.jpg);
+/* 추가링크 영역바 */
+.bar{
+    font-weight: normal;
+    /* b요소 기본 두껍게 해제 */
 }
-.time-gem .bg1-2{
-    background-image: url(../images/time-gem/cont1-2a.jpg);
+/* 모바일용 바(.bar1), 줄바꿈(.brk)숨기기 */
+.bar1,.brk{
+    display: none;
 }
-.time-gem .bg1-3{
-    background-image: url(../images/time-gem/cont1-3a.jpg);
+
+/* 미디어쿼리 690px 이하 시작 */
+@media screen and (max-width:690px) {
+
+    /* 입력창 공통라벨 */
+    .minput label {
+        display: block;
+        width: auto;
+    }
+
+    /* 입력양식공통 */
+    .minput input {
+        width: 100%;
+    }
+
+    /* 버튼영역 */
+    .btnbx {
+        position: static;
+    }
+
+    /* 서브밋 버튼 */
+    #sbtn {
+        width: 100%;
+        height: 50px;
+        margin-top: 50px;
+    }
+
+    /* 추가링크박스 */
+    .addbx{
+        line-height: 2.5;
+    }
+
+    /* 추가링크 바숨기기 */
+    .bar2{
+        display: none;
+    }
+    /* 추가링크 바,줄바꿈 보이기 */
+    .bar1,.brk{
+        display: inline;
+    }
 }
-.time-gem .bg2-1{
-    background-image: url(../images/time-gem/cont2-1a.jpg);
-}
-.time-gem .bg2-2{
-    background-image: url(../images/time-gem/cont2-2a.jpg);
-}
-.time-gem .bg2-3{
-    background-image: url(../images/time-gem/cont2-3a.jpg);
-}
+
+/* 미디어쿼리 690px 이하 끝 */
