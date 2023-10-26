@@ -81,6 +81,17 @@ function setValue(){
         lnb.html(`<ul>${retMenu()}</ul>`);
     } ///// else //////
 
+    // 5-4. 서브 섹션 타이틀 넣기 
+    // $(선택자).each((순번,요소)=>{구현부})
+    // 대상: .cat-cont-area h2
+    $('.cat-cont-area h2').each((idx,ele)=>{
+        $(ele).html(selData.타이틀[idx]);
+    }); ////////////// each /////////////
 
-
+    // 5-5. 탭메뉴 타이틀 
+    // 형식: 카테고리명 | 보그 코리아 (Vogue Korea) 2023
+    // 제이쿼리 prepend() 메서드 사용
+    // -> 자식요소 또는 내용의 맨 앞에 넣기!
+    $('title').prepend(pm.toUpperCase() +' | ');
+    // toUpperCase() - 대문자로 변경
 } ////////////// setValue 함수 ///////////
