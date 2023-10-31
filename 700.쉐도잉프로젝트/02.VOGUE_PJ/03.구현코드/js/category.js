@@ -1,91 +1,84 @@
-// 보그 PJ 카테고리 페이지 JS - main.js
+// 보그 PJ - 공통 모듈 JS : common.js
 
-// 카테고리 데이터 불러오기 : 어서써 타입 제이슨
-import catData from './data/category_data.json';
+// DOM 메서드
+import dFn from './dom.js';
 
-///////////////////////////////////////////
-// 카테고리 페이지 기능구현하기 /////////////
-// 요구사항: url로 전달된 키값을 읽어서
-// 페이지의 데이터를 셋팅한다!
-///////////////////////////////////////////
+// 상단,하단 공통 데이터 불러오기
+import tData from './data/com_module.js';
 
-// 1. 전체 url 읽기
-let pm = location.href;
-console.log(pm);
-
-// 값처리함수 호출하기
-setValue();
+// 부드러운 스크롤 모듈
+import { startSS, setPos } from "./smoothScroll23.js";
 
 
-// 값셋팅하기 함수 ////////
-function setValue(){
-    // 2. url에서 키값분리하기
-    // ?(물음표)가 Get방식의 시그널이므로
-    // 이것의 존재여부로 문자자르기를 실행한다!
-    // =(이퀄)기호도 같이 확인함
-    try{
-        if(pm.indexOf('?')==-1||
-            pm.indexOf('=')==-1){
-            throw '잘못된 접근입니다!';
-        } ///// if //////
-    
-    } //////// try ////////////
-    catch(err){ // err 메시지 받기
-        // 에러메시지 띄우기
-        alert(err);
-        // 메인 페이지로 보내기
-        location.href='index.html';        
-    } ///////// catch //////////
+// [1] 상단/하단 공통 모듈 넣기 ////////
 
-    // 3. url키값 추출하기
-    pm = pm.split('?')[1].split('=')[1];
-    // 특수문자 변환하기 : time & gem 때문
-    pm = decodeURIComponent(pm);
-    console.log('최종키값:',pm);
+// 대상선정: .common-area
+const comArea = dFn.qsa('.common-area');
 
-    // 4. 카테고리 데이터 매칭하기
-    // 제이슨 파일 객체 데이터에서 속성으로 선택함
-    const selData = catData[pm];
-    console.log('선택데이터:',selData);
+// console.log(tData,comArea);
 
-    // 5. 데이터 바인딩하기
-    // 5-1. 배경이미지 셋팅을 위한 main요소에 클래스넣기
-    // pm에 담아놓은 이름으로 넣어준다!
-    // 대상: .main-area
-    // ' & ' -> '-'로 변경하기 : time-gem 로 변경
-    $('.main-area').addClass(pm.replace(' & ','-'));
+// 상단영역 html 넣기
+comArea[0].innerHTML = tData.topArea;
+// 하단영역 html 넣기
+comArea[1].innerHTML = tData.footerArea;
 
-    // 5-2. 카테고리 타이틀 변경하기
-    $('.cat-tit').text(selData.제목);
+// 모바일 메뉴버튼 요소 추가로 넣기 : .top-area 맨끝추가
+comArea[0].innerHTML += tData.mobtn;
+// 모바일 메뉴 박스 추가로 넣기 : #top-area 맨끝추가
+comArea[0].parentElement.innerHTML += tData.mobx;
 
-    // 5-3. 메뉴 변경하기
-    // 5-3-1.대상: .lnb
-    let lnb = $('.lnb');
-    // 5-3-2.메뉴데이터: selData.메뉴
-    let mData = selData.메뉴;
-    // 5-3-3.메뉴리턴함수
-    const retMenu = () => 
-    mData.map(v=>`<li><a href="#">${v}</a></li>`).join('');
 
-    // 5-3-4.메뉴 없음에 따라 분기하기 ////
-    if(mData=='없음'){ // lnb없애기
-        lnb.remove();
-    } /////// if //////
-    else{ // 메뉴 만들기
-        lnb.html(`<ul>${retMenu()}</ul>`);
-    } ///// else //////
 
-    // 5-4. 서브 섹션 타이틀 넣기 
-    // $(선택자).each((순번,요소)=>{구현부})
-    // 대상: .cat-cont-area h2
-    $('.cat-cont-area h2').each((idx,ele)=>{
-        $(ele).html(selData.타이틀[idx]);
-    }); ////////////// each /////////////
+// [2] 부드러운 스크롤 적용 //////////
+startSS();
 
-    // 5-5. 탭메뉴 타이틀 
-    // 형식: 카테고리명 | 보그 코리아 (Vogue Korea) 2023
-    // 제이쿼리 prepend() 메서드 사용
-    // -> 자식요소 또는 내용의 맨 앞에 넣기!
-    $('title').prepend(pm.toUpperCase() +' | ');
-    // toUpperCase() - 대문자로 변경
-} ////////////// setValue 함수 ///////////
+// [3] 탑메뉴, 탑버튼 스크롤시 변경 적용하기 /////
+
+// 스크롤 메뉴 적용대상: #top-area
+const topArea = $('#top-area');
+
+// 탑버튼 : .tbtn
+const tbtn = $('.tbtn');
+
+$(window).scroll(()=>{
+    // 세로방향 스크롤 위치값
+    let scTop = $(window).scrollTop();
+    // console.log('스크롤~~~~!',scTop);
+
+    // 1.스크롤 위치값이 100을 초과하면 
+    //  슬림 상단 클래스넣기
+    if(scTop>100) topArea.addClass('on');
+    else topArea.removeClass('on');
+
+    // 2. 맨위로 이동버튼 300초과시 보이고
+    //     300미만일때 숨기기
+    // 대상: .tbtn
+    if(scTop>300) tbtn.addClass('on');
+    else tbtn.removeClass('on');  
+}); ///////// scroll /////////////
+
+// 맨위로 버튼 클릭시 맨위로 가기 //
+// 부드러운 스크롤 사용하므로 그쪽함수를 이용함!
+tbtn.click((e)=>{
+    // 1.a요소 기본이동막기
+    e.preventDefault();
+    // 2.부드러운 스크롤 위치값 변경(0으로)
+    setPos(0);
+    console.log('나클릭!');
+}); /////////// click //////////
+
+/////////////////////////////////////////////////////
+//// 모바일 버튼 클릭시 메뉴박스/검색박스 보이기/숨기기//
+/////////////////////////////////////////////////////
+// 대상: .hbtn(햄버거버튼) / .sbtn(검색버튼)
+// 요구사항: 햄버거 버튼은 #mobx 보이기/숨기기
+//          검색버튼은 .mos 보이기/숨기기
+// 제이쿼리 메서드 : click(), slideToggle()
+$('.hbtn').click(()=>$('#mobx').slideToggle(300));
+$('.sbtn').click(()=>$('.mos').slideToggle(300));
+
+// 토글이라는 말은 두가지를 전환하는 버튼을 말함
+// 제이쿼리에 있는 토글 메서드:
+// toggle() -> show() / hide() 전환
+// slideToggle() -> slideDown() / slideUp() 전환
+// fadeToggle() -> fadeIn() / fadeOut() 전환
