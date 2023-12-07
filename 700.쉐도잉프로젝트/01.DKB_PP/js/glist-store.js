@@ -87,8 +87,8 @@ const store = new Vuex.Store({
                 // v.idx 는 현재 카트에 있는 아이템 idx
                 // dt.gdata[pm].idx 는 입력하려는 새로운 아이템 idx
                 if(v.idx == dt.gdata[pm].idx){
-                    alert("이미 선택하신 상품입니다!^^");
-                    save = false;
+                    alert("중복된 일정 수도 있습니다.");
+                    save = true;
                 } ////// if //////////
 
             }); /////////// forEach //////////
@@ -235,7 +235,7 @@ const store = new Vuex.Store({
                 // 지울 아이템과 같으면
                 if(v.idx==pm){
                     // 지울것인지 물어봄(확인시 true/취소시 false)
-                    if(confirm("정말정말정말로 지우겠습니까? 할인도하는데?")){
+                    if(confirm("정말로 목록을 삭제하시겠습니까?")){
                         org.splice(i,1);
                     }
                 }
@@ -298,21 +298,12 @@ const store = new Vuex.Store({
             let rec = org.map((v,i)=> 
                 `
                     <tr>
-                        <!--상품이미지-->
-                        <td>
-                            <img 
-                            src="${
-                'images/goods/'+v.cat+'/'+v.ginfo[0]+'.png'
-                            }" 
-                            style="width:50px"
-                            alt="item">
-                        </td>
                         <!-- 번호 : 리스트순서번호 -->
                         <td>${i+1}</td>
+                        <!--상품이미지-->
+                        <td> <img src="${'images/goods/'+v.cat+'/'+v.ginfo[0]+'.png'}" style="width:50px" alt="item"> </td>
                         <!--상품명-->
                         <td>${v.ginfo[1]}</td>
-                        <!--상품코드-->
-                        <td>${v.ginfo[2]}</td>
                         <!--단가-->
                         <td>${v.ginfo[3]}</td>
                         <!--수량-->
@@ -380,10 +371,9 @@ const store = new Vuex.Store({
                         <h1> 카트 리스트</h1> 
                     </caption>
                     <tr>
-                        <th>상품</th>
-                        <th>번호</th>
-                        <th>상품명</th>
-                        <th>상품코드</th>
+                        <th>비고</th>
+                        <th>사진</th>
+                        <th>이름</th>
                         <th>단가</th>
                         <th>수량</th>
                         <th>합계</th>

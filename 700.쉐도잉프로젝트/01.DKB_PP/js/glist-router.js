@@ -8,19 +8,24 @@ let Glist = {
         <section>
             <!-- 필터옵션 체크박스구역 -->
             <div id="optbx">
-                <label for="men">남성</label>
+                <label for="men">관광지</label>
                 <input type="checkbox" id="men"
                 v-model="$store.state.chkarr[0]"
                 @change="$store.commit('resCheck')">
 
-                <label for="women">여성</label>
+                <label for="women">음식점</label>
                 <input type="checkbox" id="women"
                 v-model="$store.state.chkarr[1]"
                 @change="$store.commit('resCheck')">
 
-                <label for="style">스타일</label>
+                <label for="style">카페</label>
                 <input type="checkbox" id="style"
                 v-model="$store.state.chkarr[2]"
+                @change="$store.commit('resCheck')">
+
+                <label for="style">기타</label>
+                <input type="checkbox" id="style"
+                v-model="$store.state.chkarr[3]"
                 @change="$store.commit('resCheck')">
             </div>
 
@@ -33,7 +38,8 @@ let Glist = {
                     v-if="
                         v.cat==$store.state.selnm[0] ||
                         v.cat==$store.state.selnm[1] ||
-                        v.cat==$store.state.selnm[2]                    
+                        v.cat==$store.state.selnm[2] ||
+                        v.cat==$store.state.selnm[3]                  
                     "
                     @click="$store.commit('setBtn')"
                 
@@ -136,6 +142,18 @@ let Paging = {
             $store.commit('updatePaging',20)">
                 3
             </a>
+            | 
+            <a href="#" 
+            @click.prevent="
+            $store.commit('updatePaging',30)">
+                4
+            </a>
+            | 
+            <a href="#" 
+            @click.prevent="
+            $store.commit('updatePaging',40)">
+                5
+            </a>
         </div>
     </section>
 `,
@@ -207,85 +225,75 @@ const Detail = {
         <!-- 큰이미지 박스 -->
         <div id="imbx">
             <div class="inx">
+                
                 <!-- 큰 이미지 -->
                 <section class="gimg">
-                    <img class="magnify" 
-
-                    v-bind:src="
-                    'images/goods/'+
-
-                    <!-- 카테고리명(men/women/style) -->
-                    $store.state.gdata[$route.params.id-1].cat+
-
-                    '/'+
-                    
-                    <!-- 이미지명(클래스명) -->
-                    $store.state.gdata[$route.params.id-1].ginfo[0]+
-                    
-                    '.png'
-                    " alt="큰 이미지">
-
-                    <div class="small">
-                        <a href="#">
-
-                        <img v-for="v in 6" 
-
-                        v-bind:src="
-
-                        'images/goods/'+
-
-                        <!-- 카테고리명(men/women/style) -->
-                        $store.state.gdata[$route.params.id-1].cat+
-
-                        '/m'+v+'.png'
-
-                        " alt="작은 이미지"></a>
-                    </div>
+                <img class="magnify" 
+                
+                v-bind:src="
+                'images/goods/'+
+                
+                <!-- 카테고리명(men/women/style) -->
+                $store.state.gdata[$route.params.id-1].cat+
+                
+                '/'+
+                
+                <!-- 이미지명(클래스명) -->
+                $store.state.gdata[$route.params.id-1].ginfo[0]+
+                
+                '.png'
+                " alt="큰 이미지">
+                
+                <div class="small">
+                <a href="#">
+                
+                <img v-for="v in 6" 
+                
+                v-bind:src="
+                
+                'images/goods/'+
+                
+                <!-- 카테고리명(men/women/style) -->
+                $store.state.gdata[$route.params.id-1].cat+
+                
+                '/m'+v+'.png'
+                
+                " alt="작은 이미지"></a>
+                </div>
                 </section>
                 <!-- 이미지 설명 -->
                 <section class="gdesc scbar">
-                    
-                    <!--상품 정보 영역-->
-                    <h1>HOME &gt; WOMEN &gt; DRESS</h1>
-                    <div>
-                        <ol>
-                            <li>
-                                <img src="images/dx_ico_new-28143800.gif" alt="new버튼">
-                            </li>
-                            <li id="gtit">상품명 :
+                
+                <!--상품 정보 영역-->
+                <h1>HOME &gt; WOMEN &gt; DRESS</h1>
+                <div>
+                <ol>
+                <li>
+                    <img src="images/hot_icon.png" alt="hot버튼" style="width: 50px;">
+                </li>
+                
+                <li id="gtit">
 
                             {{$store.state.gdata[$route.params.id-1].ginfo[1]}}
                             
                             </li>
                             <li>
-                                <img src="images/icon_type02_social01.gif" alt="페이스북"><img
-                                    src="images/icon_type02_social02.gif" alt="트위터"><img src="images/icon_mail02.gif"
-                                    alt="이메일"><img src="images/btn_source_copy.gif" alt="URL복사">
+                            
                             </li>
                             <li>
-                                <span>판매가</span>
+                                <span>최저가</span>
                                 <span id="gprice">
-
+                                
                                 {{$store.state.gdata[$route.params.id-1].ginfo[3]}}
-
+                                
                                 </span>
                             </li>
+                            
                             <li>
-                                <span>적립금</span>
-                                <span><img src="images/icon_my_m02.gif" alt="적립금">4,950(5%적립)</span>
-                            </li>
-                            <li>
-                                <span>무이자할부</span>
+                                <span>평점/ 방문자수</span>
                                 <span>부분 무이자 할부 혜택 <img src="images/view_btn_nointerest_card.gif" alt="무이자카드보기"></span>
                             </li>
-                            <li>
-                                <span>상품코드</span>
-                                <span id="gcode">
-                                
-                                {{$store.state.gdata[$route.params.id-1].ginfo[2]}}
-                                
-                                </span>
-                            </li>
+                            
                             <li>
                                 <span>사이즈</span>
                                 <span>95 100 105 110</span>
@@ -304,14 +312,7 @@ const Detail = {
                                     </b>
                                 </span>
                             </li>
-                            <li>
-                                <span>컬러</span>
-                                <span></span>
-                            </li>
-                            <li>
-                                <span>권장계절</span>
-                                <span>여름</span>
-                            </li>
+                          
                             <li class="tot">
                                 <span>총합계</span>
                                 <span id="total">
@@ -323,13 +324,12 @@ const Detail = {
                     </div>
                     <div>
                         <!--버튼영역-->
-                        <button class="btn btn1">BUY NOW</button>
                         <button class="btn scbtn"
                         @click="$store.commit('setData',$route.params.id-1)"
-                        >SHOPPING CART</button>
+                        >일정 추가하기</button>
                         <button class="btn"
                         @click="$store.commit('clearData')"
-                        >CLEAR CART</button>
+                        >일정 초기화</button>
 
                     </div>
                 </section>
