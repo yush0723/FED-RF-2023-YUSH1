@@ -12,7 +12,6 @@ const comData = {
         </h1>
         <!-- 1-2.GNB메뉴 : 3개(배너,하단제외) -->
         <nav class="gnb">
-            All ITEMS LIST
             <ul>                
                 <li>
                     <router-link to="/glist">
@@ -20,12 +19,12 @@ const comData = {
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/paging">
+                    <router-link to="/glist">
                         지역
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/more">
+                    <router-link to="/glist">
                         분류
                     </router-link>
                 </li>

@@ -344,15 +344,13 @@ const router = new VueRouter({
             path: "/glist",
             component: Glist,
         },
-        // 2. 페이징 리스트
         {
-            path: "/paging",
-            component: Paging,
+            path: "/glist",
+            component: Glist,
         },
-        // 3. 모어 리스트
         {
-            path: "/more",
-            component: More,
+            path: "/glist",
+            component: Glist,
         },
         // 4. 상세보기 : 파라미터 필요! - 상품구분 idx로사용
         {
