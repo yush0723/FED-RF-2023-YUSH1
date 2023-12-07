@@ -16,17 +16,17 @@ const comData = {
             <ul>                
                 <li>
                     <router-link to="/glist">
-                        Filter List
+                        인기
                     </router-link>
                 </li>
                 <li>
                     <router-link to="/paging">
-                        Paging List
+                        지역
                     </router-link>
                 </li>
                 <li>
                     <router-link to="/more">
-                        More List
+                        분류
                     </router-link>
                 </li>
             </ul>

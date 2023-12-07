@@ -13,7 +13,7 @@ html,body{
 }
 body{
     font-family: 'Nanum Gothic','Ubuntu', sans-serif;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(162, 209, 228);
 }
 #info{
     height: 50vh;
@@ -37,7 +37,7 @@ body{
     justify-content: center;
 }
 .gnb li a{
-    background-color: rgb(143, 143, 143);
+    background-color: rgb(196, 54, 54);
     padding: 5px;
     border-radius: 4px;
 }
