@@ -271,32 +271,33 @@ const Detail = {
                 <li>
                     <img src="images/hot_icon.png" alt="hot버튼" style="width: 50px;">
                 </li>
-                
-                <li id="gtit">
-
-                            {{$store.state.gdata[$route.params.id-1].ginfo[1]}}
-                            
-                            </li>
-                            <li>
-                            
-                            </li>
+                            /* 이름 */
+                            <li id="gtit"> {{$store.state.gdata[$route.params.id-1].ginfo[1]}} </li>
                             <li>
                                 <span>최저가</span>
-                                <span id="gprice">
-                                
-                                {{$store.state.gdata[$route.params.id-1].ginfo[3]}}
-                                
-                                </span>
+                                <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[3]}} </span>
+                            </li>
+                            <li>
+                                <span>지역</span>
+                                <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[3]}} </span>
+                            </li>
+                            <li>
+                                <span>분류</span>
+                                <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[3]}} </span>
+                            </li>
+                            <li>
+                                <span>평점</span>
+                                <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[4]}} </span>
+                            </li>
+
+                            <li>
+                                <span>방문수</span>
+                                <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[5]}} </span>
                             </li>
                             
                             <li>
-                                <span>평점/ 방문자수</span>
-                                <span>부분 무이자 할부 혜택 <img src="images/view_btn_nointerest_card.gif" alt="무이자카드보기"></span>
-                            </li>
-                            
-                            <li>
-                                <span>사이즈</span>
-                                <span>95 100 105 110</span>
+                                <span>비고</span>
+                                <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[5]}} </span>
                             </li>
                             <li>
                                 <span>구매수량</span>
