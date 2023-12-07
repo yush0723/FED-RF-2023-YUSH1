@@ -419,7 +419,7 @@ const store = new Vuex.Store({
             // (5) td css 넣기
             .find("td")
             .css({
-                padding:"13px 0",
+                padding:"10px 0",
                 borderTop:"1px solid #555",
                 textAlign:"center",
             })
