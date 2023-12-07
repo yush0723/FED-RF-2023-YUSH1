@@ -27,14 +27,6 @@ const store = new Vuex.Store({
                 // 카테고리명
                 cat: "style",
             },
-            네무: {
-                // 스타일메뉴
-                menu: ["SPECIAL SUMMER STYLE", "GOLF LIFE", "CAMPING STYLE", "SPORT STYLE"],
-                // 배너개수
-                cnt: 5,
-                // 카테고리명
-                cat: "nemu",
-            },
         },
         // 공통처리 메뉴 변수
         menu: [],
