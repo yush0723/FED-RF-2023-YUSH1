@@ -271,7 +271,7 @@ const Detail = {
                 <li>
                     <img src="images/hot_icon.png" alt="hot버튼" style="width: 50px;">
                 </li>
-                            /* 이름 */
+                            
                             <li id="gtit"> {{$store.state.gdata[$route.params.id-1].ginfo[1]}} </li>
                             <li>
                                 <span>최저가</span>

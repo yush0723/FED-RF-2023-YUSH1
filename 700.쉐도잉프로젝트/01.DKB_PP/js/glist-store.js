@@ -368,7 +368,7 @@ const store = new Vuex.Store({
                 </a>
                 <table>
                     <caption>
-                        <h1> 카트 리스트</h1> 
+                        <h1> 나의 일정</h1> 
                     </caption>
                     <tr>
                         <th>비고</th>
