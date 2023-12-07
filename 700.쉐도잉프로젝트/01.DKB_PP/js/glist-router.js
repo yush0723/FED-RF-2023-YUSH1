@@ -53,7 +53,7 @@ let Glist = {
                         './images/goods/'+
                         v.cat +
                         '/'+v.ginfo[0]+'.png'  
-                        " alt="dress" />
+                        " alt="Tokyo" />
                     <aside>
                         <h2>{{v.ginfo[1]}}</h2>
                         <h3>{{v.ginfo[3]}}</h3>
@@ -107,7 +107,7 @@ let Paging = {
                     './images/goods/'+
                     v.cat +
                     '/'+v.ginfo[0]+'.png'  
-                    " alt="dress" />
+                    " alt="Tokyo" />
                 <aside>
                     <h2>{{v.ginfo[1]}}</h2>
                     <h3>{{v.ginfo[3]}}</h3>
@@ -182,7 +182,7 @@ let More = {
                     './images/goods/'+
                     v.cat +
                     '/'+v.ginfo[0]+'.png'  
-                    " alt="dress" />
+                    " alt="Tokyo" />
                 <aside>
                     <h2>{{v.ginfo[1]}}</h2>
                     <h3>{{v.ginfo[3]}}</h3>
@@ -260,7 +260,7 @@ const Detail = {
                 <section class="gdesc scbar">
                 
                 <!--상품 정보 영역-->
-                <h1>HOME &gt; WOMEN &gt; DRESS</h1>
+                <h1>HOME &gt; WOMEN &gt; Tokyo</h1>
                 <div>
                 <ol>
                 <li>
