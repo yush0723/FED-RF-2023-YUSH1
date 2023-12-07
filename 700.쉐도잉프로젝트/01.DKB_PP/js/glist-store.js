@@ -198,7 +198,7 @@ const store = new Vuex.Store({
             })
             .delay(3000) // 3초지연
             .animate({ // 왼쪽위이동, 작아짐
-                top:"5%",
+                top:"7%",
                 left:"80%",
                 width:"50px",
             },1000,"easeInExpo")

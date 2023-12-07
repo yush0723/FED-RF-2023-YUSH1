@@ -12,7 +12,6 @@ const comData = {
         </h1>
         <!-- 1-2.GNB메뉴 : 3개(배너,하단제외) -->
         <nav class="gnb">
-            All ITEMS LIST
             <ul>                
                 <li>
                     <router-link to="/glist">
