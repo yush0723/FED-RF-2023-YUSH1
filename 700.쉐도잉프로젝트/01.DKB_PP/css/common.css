@@ -8,13 +8,14 @@
     width: 100%;
     z-index: 9999;
     /* 맨위! */
-    background-color: rgba(0, 0, 0, .1);
+    background-color: rgba(162, 209, 228, 0.5);
     font-family: UB;/* Ubuntu체 */
 }
 
 /* 상단영역 속박스 */
 .top {
     position: relative;
+    
     /* 부모자격 */
 }
 
@@ -60,76 +61,6 @@
     color: aqua;
 }
 
-/* 햄버거버튼 */
-.ham {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 3%;
-    /* 부모는? .top */
-    width: 40px;
-    height: 25px;
-    /* outline: 1px solid red; */
-    cursor: pointer;
-    /* 손가락모양 */
-    z-index: 99999;/* .gbx보다위! */
-}
-
-/* 햄버거 막대 span공통 */
-.ham span {
-    position: absolute;
-    width: 100%;
-    height: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 4px #777;/* 박스그림자 */
-    /* 트랜지션 */
-    transition: all .4s ease-out;
-}
-
-/* 햄버거 막대 개별위치이동 */
-/* 1번막대 */
-.ham span:nth-child(1) {
-    top: 0;
-}
-
-/* 2번막대 */
-.ham span:nth-child(2) {
-    top: 10px;
-    left: -50%;
-    /* 트랜지션 때문에 초기값필요!(기본값이 auto라서!) */
-}
-/* 오버시 2번막대 이동! */
-.ham:hover span:nth-child(2) {    
-    left: 0;
-}
-
-
-/* 3번막대 */
-.ham span:nth-child(3) {
-    top: 20px;
-}
-
-/* .ham에 class="on"을 주면 span막대 변경하기 */
-
-/* 1번막대 : 중앙이동+시계방향45도회전 */
-.ham.on span:nth-child(1) {
-    top: 10px;
-    transform: rotate(45deg);
-    box-shadow: none;
-}
-
-/* 2번막대 : left위치 중앙이동+width는0 */
-.ham.on span:nth-child(2) {
-    width: 0;
-    left: 50%;
-}
-
-/* 3번막대 : 중앙이동+반시계방향45도회전 */
-.ham.on span:nth-child(3) {
-    top: 10px;
-    transform: rotate(-45deg);
-    box-shadow: none;
-}
 
 /*********** 전체메뉴 ************/
 .mbox{
@@ -151,7 +82,7 @@
     width: 100%;
     height: 100%;
     background-color: #000;
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 /* 메뉴중앙박스 */
