@@ -341,15 +341,15 @@ const router = new VueRouter({
         // 1. 필터 리스트
         {
             path: "/glist",
-            component: Glist,
+            component: Glist1,
         },
         {
             path: "/glist",
-            component: Glist,
+            component: Glist2,
         },
         {
             path: "/glist",
-            component: Glist,
+            component: Glist3,
         },
         // 4. 상세보기 : 파라미터 필요! - 상품구분 idx로사용
         {
