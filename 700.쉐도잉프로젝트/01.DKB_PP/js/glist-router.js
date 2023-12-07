@@ -23,7 +23,7 @@ let Glist = {
                 v-model="$store.state.chkarr[2]"
                 @change="$store.commit('resCheck')">
 
-                <label for="style">기타</label>
+                <label for="nemu">기타</nemu>
                 <input type="checkbox" id="style"
                 v-model="$store.state.chkarr[3]"
                 @change="$store.commit('resCheck')">
@@ -265,7 +265,7 @@ const Detail = {
                 <section class="gdesc scbar">
                 
                 <!--상품 정보 영역-->
-                <h1>HOME &gt; WOMEN &gt; DRESS</h1>
+                <h1>HOME &gt; JAPAN &gt; TOKYO</h1>
                 <div>
                 <ol>
                 <li>

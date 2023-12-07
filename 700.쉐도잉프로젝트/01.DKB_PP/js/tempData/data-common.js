@@ -23,6 +23,9 @@ const comData = {
                 <li>
                     <a href="#style">STYLE</a>
                 </li>
+                <li>
+                    <a href="#nemu">nemu</a>
+                </li>
             </ul>
         </nav>
 
