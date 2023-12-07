@@ -23,10 +23,6 @@ let Glist = {
                 v-model="$store.state.chkarr[2]"
                 @change="$store.commit('resCheck')">
 
-                <label for="style">기타</label>
-                <input type="checkbox" id="style"
-                v-model="$store.state.chkarr[3]"
-                @change="$store.commit('resCheck')">
             </div>
 
             <!-- 상품리스트박스 -->
@@ -38,8 +34,7 @@ let Glist = {
                     v-if="
                         v.cat==$store.state.selnm[0] ||
                         v.cat==$store.state.selnm[1] ||
-                        v.cat==$store.state.selnm[2] ||
-                        v.cat==$store.state.selnm[3]                  
+                        v.cat==$store.state.selnm[2]                 
                     "
                     @click="$store.commit('setBtn')"
                 
