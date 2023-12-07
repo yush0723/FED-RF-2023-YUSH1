@@ -437,8 +437,6 @@ const store = new Vuex.Store({
             .find("caption")
             .css({                    
                 padding:"20px 0",
-                textDecoration:"underline",
-                textDecorationStyle:"wavy",
                 fontSize:"30px",
             })
 
