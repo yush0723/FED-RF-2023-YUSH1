@@ -195,6 +195,7 @@ const store = new Vuex.Store({
                 transform:"translate(-50%,-50%)",
                 cursor:"pointer",
                 zIndex:"9999999",
+                
             })
             .delay(3000) // 3초지연
             .animate({ // 왼쪽위이동, 작아짐
@@ -394,12 +395,12 @@ const store = new Vuex.Store({
             `) ///// html ////////
             // (2)카트박스 CSS넣기
             .css({
-                position: "fixed",
+                position: "absolute",
                 top:"0",
                 right: pm,//"-60vw",
                 width:"60vw",
-                height:"100vh",
-                backgroundColor:"rgba(255,255,255,.8)",
+                height:"1500px",
+                backgroundColor:"rgba(255,255,255,.9)",
                 zIndex:"99999999",
             })
             // (3) 등장애니메이션

@@ -33,9 +33,6 @@ new Vue({
         // 메뉴기능실행
         menuFn();
 
-        // 로고이동기능
-        $("#logo").click(() => (location.href = "index.html"));
-
         // 페이지 로딩시 로컬스 데이터
         // cart에 데이터가 있으면
         // 카트 이미지버튼 보여주기

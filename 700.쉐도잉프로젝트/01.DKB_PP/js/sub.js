@@ -209,9 +209,6 @@ new Vue({
             sc_pos = newpos;
         }); //////////// click /////////
 
-        // 로고 클릭시 첫페이지로 이동!!!
-        $("#logo").click(() => (location.href = "index.html"));
-
         // 상품 클릭시 상세보기 정보 셋팅하여 보이기
         $(".flist a").click(function(e){
             // 0. 기본이동막기

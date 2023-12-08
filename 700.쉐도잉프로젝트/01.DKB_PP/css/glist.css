@@ -55,7 +55,7 @@ body{
 /* 옵션박스 */
 #optbx{
     position: relative;
-    top: 9vw;
+    top: 9.5vw;
     max-width: 800px;
     margin: 0 auto;
     border: 1px solid #000;
@@ -120,7 +120,7 @@ body{
 
     /* 비율박스 셋팅 : 
             이미지 가로/세로 크기비율임! */
-    aspect-ratio: 280 / 400;
+    aspect-ratio: 400 / 400;
 
     /* 이미지 확대시 넘치는 이미지 숨기기 */
     overflow: hidden;
@@ -142,7 +142,7 @@ body{
     width: 100%;
     text-align: center;
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.422);
+    background-color: rgba(0, 0, 0, 0.274);
 }
 /* 상품명 글자박스(h2) */
 .grid aside h2 {
@@ -387,10 +387,6 @@ body{
     transition: transform 0.3s;
 }
 
-/* 닫기버튼 오버시 */
-.cbtn:hover {
-    transform: rotate(-90deg);
-}
 
 /* 큰 이미지박스 */
 #imbx h1{
@@ -499,9 +495,6 @@ body{
     cursor: pointer;
     border-radius: 15px;
 }
-.btn1{/*구매버튼*/
-	background-color: #ff4e08;
-}
 
 /*상세이미지 박스*/
 .dimgs{
@@ -556,3 +549,4 @@ body{
     background-color: #ddd;
     border-radius: 5px;
 }
+

@@ -6,7 +6,7 @@ const comData = {
     <header class="top ibx">
         <!-- 1-1.로고 -->
         <h1 id="logo">
-            <a href="#">
+            <a>
                 <img src="images/main_logo.png" alt="파일럿로고" />
             </a>
         </h1>
