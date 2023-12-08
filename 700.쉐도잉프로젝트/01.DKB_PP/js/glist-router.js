@@ -137,18 +137,6 @@ let Paging = {
             $store.commit('updatePaging',20)">
                 3
             </a>
-            | 
-            <a href="#" 
-            @click.prevent="
-            $store.commit('updatePaging',30)">
-                4
-            </a>
-            | 
-            <a href="#" 
-            @click.prevent="
-            $store.commit('updatePaging',40)">
-                5
-            </a>
         </div>
     </section>
 `,
@@ -270,11 +258,11 @@ const Detail = {
                             <li id="gtit"> {{$store.state.gdata[$route.params.id-1].ginfo[1]}} </li>
                             <li>
                                 <span>1인 기준</span>
-                                <span id="gcode"> {{$store.state.gdata[$route.params.id-1].ginfo[3]}} </span>
+                                <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[3]}} </span>
                             </li>
                             <li>
                                 <span>방문수</span>
-                                <span id="gcode"> {{$store.state.gdata[$route.params.id-1].ginfo[2]}} </span>
+                                <span id="gname"> {{$store.state.gdata[$route.params.id-1].ginfo[2]}} </span>
                             </li>
                             <li>
                                 <span>인수</span>

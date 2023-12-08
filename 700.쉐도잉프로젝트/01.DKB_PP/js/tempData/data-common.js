@@ -144,7 +144,6 @@ const comData = {
     </header>
 
     `,
-
 }; ///////////////// comData //////////////
 
 
