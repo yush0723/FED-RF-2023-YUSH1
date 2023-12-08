@@ -261,11 +261,11 @@ const Detail = {
                                 <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[3]}} </span>
                             </li>
                             <li>
-                                <span>방문수</span>
+                                <span>누적 방문자</span>
                                 <span id="gname"> {{$store.state.gdata[$route.params.id-1].ginfo[2]}} </span>
                             </li>
                             <li>
-                                <span>인수</span>
+                                <span>인 수</span>
                                 <span>
                                     <input type="text" id="sum" value="1">
                                     <!--
@@ -280,7 +280,7 @@ const Detail = {
                             </li>
                           
                             <li class="tot">
-                                <span>총합계</span>
+                                <span>최종 금액</span>
                                 <span id="total">
                                 {{$store.state.gdata[$route.params.id-1].ginfo[3]}}
                                 </span>
