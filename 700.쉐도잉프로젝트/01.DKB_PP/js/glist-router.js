@@ -265,6 +265,14 @@ const Detail = {
                                 <span id="gname"> {{$store.state.gdata[$route.params.id-1].ginfo[2]}} </span>
                             </li>
                             <li>
+                                <span>별점</span>
+                                <span id="gname"> {{$store.state.gdata[$route.params.id-1].ginfo[4]}} </span>
+                            </li>
+                            <li>
+                                <span>간단한 소개</span>
+                                <span id="gname"> {{$store.state.gdata[$route.params.id-1].ginfo[5]}} </span>
+                            </li>
+                            <li>
                                 <span>인 수</span>
                                 <span>
                                     <input type="text" id="sum" value="1">
