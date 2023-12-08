@@ -52,7 +52,7 @@ let Glist = {
                         v-bind:src="
                         './images/goods/'+
                         v.cat +
-                        '/'+v.ginfo[0]+'.png'  
+                        '/'+v.ginfo[0]+'.jpg'  
                         " alt="Tokyo" />
                     <aside>
                         <h2>{{v.ginfo[1]}}</h2>
@@ -106,7 +106,7 @@ let Paging = {
                     v-bind:src="
                     './images/goods2/'+
                     v.cat +
-                    '/'+v.ginfo[0]+'.png'  
+                    '/'+v.ginfo[0]+'.jpg'  
                     " alt="Tokyo" />
                 <aside>
                     <h2>{{v.ginfo[1]}}</h2>
@@ -169,7 +169,7 @@ let More = {
                     v-bind:src="
                     './images/goods3/'+
                     v.cat +
-                    '/'+v.ginfo[0]+'.png'  
+                    '/'+v.ginfo[0]+'.jpg'  
                     " alt="Tokyo" />
                 <aside>
                     <h2>{{v.ginfo[1]}}</h2>
@@ -224,7 +224,7 @@ const Detail = {
                 <!-- 이미지명(클래스명) -->
                 $store.state.gdata[$route.params.id-1].ginfo[0]+
                 
-                '.png'
+                '.jpg'
                 " alt="큰 이미지">
                 
                 <div class="small">
@@ -239,7 +239,7 @@ const Detail = {
                 <!-- 카테고리명(men/women/style) -->
                 $store.state.gdata[$route.params.id-1].cat+
                 
-                '/m'+v+'.png'
+                '/m'+v+'.jpg'
                 
                 " alt="작은 이미지"></a>
                 </div>

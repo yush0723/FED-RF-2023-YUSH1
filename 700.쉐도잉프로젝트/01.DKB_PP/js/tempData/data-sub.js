@@ -61,7 +61,7 @@ const subData = {
                             './images/goods/'+
                             $store.state.cat +
                             '/m'+ v +
-                            '.png'
+                            '.jpg'
                             " alt="신상품" />
                         </a>
                     </li>
@@ -152,7 +152,7 @@ const subData = {
                             $store.state.cat+
                             '/'+
                             $store.state.cls+
-                            '.png'
+                            '.jpg'
                         " alt="큰 이미지">
                      <!-- 썸네일 이미지 구역 -->
                      <div class="small">
@@ -163,7 +163,7 @@ const subData = {
                                 'images/goods/'+
                                 $store.state.cat+
                                 '/m'+ v +
-                                '.png'
+                                '.jpg'
                             " alt="썸네일 이미지">
                         </a>
                      </div>   

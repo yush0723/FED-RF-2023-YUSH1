@@ -301,7 +301,7 @@ const store = new Vuex.Store({
                         <!-- 번호 : 리스트순서번호 -->
                         <td>${i+1}</td>
                         <!--상품이미지-->
-                        <td> <img src="${'images/goods/'+v.cat+'/'+v.ginfo[0]+'.png'}" style="width:50px" alt="item"> </td>
+                        <td> <img src="${'images/goods/'+v.cat+'/'+v.ginfo[0]+'.jpg'}" style="width:50px" alt="item"> </td>
                         <!--상품명-->
                         <td>${v.ginfo[1]}</td>
                         <!--단가-->
