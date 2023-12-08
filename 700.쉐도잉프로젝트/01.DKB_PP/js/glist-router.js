@@ -8,17 +8,17 @@ let Glist = {
         <section>
             <!-- 필터옵션 체크박스구역 -->
             <div id="optbx">
-                <label for="men">관광지</label>
+                <label for="men">도쿄동부</label>
                 <input type="checkbox" id="men"
                 v-model="$store.state.chkarr[0]"
                 @change="$store.commit('resCheck')">
 
-                <label for="women">음식점</label>
+                <label for="women">도쿄서부</label>
                 <input type="checkbox" id="women"
                 v-model="$store.state.chkarr[1]"
                 @change="$store.commit('resCheck')">
 
-                <label for="style">카페</label>
+                <label for="style">외곽지역</label>
                 <input type="checkbox" id="style"
                 v-model="$store.state.chkarr[2]"
                 @change="$store.commit('resCheck')">
@@ -269,33 +269,15 @@ const Detail = {
                             
                             <li id="gtit"> {{$store.state.gdata[$route.params.id-1].ginfo[1]}} </li>
                             <li>
-                                <span>최저가</span>
-                                <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[3]}} </span>
+                                <span>1인 기준</span>
+                                <span id="gcode"> {{$store.state.gdata[$route.params.id-1].ginfo[3]}} </span>
                             </li>
-                            <li>
-                                <span>지역</span>
-                                <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[3]}} </span>
-                            </li>
-                            <li>
-                                <span>분류</span>
-                                <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[3]}} </span>
-                            </li>
-                            <li>
-                                <span>평점</span>
-                                <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[4]}} </span>
-                            </li>
-
                             <li>
                                 <span>방문수</span>
-                                <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[5]}} </span>
-                            </li>
-                            
-                            <li>
-                                <span>비고</span>
-                                <span id="gprice"> {{$store.state.gdata[$route.params.id-1].ginfo[5]}} </span>
+                                <span id="gcode"> {{$store.state.gdata[$route.params.id-1].ginfo[2]}} </span>
                             </li>
                             <li>
-                                <span>구매수량</span>
+                                <span>인수</span>
                                 <span>
                                     <input type="text" id="sum" value="1">
                                     <!--
