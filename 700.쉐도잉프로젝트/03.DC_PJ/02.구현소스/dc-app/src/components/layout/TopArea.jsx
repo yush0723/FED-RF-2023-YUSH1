@@ -13,7 +13,7 @@ import $ from 'jquery';
 // 폰트어썸 불러오기
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { memo, useContext } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 
 /******************************************************* 
   [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
@@ -37,7 +37,8 @@ import { memo, useContext } from "react";
 // -> 전달되는 함수가 반드시 useCallback() 처리가 되어야 한다!!!
 
 // export function TopArea() {
-export const TopArea = memo(({chgPageFn}) => {
+export const TopArea = memo(
+  ({chgPageFn, logSts, logMsg, logOut}) => {
   // 보통 props 등 전달변수만 쓰면 하위 속성명으로
   // 값을 전달하지만 중괄호{}를 사용하면 속성명을
   // 직접사용할 수 있다!
@@ -47,6 +48,7 @@ export const TopArea = memo(({chgPageFn}) => {
 
   // 컨텍스트 API사용
   // const myCon = useContext(dcCon);
+
 
   // 검색 관련 함수들 ////////////
   // 1. 검색창 보이기함수
@@ -64,6 +66,8 @@ export const TopArea = memo(({chgPageFn}) => {
     // console.log(e.target);
     // 엔터키는 'Enter'문자열을 리턴함!
     if(e.key === 'Enter'){ 
+      // 모바일에서 열린 메뉴창 닫기
+      $(".top-area").removeClass('on');
       // 입력창의 입력값 읽어오기 : val() 사용!
       let txt = $(e.target).val().trim();
       console.log(txt);
@@ -84,12 +88,30 @@ export const TopArea = memo(({chgPageFn}) => {
     chgPageFn('/schpage',{state:{keyword:txt}})
   }; //////////// goSearch 함수 /////////////
 
+  // 햄버거용 함수 : 전체메뉴 보이기
+  const showMenu = () => $(".top-area").toggleClass('on');
+
+  // 랜더링후 실행구역 ///////////////
+  useEffect(()=>{
+
+    // GNB a요소 클릭시 전체메뉴 닫기
+    // 대상: .gnb a[href!='#'] 
+    // -> href가 '#'이 아닌 gnb 하위 모든 a요소
+    // -> != 은 제이쿼리전용!
+    $(".gnb a[href!='#']").on('click',()=>{
+      $(".top-area").removeClass('on');
+    }); /////////// click //////////
+
+  }); ///////// useEffect /////////
+
 
   // 리턴코드 ///////////////////////////
   return (
     <>
       {/* 1.상단영역 */}
       <header className="top-area">
+        {/* 로그인 환영메시지 박스 */}
+        <div className="logmsg">{logMsg}</div>
         {/* 네비게이션 GNB파트 */}
         <nav className="gnb">
           <ul>
@@ -126,7 +148,9 @@ export const TopArea = memo(({chgPageFn}) => {
               </li>
             ))}
             {/* 3. 검색,회원가입,로그인 링크 */}
-            <li style={{ marginLeft: "auto" }}>
+            <li style={{ 
+              marginLeft: "auto", 
+              marginRight:"25px" }}>
               {/* 검색입력박스 */}
               <div className="searchingGnb">
                 {/* 검색버튼 돋보기 아이콘 */}
@@ -149,17 +173,32 @@ export const TopArea = memo(({chgPageFn}) => {
                 <FontAwesomeIcon icon={faSearch} />
               </a>
             </li>
-            {/* 회원가입, 로그인은 로그인 아닌 상태일때 나옴 */}
-            <li>
-              <Link to="/member">JOIN US</Link>
-            </li>
-            <li>
-              <Link to="/login">LOGIN</Link>
-            </li>
+            {
+              /* 회원가입, 로그인은 
+              로그인 아닌 상태일때 나옴 */
+              logSts === null &&
+              <>
+                <li>
+                  <Link to="/member">JOIN US</Link>
+                </li>
+                <li>
+                  <Link to="/login">LOGIN</Link>
+                </li>
+              </>
+            }
+            {
+              /* 로그인상태일때 로그아웃버튼만 보임 */
+              logSts !== null &&
+              <>
+                <li>
+                  <a href="#" onClick={logOut}>LOGOUT</a>
+                </li>
+              </>
+            }
           </ul>
-          {/* 모바일용 햄버거 버튼 */}
-          <button className="hambtn"></button>
         </nav>
+          {/* 모바일용 햄버거 버튼 */}
+          <button className="hambtn" onClick={showMenu}></button>
       </header>
     </>
   );
