@@ -5,35 +5,35 @@ const bannerData = [
         name: 'Barcelona',
         lat: 41.3879169,
         lon: 2.1699187,
-        img: 'https://via.placeholder.com/200x300?text=Barcelona'
+        img: './images/barc.JPG'
     },
     {
         id: 2,
         name: 'Madrid',
         lat: 40.4167413,
         lon: -3.7032498,
-        img: 'https://via.placeholder.com/200x300?text=Madrid'
+        img: './images/madr.JPG'
     },
     {
         id: 3,
         name: 'New York',
         lat: 40.712776,
         lon: -74.005974,
-        img: 'https://via.placeholder.com/200x300?text=New+York'
+        img: './images/newy.JPG'
     },
     {
         id: 4,
         name: 'Los Angeles',
         lat: 34.052235,
         lon: -118.243683,
-        img: 'https://via.placeholder.com/200x300?text=Los+Angeles'
+        img: './images/losa.JPG'
     },
     {
         id: 5,
         name: 'Sydney',
         lat: -33.868820,
         lon: 151.209290,
-        img: 'https://via.placeholder.com/200x300?text=Sydney'
+        img: './images/sydn.JPG'
     },
     {
         id: 6,
@@ -102,4 +102,4 @@ function openDistanceWindow(baseItem) {
 }
 
 // 페이지 로드 시 배너 데이터 표시
-window.onload = displayBannerData;
+9window.onload = displayBannerData;
