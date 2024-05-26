@@ -40,7 +40,7 @@ const bannerData = [
         name: 'Melbourne',
         lat: -37.813629,
         lon: 144.963058,
-        img: 'https://via.placeholder.com/200x300?text=Melbourne'
+        img: './images/melb.JPG'
     }
     // 필요한 만큼 데이터 추가 가능
 ];
