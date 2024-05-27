@@ -1,4 +1,4 @@
-// 임시 배너 데이터 (마치 데이터베이스처럼)
+// dist.js
 const bannerData = [
     {
         id: 1,
@@ -62,43 +62,52 @@ function calcularDistancia(lat1, lon1, lat2, lon2) {
     return d.toFixed(3); // 소수점 3자리까지 반환
 }
 
-function displayBannerData() {
-    const bannerContainer = document.getElementById('bannerContainer');
-
-    bannerData.forEach(item => {
-        const bannerItem = document.createElement('div');
-        bannerItem.className = 'banner-item';
-
-        const img = document.createElement('img');
-        img.src = item.img;
-        img.alt = item.name;
-        img.onclick = () => openDistanceWindow(item);
-
-        const name = document.createElement('div');
-        name.className = 'name';
-        name.textContent = item.name;
-
-        bannerItem.appendChild(img);
-        bannerItem.appendChild(name);
-        bannerContainer.appendChild(bannerItem);
-    });
+function openDistPage(item) {
+    const urlParams = new URLSearchParams();
+    urlParams.append('id', item.id);
+    urlParams.append('name', item.name);
+    urlParams.append('lat', item.lat);
+    urlParams.append('lon', item.lon);
+    const url = `dist.html?${urlParams.toString()}`;
+    window.open(url, 'Distance Information', 'width=500,height=500');
 }
 
-function openDistanceWindow(baseItem) {
-    const distances = bannerData.filter(item => item.id !== baseItem.id).map(item => {
-        const distance = calcularDistancia(baseItem.lat, baseItem.lon, item.lat, item.lon);
+function displayDistanceInfo() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const baseId = parseInt(urlParams.get('id'));
+    const baseLat = parseFloat(urlParams.get('lat'));
+    const baseLon = parseFloat(urlParams.get('lon'));
+
+    const distances = bannerData.filter(item => item.id !== baseId).map(item => {
+        const distance = calcularDistancia(baseLat, baseLon, item.lat, item.lon);
         return {
-            name: item.name,
+            ...item,
             distance: parseFloat(distance)
         };
     });
 
     distances.sort((a, b) => a.distance - b.distance);
 
-    const distanceList = distances.map(item => `${baseItem.name}와 ${item.name} 간의 거리: ${item.distance} km`).join('\n');
+    const imageContainer = document.getElementById('imageContainer');
+    imageContainer.innerHTML = ''; // Clear previous images
 
-    alert(distanceList);
+    distances.forEach(item => {
+        const imageItem = document.createElement('div');
+        imageItem.className = 'image-item';
+
+        const img = document.createElement('img');
+        img.src = item.img;
+        img.alt = item.name;
+        img.onclick = () => openDistPage(item); // 클릭 시 dist.html로 이동하는 기능 추가
+
+        const distance = document.createElement('div');
+        distance.className = 'distance';
+        distance.textContent = `${item.distance} km`;
+
+        imageItem.appendChild(img);
+        imageItem.appendChild(distance);
+        imageContainer.appendChild(imageItem);
+    });
 }
 
-// 페이지 로드 시 배너 데이터 표시
-window.onload = displayBannerData;
+window.onload = displayDistanceInfo;
