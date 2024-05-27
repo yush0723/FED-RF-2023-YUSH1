@@ -1,4 +1,3 @@
-// dist.js
 const bannerData = [
     {
         id: 1,
@@ -75,8 +74,17 @@ function openDistPage(item) {
 function displayDistanceInfo() {
     const urlParams = new URLSearchParams(window.location.search);
     const baseId = parseInt(urlParams.get('id'));
+    const baseName = urlParams.get('name');
+    const baseImg = urlParams.get('img'); // img 파라미터 추가
     const baseLat = parseFloat(urlParams.get('lat'));
     const baseLon = parseFloat(urlParams.get('lon'));
+
+    // 추가된 이미지 정보를 추가정보 섹션에 표시
+    const additionalInfo = document.getElementById('additionalInfo');
+    additionalInfo.innerHTML = `
+        <h2>Selected Image: ${baseName}</h2>
+        <img src="${baseImg}" alt="${baseName}" style="width: 100%; height: auto;">
+    `;
 
     const distances = bannerData.filter(item => item.id !== baseId).map(item => {
         const distance = calcularDistancia(baseLat, baseLon, item.lat, item.lon);
@@ -98,7 +106,7 @@ function displayDistanceInfo() {
         const img = document.createElement('img');
         img.src = item.img;
         img.alt = item.name;
-        img.onclick = () => openDistPage(item); // 클릭 시 dist.html로 이동하는 기능 추가
+        img.onclick = () => openDistPage(item); 
 
         const distance = document.createElement('div');
         distance.className = 'distance';
