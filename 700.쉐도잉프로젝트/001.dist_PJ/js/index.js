@@ -1,28 +1,41 @@
-// index.js
 import bannerData from './bannerData.js';
 
 window.onload = () => {
     displayBannerData();
     displaySelectedItems();
 
-    // Add event listeners to each selected-item for removal
     document.addEventListener('click', event => {
         if (event.target.classList.contains('selected-item')) {
             const itemId = parseInt(event.target.dataset.itemId);
             const selectedItem = bannerData.find(data => data.id === itemId);
             removeFromLocalStorage(selectedItem);
-            displaySelectedItems(); // Update displayed selected items
-        }
-    });
-
-    // Add event listeners to each banner-item for addition
-    document.addEventListener('click', event => {
-        if (event.target.classList.contains('banner-item')) {
+            displaySelectedItems();
+        } else if (event.target.classList.contains('banner-item')) {
             const itemId = parseInt(event.target.dataset.itemId);
             const selectedItem = bannerData.find(data => data.id === itemId);
             addToLocalStorage(selectedItem);
-            displaySelectedItems(); // Update displayed selected items
+            displaySelectedItems();
         }
+    });
+
+    const leftContent = document.querySelector('.left-content');
+    const rightContent = document.querySelector('.right-content');
+
+    leftContent.addEventListener('dragstart', event => {
+        const itemId = event.target.dataset.itemId;
+        event.dataTransfer.setData('text/plain', itemId);
+    });
+
+    rightContent.addEventListener('dragover', event => {
+        event.preventDefault();
+    });
+
+    rightContent.addEventListener('drop', event => {
+        event.preventDefault();
+        const itemId = event.dataTransfer.getData('text/plain');
+        const selectedItem = bannerData.find(data => data.id === parseInt(itemId));
+        addToLocalStorage(selectedItem);
+        displaySelectedItems();
     });
 };
 
@@ -54,40 +67,13 @@ function displayBannerData() {
 
 function displaySelectedItems() {
     const rightContent = document.querySelector('.right-content');
-    rightContent.innerHTML = ''; // Clear previous content
-
-    // Add div at the top of rightContent
-    const topDiv = document.createElement('div');
-    topDiv.className = 'top-div';
-
-    // Add '+' button
-    const addButton = document.createElement('img');
-    addButton.src = 'plus.png';
-    addButton.alt = '+';
-    addButton.className = 'add-button';
-    addButton.addEventListener('click', () => {
-        // Add your logic here
-    });
-
-    // Add '-' button
-    const removeButton = document.createElement('img');
-    removeButton.src = 'minus.png';
-    removeButton.alt = '-';
-    removeButton.className = 'remove-button';
-    removeButton.addEventListener('click', () => {
-        // Add your logic here
-    });
-
-    topDiv.appendChild(addButton);
-    topDiv.appendChild(removeButton);
-
-    rightContent.appendChild(topDiv);
+    rightContent.innerHTML = '';
 
     const selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || [];
     selectedItems.forEach(item => {
         const itemDiv = document.createElement('div');
         itemDiv.className = 'selected-item';
-        itemDiv.dataset.itemId = item.id; // Add dataset for identification
+        itemDiv.dataset.itemId = item.id;
 
         const img = document.createElement('img');
         img.src = item.img;
@@ -99,11 +85,10 @@ function displaySelectedItems() {
 
         itemDiv.appendChild(img);
         itemDiv.appendChild(name);
-        
-        // Add event listener to each selected item for removal
+
         itemDiv.addEventListener('click', () => {
             removeFromLocalStorage(item);
-            displaySelectedItems(); // Update displayed selected items
+            displaySelectedItems();
         });
 
         rightContent.appendChild(itemDiv);
