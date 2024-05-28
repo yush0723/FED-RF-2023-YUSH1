@@ -56,6 +56,33 @@ function displaySelectedItems() {
     const rightContent = document.querySelector('.right-content');
     rightContent.innerHTML = ''; // Clear previous content
 
+    // Add div at the top of rightContent
+    const topDiv = document.createElement('div');
+    topDiv.className = 'top-div';
+
+    // Add '+' button
+    const addButton = document.createElement('img');
+    addButton.src = 'plus.png';
+    addButton.alt = '+';
+    addButton.className = 'add-button';
+    addButton.addEventListener('click', () => {
+        // Add your logic here
+    });
+
+    // Add '-' button
+    const removeButton = document.createElement('img');
+    removeButton.src = 'minus.png';
+    removeButton.alt = '-';
+    removeButton.className = 'remove-button';
+    removeButton.addEventListener('click', () => {
+        // Add your logic here
+    });
+
+    topDiv.appendChild(addButton);
+    topDiv.appendChild(removeButton);
+
+    rightContent.appendChild(topDiv);
+
     const selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || [];
     selectedItems.forEach(item => {
         const itemDiv = document.createElement('div');
