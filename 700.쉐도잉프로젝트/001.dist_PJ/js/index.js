@@ -1,3 +1,4 @@
+// index.js
 import bannerData from './bannerData.js';
 
 function displayBannerData() {
@@ -29,9 +30,8 @@ function displayBannerData() {
 
 function displaySelectedItems() {
     const rightContent = document.querySelector('.right-content');
-    rightContent.innerHTML = ''; // Clear previous content
-
     const selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || [];
+
     selectedItems.forEach(item => {
         const itemDiv = document.createElement('div');
         itemDiv.className = 'selected-item';
@@ -48,6 +48,12 @@ function displaySelectedItems() {
         itemDiv.appendChild(name);
         rightContent.appendChild(itemDiv);
     });
+}
+
+function addToRightContent(item) {
+    let selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || [];
+    selectedItems.push(item);
+    localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
 }
 
 window.onload = displayBannerData;
