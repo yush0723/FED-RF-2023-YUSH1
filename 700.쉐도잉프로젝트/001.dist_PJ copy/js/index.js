@@ -23,6 +23,31 @@ function displayBannerData() {
         bannerItem.appendChild(name);
         bannerContainer.appendChild(bannerItem);
     });
+
+    displaySelectedItems();
+}
+
+function displaySelectedItems() {
+    const rightContent = document.querySelector('.right-content');
+    rightContent.innerHTML = ''; // Clear previous content
+
+    const selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || [];
+    selectedItems.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'selected-item';
+
+        const img = document.createElement('img');
+        img.src = item.img;
+        img.alt = item.name;
+
+        const name = document.createElement('div');
+        name.className = 'name';
+        name.textContent = item.name;
+
+        itemDiv.appendChild(img);
+        itemDiv.appendChild(name);
+        rightContent.appendChild(itemDiv);
+    });
 }
 
 window.onload = displayBannerData;
