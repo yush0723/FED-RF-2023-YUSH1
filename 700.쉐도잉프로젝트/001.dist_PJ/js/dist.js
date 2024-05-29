@@ -1,6 +1,6 @@
-// dist.js
 import bannerData from './bannerData.js';
 import calc from './calc.js';
+import { addToLocalStorage } from './localStorageUtils.js';
 
 function displayDistanceInfo() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -20,49 +20,44 @@ function displayDistanceInfo() {
     const distances = calc.sortDistances(baseLat, baseLon, bannerData);
 
     const imageContainer = document.getElementById('imageContainer');
-    imageContainer.innerHTML = ''; // Clear previous images
-
+    imageContainer.innerHTML = '';
     distances.forEach(item => {
         if (item.id !== baseId) {
-            const imageItem = document.createElement('div');
-            imageItem.className = 'image-item';
-
-            const img = document.createElement('img');
-            img.src = item.img;
-            img.alt = item.name;
-
-            const link = document.createElement('a');
-            link.href = `dist.html?id=${item.id}&name=${item.name}&lat=${item.lat}&lon=${item.lon}`;
-            link.appendChild(img);
-
-            const distance = document.createElement('div');
-            distance.className = 'distance';
-            distance.textContent = `${item.distance} km`;
-
-            imageItem.appendChild(link);
-            imageItem.appendChild(distance);
+            const imageItem = createImageItem(item);
             imageContainer.appendChild(imageItem);
         }
     });
 
-    // Add button functionality
     document.getElementById('addButton').addEventListener('click', () => {
-        addToRightContent(baseInfo);
-        window.location.href = 'index.html'; // Redirect to index.html after adding
+        addToLocalStorage(baseInfo);
+        window.location.href = 'index.html';
     });
 
-    // Close button functionality
     document.getElementById('closeButton').addEventListener('click', () => {
-        window.location.href = 'index.html'; // Redirect to index.html
+        window.location.href = 'index.html';
     });
 }
 
-function addToRightContent(item) {
-    let selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || [];
-    if (!selectedItems.some(i => i.id === item.id)) {
-        selectedItems.push(item);
-        localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
-    }
+function createImageItem(item) {
+    const imageItem = document.createElement('div');
+    imageItem.className = 'image-item';
+
+    const img = document.createElement('img');
+    img.src = item.img;
+    img.alt = item.name;
+
+    const link = document.createElement('a');
+    link.href = `dist.html?id=${item.id}&name=${item.name}&lat=${item.lat}&lon=${item.lon}`;
+    link.appendChild(img);
+
+    const distance = document.createElement('div');
+    distance.className = 'distance';
+    distance.textContent = `${item.distance} km`;
+
+    imageItem.appendChild(link);
+    imageItem.appendChild(distance);
+
+    return imageItem;
 }
 
 window.onload = displayDistanceInfo;
