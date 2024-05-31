@@ -109,3 +109,19 @@ button:hover {
 .selected-item:hover {
     border: 2px solid orange;
 }
+
+.selected-item.highlight {
+    border: 2px solid yellow;
+}
+
+.buttons-wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.control-button {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}

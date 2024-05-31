@@ -1,3 +1,4 @@
+// bannerData.js
 const bannerData = [
     {
         id: 1,
